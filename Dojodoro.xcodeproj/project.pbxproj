@@ -111,13 +111,53 @@
 		34D6A2602D526A33008EB2B9 /* Dojodoro */ = {
 			isa = PBXGroup;
 			children = (
-				34D6A25B2D526A33008EB2B9 /* Preview Content */,
-				34D6A25C2D526A33008EB2B9 /* Assets.xcassets */,
-				34D6A25D2D526A33008EB2B9 /* ContentView.swift */,
+				34D6A2732D528E63008EB2B9 /* Assets */,
+				34D6A2712D52897D008EB2B9 /* Models */,
+				34D6A2702D52896F008EB2B9 /* Views */,
+				34D6A2722D528984008EB2B9 /* ViewModels */,
 				34D6A25E2D526A33008EB2B9 /* DojodoroApp.swift */,
-				34D6A25F2D526A33008EB2B9 /* Item.swift */,
 			);
 			path = Dojodoro;
+			sourceTree = "<group>";
+		};
+		34D6A2702D52896F008EB2B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34D6A25D2D526A33008EB2B9 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		34D6A2712D52897D008EB2B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				34D6A25F2D526A33008EB2B9 /* Item.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		34D6A2722D528984008EB2B9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				34D6A2742D528F20008EB2B9 /* PomodoroSingleton */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		34D6A2732D528E63008EB2B9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				34D6A25C2D526A33008EB2B9 /* Assets.xcassets */,
+				34D6A25B2D526A33008EB2B9 /* Preview Content */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		34D6A2742D528F20008EB2B9 /* PomodoroSingleton */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PomodoroSingleton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,7 +465,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Dojodoro/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Dojodoro/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = MT4A7M75NC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -454,7 +494,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Dojodoro/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Dojodoro/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = MT4A7M75NC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
