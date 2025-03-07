@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		348BB94D2D7B907200B9449C /* ShoppingItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */; };
 		34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25D2D526A33008EB2B9 /* ContentView.swift */; };
 		34D6A2622D526A33008EB2B9 /* DojodoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25E2D526A33008EB2B9 /* DojodoroApp.swift */; };
 		34D6A2632D526A33008EB2B9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25F2D526A33008EB2B9 /* Item.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItemCard.swift; sourceTree = "<group>"; };
 		34D6A22B2D526A29008EB2B9 /* Dojodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dojodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D6A23D2D526A2B008EB2B9 /* DojodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DojodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D6A2472D526A2B008EB2B9 /* DojodoroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DojodoroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		348BB94B2D7B902200B9449C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		34D6A2222D526A29008EB2B9 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +155,7 @@
 		34D6A2702D52896F008EB2B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				348BB94B2D7B902200B9449C /* Components */,
 				4CDC0F582D6D01E70012FB93 /* BonsaiView.swift */,
 				4CDC0F562D6D01B60012FB93 /* ShopView.swift */,
 				4CDC0F542D6D01870012FB93 /* GardenView.swift */,
@@ -360,6 +371,7 @@
 				34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */,
 				34D6A2C32D5651EE008EB2B9 /* PomodoroSingleton.swift in Sources */,
 				34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */,
+				348BB94D2D7B907200B9449C /* ShoppingItemCard.swift in Sources */,
 				34D6A2622D526A33008EB2B9 /* DojodoroApp.swift in Sources */,
 				4CDC0F552D6D018A0012FB93 /* GardenView.swift in Sources */,
 				4CDC0F512D6CDDC00012FB93 /* NavigationViewModel.swift in Sources */,
