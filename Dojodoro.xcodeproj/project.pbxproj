@@ -25,6 +25,7 @@
 		4CDC0F552D6D018A0012FB93 /* GardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F542D6D01870012FB93 /* GardenView.swift */; };
 		4CDC0F572D6D01BB0012FB93 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F562D6D01B60012FB93 /* ShopView.swift */; };
 		4CDC0F592D6D01EC0012FB93 /* BonsaiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F582D6D01E70012FB93 /* BonsaiView.swift */; };
+		65E51EF72D8E1571008ABEB0 /* ShapeButtonMojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E51EF62D8E1571008ABEB0 /* ShapeButtonMojo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		4CDC0F542D6D01870012FB93 /* GardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenView.swift; sourceTree = "<group>"; };
 		4CDC0F562D6D01B60012FB93 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		4CDC0F582D6D01E70012FB93 /* BonsaiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonsaiView.swift; sourceTree = "<group>"; };
+		65E51EF62D8E1571008ABEB0 /* ShapeButtonMojo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeButtonMojo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -219,6 +221,7 @@
 			children = (
 				4C6E7EF12D89F44800EB9FA4 /* MojoButtonStyle.swift */,
 				4C6E7EEF2D89EC0500EB9FA4 /* MojoButton.swift */,
+				65E51EF62D8E1571008ABEB0 /* ShapeButtonMojo.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E51EF72D8E1571008ABEB0 /* ShapeButtonMojo.swift in Sources */,
 				34D6A2CD2D565241008EB2B9 /* Pomodoro.swift in Sources */,
 				4CDC0F532D6CFDBD0012FB93 /* TabBarView.swift in Sources */,
 				4C6E7EF22D89F44D00EB9FA4 /* MojoButtonStyle.swift in Sources */,
@@ -542,7 +546,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dojodoro/Assets/Preview Content\"";
-				DEVELOPMENT_TEAM = MT4A7M75NC;
+				DEVELOPMENT_TEAM = 55WBX8T52B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -550,6 +554,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -571,7 +576,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dojodoro/Assets/Preview Content\"";
-				DEVELOPMENT_TEAM = MT4A7M75NC;
+				DEVELOPMENT_TEAM = 55WBX8T52B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -579,6 +584,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
