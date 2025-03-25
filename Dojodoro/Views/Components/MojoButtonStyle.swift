@@ -9,52 +9,42 @@ import SwiftUI
 
 struct MojoButtonStyle: ButtonStyle {
     let text: String
-    
-    init(_ text: String) {
+    let isSelected: Bool  // Agora aceita estado selecionado
+
+    init(_ text: String, isSelected: Bool = false) {
         self.text = text
+        self.isSelected = isSelected
     }
-    
+
     func makeBody(configuration: Configuration) -> some View {
-//        let screeNWidth = UIScreen.main.bounds.width
-//        let buttonWidth = screeNWidth - 30
-        
-        ViewThatFits {
+        ZStack {
             MojoBotaoShape()
-                .foregroundStyle(.backgroundButtonSelected)
-    //            .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
-//                .frame(width: 295, height: 48)
+                .foregroundStyle(Color.gray.opacity(0.7))
+                .frame(minWidth: 100, idealWidth: 200, maxWidth: .infinity, maxHeight: 48)
+                .padding(15)
+                .offset(x: -1, y: 4)
+            
+            MojoBotaoShape()
+                .foregroundStyle(isSelected ? .backgroundButtonSelected : .backgroundBox) // Cor de fundo
                 .overlay(
                     MojoBotaoShape()
-                        .stroke(style: StrokeStyle(lineWidth: 5))
-                        .foregroundStyle(.borderButtonSelected)
+                        .stroke(style: StrokeStyle(lineWidth: 2))
+                        .foregroundStyle(isSelected ? .borderButtonSelected : .backgroundBox) // Cor da borda
                 )
-//            ZStack {
-//                Rectangle()
-//                    .frame(height: 48)
-//                    .foregroundStyle(.backgroundBox.opacity(0.4))
-//                    .offset(y: configuration.isPressed ? 1 : 4)
-//                    .padding(.horizontal, 5)
-//                Rectangle()
-//                    .frame(height: 40)
-//                    .foregroundStyle(.backgroundBox.opacity(0.4))
-//                    .offset(y: configuration.isPressed ? 1 : 4)
-//                //                    .padding(.horizontal, 5)
-//                Rectangle()
-//                    .frame(width: .infinity, height: 48)
-//                    .foregroundStyle(.borderButtonSelected)
-//                    .padding(.horizontal, 5)
-//                Rectangle()
-//                    .frame(height: 40)
-//                    .foregroundStyle(.yellow)
-//                Text(text)
-//                    .font(.system(size: 18, weight: .bold))
-//                    .foregroundStyle(.white)
-//                    .opacity(configuration.isPressed ? 0.8 : 1)
-//            }
-//            .compositingGroup()
                 .frame(minWidth: 100, idealWidth: 200, maxWidth: .infinity, maxHeight: 48)
-            .padding(15)
+                .padding(15)
+            
+
+            if isSelected {
+                Text("選択する")
+                    .font(.system(size: 24, weight: .light))
+                    .foregroundStyle(Color.borderButtonSelected.opacity(0.6))
+            }
+
+            Text(text)
+                .font(.system(size: 18, weight: .light))
+                .foregroundStyle(.white)
+                .opacity(configuration.isPressed ? 0.8 : 1)
         }
     }
 }
-
