@@ -7,60 +7,81 @@
 
 import SwiftUI
 
-
 struct ShoppingItemCard: View {
-    enum ShoppingItemImage {
-        case cherry, lakeWithShadow, darkSakuraShadow, rockComponentWithMusgo, twoRocksWithShadow
-    }
     
-    let image: ShoppingItemImage
-    @State var isSelected: Bool = false
+    let itemImage: ShoppingItems
+    let tapAction: (() -> Void)? = nil
     
-
     var body: some View {
-        VStack {
-            ZStack {
-                cardBackground()
-                plantImage()
+        ZStack {
+            Image(.emptyCard)
+                .resizable()
+            displayItemImage()
+                .frame(minWidth: 40, maxWidth: 75)
+                .padding(.vertical, 64)
+            
+            VStack {
+                itemNameLabel()
+                    .padding(8)
+                Spacer()
+                itemPriceView()
+                    .padding(.bottom, 20)
             }
-            .onTapGesture {
-                withAnimation {
-                    isSelected.toggle()
-                }
-            }
+        }
+        .onTapGesture(perform: tapAction ?? {})
+    }
+    
+    private func itemNameLabel() -> some View {
+        Text(itemImage.rawValue)
+            .font(.system(size: 22, weight: .light))
+    }
+    
+    private func itemPriceView() -> some View {
+        HStack(spacing: 4) {
+            Image(.buyIcon)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 22)
+            Text("200")
+                .font(.system(size: 22, weight: .light))
         }
     }
     
-    private func plantImage() -> some View {
-        switch image {
-        case .cherry:
-            return Image(.cherryShadow)
-        case .lakeWithShadow:
-            return Image(.lakeWithShadow)
-        case .darkSakuraShadow:
-            return Image(.darkSakuraShadow)
-        case .rockComponentWithMusgo:
-            return Image(.rockComponentWithMusgo)
-        case .twoRocksWithShadow:
-            return Image(.twoRocksWithShadow)
-        }
-    }
     
-    private func cardBackground() -> some View {
-        isSelected ? Image(.emptyCardSelected)  : Image(.emptyCard)
+    private func displayItemImage() -> some View {
+        
+        let image: Image
+        
+        switch itemImage {
+            
+        case .cherry: image = Image(.cherryShadow)
+        case .lake: image = Image(.lakeWithShadow)
+        case .sakura: image = Image(.darkSakuraShadow)
+        case .smallRock: image = Image(.rockComponentWithMusgo)
+        case .largeRock: image = Image(.twoRocksWithShadow)
+            
+        }
+        
+        return image.resizable().scaledToFit()
     }
 }
 
 #Preview {
-    VStack{
-        HStack{
-            ShoppingItemCard(image: .cherry, isSelected: false)
-            ShoppingItemCard(image: .lakeWithShadow, isSelected: false)
+    VStack {
+        HStack {
+            ShoppingItemCard(itemImage: .cherry)
+            ShoppingItemCard(itemImage: .lake)
         }
         HStack {
-            ShoppingItemCard(image: .darkSakuraShadow, isSelected: false)
-            ShoppingItemCard(image: .rockComponentWithMusgo, isSelected: false)
+            ShoppingItemCard(itemImage: .sakura)
+            ShoppingItemCard(itemImage: .smallRock)
         }
-        ShoppingItemCard(image: .twoRocksWithShadow, isSelected: false)
+        ShoppingItemCard(itemImage: .largeRock)
     }
+    .padding()
+}
+
+#Preview {
+    ShoppingItemCard(itemImage: .cherry)
+        .frame(width: 130, height: 184)
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3436F0F52D9675E400E5B244 /* ShoppingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F42D9675E400E5B244 /* ShoppingItems.swift */; };
 		348BB94D2D7B907200B9449C /* ShoppingItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */; };
 		34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25D2D526A33008EB2B9 /* ContentView.swift */; };
 		34D6A2622D526A33008EB2B9 /* DojodoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25E2D526A33008EB2B9 /* DojodoroApp.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3436F0F42D9675E400E5B244 /* ShoppingItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItems.swift; sourceTree = "<group>"; };
 		348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItemCard.swift; sourceTree = "<group>"; };
 		34D6A22B2D526A29008EB2B9 /* Dojodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dojodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D6A23D2D526A2B008EB2B9 /* DojodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DojodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +174,7 @@
 				34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */,
 				34D6A2C72D565217008EB2B9 /* TimeUnit.swift */,
 				34D6A25F2D526A33008EB2B9 /* Item.swift */,
+				3436F0F42D9675E400E5B244 /* ShoppingItems.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */,
 				34D6A2C32D5651EE008EB2B9 /* PomodoroSingleton.swift in Sources */,
 				34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */,
+				3436F0F52D9675E400E5B244 /* ShoppingItems.swift in Sources */,
 				348BB94D2D7B907200B9449C /* ShoppingItemCard.swift in Sources */,
 				34D6A2622D526A33008EB2B9 /* DojodoroApp.swift in Sources */,
 				4CDC0F552D6D018A0012FB93 /* GardenView.swift in Sources */,
