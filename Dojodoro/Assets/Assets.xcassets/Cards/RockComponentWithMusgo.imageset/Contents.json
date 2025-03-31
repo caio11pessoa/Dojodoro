@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Group 1043.png",
+      "filename" : "RockComponentWithMusgo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 1043@2x.png",
+      "filename" : "RockComponentWithMusgo@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Group 1043@3x.png",
+      "filename" : "RockComponentWithMusgo@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
