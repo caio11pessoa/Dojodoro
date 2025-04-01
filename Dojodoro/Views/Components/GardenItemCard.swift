@@ -9,11 +9,12 @@ import SwiftUI
 
 struct GardenItemCard: View {
     let itemImage: GardenItems
-    @State private var isSelected: Bool = false
-    let onTap: ((inout Bool) -> Void)?
+    @Binding var isSelected: Bool
+    let onTap: (() -> Void)?
     
-    init(itemImage: GardenItems, onTap: ((inout Bool) -> Void)? = nil){
+    init(itemImage: GardenItems, isSelected: Binding<Bool>, onTap: (() -> Void)? = nil) {
         self.itemImage = itemImage
+        self._isSelected = isSelected
         self.onTap = onTap
     }
     
@@ -22,7 +23,7 @@ struct GardenItemCard: View {
             ZStack(alignment: .bottomLeading) {
                 Image(isSelected ? .emptyCardSelected : .emptyCard)
                     .resizable()
-
+                
                 Image(.checkMark)
                     .resizable()
                     .frame(width: 30, height: 30)
@@ -30,7 +31,7 @@ struct GardenItemCard: View {
                     .opacity(isSelected ? 1 : 0)
                     .animation(.easeOut(duration: 0.3), value: isSelected)
             }
-
+            
             itemImageView()
             
             VStack{
@@ -41,10 +42,7 @@ struct GardenItemCard: View {
                 
             }
         }
-        .onTapGesture{
-            onTap?(&isSelected)
-            print("isSelected: \(isSelected)")
-        }
+        .onTapGesture(perform: onTap ?? {})
     }
     
     private func itemImageView() -> some View {
@@ -68,32 +66,29 @@ struct GardenItemCard: View {
 }
 
 #Preview {
+    @Previewable @State var isSelected: Bool = false
     VStack(spacing: 8){
         HStack (spacing: 8){
             Group {
-                GardenItemCard(itemImage: .BlueBonsai){ isSelected in
+                GardenItemCard(itemImage: .BlueBonsai, isSelected: $isSelected){
                     isSelected.toggle()
                 }
-                GardenItemCard(itemImage: .BlueBonsaiSprout)
-                GardenItemCard(itemImage: .BlueBonsai)
+                GardenItemCard(itemImage: .BlueBonsaiSprout, isSelected: .constant(false))
+                GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
             }
         }
         Group{
-            GardenItemCard(itemImage: .BlueBonsai)
-            GardenItemCard(itemImage: .BlueBonsai)
-            GardenItemCard(itemImage: .BlueBonsai)
-            GardenItemCard(itemImage: .BlueBonsai)
+            GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
+            GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
+            GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
+            GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
         }
     }
     .padding()
     
 }
 #Preview {
-    GardenItemCard(itemImage: .BlueBonsai)
-    {
-        isSelected in
-        isSelected.toggle()
-    }
+    GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
         .frame(width: 140, height: 190)
         .frame(width: 200, height: 343)
 }
