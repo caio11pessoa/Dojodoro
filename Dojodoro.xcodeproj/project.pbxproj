@@ -20,6 +20,9 @@
 		34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C72D565217008EB2B9 /* TimeUnit.swift */; };
 		34D6A2CB2D565224008EB2B9 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C92D565224008EB2B9 /* IntExtensions.swift */; };
 		34D6A2CD2D565241008EB2B9 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */; };
+		4C44C5BF2D9B67F4000CC03F /* Agdasima-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */; };
+		4C44C5C02D9B67F4000CC03F /* Agdasima-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */; };
+		4C44C5C52D9B687E000CC03F /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5C42D9B687E000CC03F /* DotGothic16-Regular.ttf */; };
 		4CDC0F4C2D6CDD190012FB93 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F4B2D6CDD150012FB93 /* Navigation.swift */; };
 		4CDC0F512D6CDDC00012FB93 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F502D6CDDB90012FB93 /* NavigationViewModel.swift */; };
 		4CDC0F532D6CFDBD0012FB93 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F522D6CFDB80012FB93 /* TabBarView.swift */; };
@@ -62,6 +65,10 @@
 		34D6A2C72D565217008EB2B9 /* TimeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
 		34D6A2C92D565224008EB2B9 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
+		4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agdasima-Bold.ttf"; sourceTree = "<group>"; };
+		4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agdasima-Regular.ttf"; sourceTree = "<group>"; };
+		4C44C5C12D9B6813000CC03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4C44C5C42D9B687E000CC03F /* DotGothic16-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DotGothic16-Regular.ttf"; sourceTree = "<group>"; };
 		4CDC0F4B2D6CDD150012FB93 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		4CDC0F502D6CDDB90012FB93 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		4CDC0F522D6CFDB80012FB93 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -148,6 +155,7 @@
 		34D6A2602D526A33008EB2B9 /* Dojodoro */ = {
 			isa = PBXGroup;
 			children = (
+				4C44C5C12D9B6813000CC03F /* Info.plist */,
 				34D6A2732D528E63008EB2B9 /* Assets */,
 				34D6A2712D52897D008EB2B9 /* Models */,
 				34D6A2702D52896F008EB2B9 /* Views */,
@@ -196,6 +204,7 @@
 		34D6A2732D528E63008EB2B9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				4C44C5BC2D9B67DF000CC03F /* Fonts */,
 				34D6A25C2D526A33008EB2B9 /* Assets.xcassets */,
 				34D6A25B2D526A33008EB2B9 /* Preview Content */,
 			);
@@ -224,6 +233,16 @@
 				34D6A2C92D565224008EB2B9 /* IntExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4C44C5BC2D9B67DF000CC03F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */,
+				4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */,
+				4C44C5C42D9B687E000CC03F /* DotGothic16-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +362,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C44C5BF2D9B67F4000CC03F /* Agdasima-Bold.ttf in Resources */,
+				4C44C5C02D9B67F4000CC03F /* Agdasima-Regular.ttf in Resources */,
+				4C44C5C52D9B687E000CC03F /* DotGothic16-Regular.ttf in Resources */,
 				34D6A2642D526A33008EB2B9 /* Preview Assets.xcassets in Resources */,
 				34D6A2652D526A33008EB2B9 /* Assets.xcassets in Resources */,
 			);
@@ -549,6 +571,7 @@
 				DEVELOPMENT_TEAM = MT4A7M75NC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Dojodoro/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -578,6 +601,7 @@
 				DEVELOPMENT_TEAM = MT4A7M75NC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Dojodoro/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

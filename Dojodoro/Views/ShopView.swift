@@ -13,6 +13,9 @@ struct ShopView: View {
     var body: some View {
             VStack {
                 Text("Shop View")
+                    .font(Font.custom("Agdasima-Bold", size: 32))
+                Text("Shop View")
+                    .font(Font.custom("DotGothic16-Regular", size: 32))
                 Button("Ir para jardim") {
                     router.navigate(to: .jardim)
                 }
