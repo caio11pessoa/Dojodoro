@@ -22,7 +22,7 @@ struct SelectPlantModal: View {
                     
                     Spacer()
                     
-                    Image(.bonsai)
+                    Image(plant.gardenItem.rawValue)
                         .resizable()
                         .scaledToFit()
                         .frame(minWidth: 140, maxWidth: 175)
@@ -30,10 +30,14 @@ struct SelectPlantModal: View {
                     
                     infoRow(title: "Estágio:", value: "\(plant.stage)")
                     infoRow(title: "Pomodoros Feitos:", value: "\(plant.pomodoroCount)")
-                    infoRow(title: "Tempo Total:", value: "\(plant.totalTime)")
+                    infoRow(title: "Tempo Total:", value: "\(plant.totalTime.hour!)hrs e \(plant.totalTime.minute!)Min")
                     
                     // Botão
-                    Spacer(minLength: 38)
+                    MojoButton(isSelected: $plant.isSelected){
+                        withAnimation {
+                            plant.isSelected.toggle()
+                        }
+                    }
                 }
                 .padding()
             }
@@ -42,7 +46,7 @@ struct SelectPlantModal: View {
     
     private var headerView: some View {
         HStack {
-            Text("Planta")
+            Text(plant.gardenItem.rawValue)
                 .font(Font.custom("DotGothic16-Regular", size: 28))
                 .minimumScaleFactor(0.5)
                 .lineLimit(1)
@@ -80,7 +84,7 @@ struct SelectPlantModal: View {
     ZStack {
         Color(red: 27/255, green: 23/255, blue: 17/255, opacity: 0.8)
             .ignoresSafeArea()
-        SelectPlantModal(isPresented: .constant(true), plant: .init(name: "Caio", stage: 2))
+        SelectPlantModal(isPresented: .constant(true), plant: .init(name: "Caio", gardenItem: .BlueBonsaiSprout, stage: .Bud, totalTime: DateComponents(hour: 0, minute: 0)))
             .padding(.vertical, 120)
             .padding(.horizontal, 30)
     }
