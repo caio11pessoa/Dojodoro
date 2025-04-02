@@ -25,6 +25,7 @@
 		4C44C5BF2D9B67F4000CC03F /* Agdasima-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */; };
 		4C44C5C02D9B67F4000CC03F /* Agdasima-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */; };
 		4C44C5C52D9B687E000CC03F /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5C42D9B687E000CC03F /* DotGothic16-Regular.ttf */; };
+		4C9D6A0D2D9DD5A700524814 /* CoinAndPriceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D6A0C2D9DD5A700524814 /* CoinAndPriceComponent.swift */; };
 		4CDC0F4C2D6CDD190012FB93 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F4B2D6CDD150012FB93 /* Navigation.swift */; };
 		4CDC0F512D6CDDC00012FB93 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F502D6CDDB90012FB93 /* NavigationViewModel.swift */; };
 		4CDC0F532D6CFDBD0012FB93 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F522D6CFDB80012FB93 /* TabBarView.swift */; };
@@ -76,6 +77,7 @@
 		4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agdasima-Regular.ttf"; sourceTree = "<group>"; };
 		4C44C5C12D9B6813000CC03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4C44C5C42D9B687E000CC03F /* DotGothic16-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DotGothic16-Regular.ttf"; sourceTree = "<group>"; };
+		4C9D6A0C2D9DD5A700524814 /* CoinAndPriceComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAndPriceComponent.swift; sourceTree = "<group>"; };
 		4CDC0F4B2D6CDD150012FB93 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		4CDC0F502D6CDDB90012FB93 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		4CDC0F522D6CFDB80012FB93 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */,
 				3436F0F62D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift */,
 				347FBB972D9B455E0041B024 /* GardenItemCard.swift */,
+				4C9D6A0C2D9DD5A700524814 /* CoinAndPriceComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */,
 				34D6A2C32D5651EE008EB2B9 /* PomodoroSingleton.swift in Sources */,
 				34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */,
+				4C9D6A0D2D9DD5A700524814 /* CoinAndPriceComponent.swift in Sources */,
 				4CF6AD092D9CAAE400DAA52A /* MojoButtonStyle.swift in Sources */,
 				3436F0F52D9675E400E5B244 /* ShoppingItems.swift in Sources */,
 				348BB94D2D7B907200B9449C /* ShoppingItemCard.swift in Sources */,
