@@ -31,6 +31,9 @@
 		4CDC0F552D6D018A0012FB93 /* GardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F542D6D01870012FB93 /* GardenView.swift */; };
 		4CDC0F572D6D01BB0012FB93 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F562D6D01B60012FB93 /* ShopView.swift */; };
 		4CDC0F592D6D01EC0012FB93 /* BonsaiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDC0F582D6D01E70012FB93 /* BonsaiView.swift */; };
+		4CF6AD092D9CAAE400DAA52A /* MojoButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF6AD082D9CAAE400DAA52A /* MojoButtonStyle.swift */; };
+		4CF6AD0C2D9CAAEC00DAA52A /* ShapeButtonMojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF6AD0B2D9CAAEC00DAA52A /* ShapeButtonMojo.swift */; };
+		4CF6AD0D2D9CAAEC00DAA52A /* MojoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF6AD0A2D9CAAEC00DAA52A /* MojoButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		4CDC0F542D6D01870012FB93 /* GardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenView.swift; sourceTree = "<group>"; };
 		4CDC0F562D6D01B60012FB93 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		4CDC0F582D6D01E70012FB93 /* BonsaiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonsaiView.swift; sourceTree = "<group>"; };
+		4CF6AD082D9CAAE400DAA52A /* MojoButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojoButtonStyle.swift; sourceTree = "<group>"; };
+		4CF6AD0A2D9CAAEC00DAA52A /* MojoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojoButton.swift; sourceTree = "<group>"; };
+		4CF6AD0B2D9CAAEC00DAA52A /* ShapeButtonMojo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeButtonMojo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -122,6 +128,9 @@
 		348BB94B2D7B902200B9449C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4CF6AD0A2D9CAAEC00DAA52A /* MojoButton.swift */,
+				4CF6AD0B2D9CAAEC00DAA52A /* ShapeButtonMojo.swift */,
+				4CF6AD082D9CAAE400DAA52A /* MojoButtonStyle.swift */,
 				348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */,
 				3436F0F62D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift */,
 				347FBB972D9B455E0041B024 /* GardenItemCard.swift */,
@@ -400,6 +409,8 @@
 				34D6A2CD2D565241008EB2B9 /* Pomodoro.swift in Sources */,
 				4CDC0F532D6CFDBD0012FB93 /* TabBarView.swift in Sources */,
 				4CDC0F592D6D01EC0012FB93 /* BonsaiView.swift in Sources */,
+				4CF6AD0C2D9CAAEC00DAA52A /* ShapeButtonMojo.swift in Sources */,
+				4CF6AD0D2D9CAAEC00DAA52A /* MojoButton.swift in Sources */,
 				347FBB982D9B455E0041B024 /* GardenItemCard.swift in Sources */,
 				4CDC0F572D6D01BB0012FB93 /* ShopView.swift in Sources */,
 				347FBB9A2D9B45F20041B024 /* GardenItems.swift in Sources */,
@@ -407,6 +418,7 @@
 				34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */,
 				34D6A2C32D5651EE008EB2B9 /* PomodoroSingleton.swift in Sources */,
 				34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */,
+				4CF6AD092D9CAAE400DAA52A /* MojoButtonStyle.swift in Sources */,
 				3436F0F52D9675E400E5B244 /* ShoppingItems.swift in Sources */,
 				348BB94D2D7B907200B9449C /* ShoppingItemCard.swift in Sources */,
 				34D6A2622D526A33008EB2B9 /* DojodoroApp.swift in Sources */,
@@ -576,7 +588,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dojodoro/Assets/Preview Content\"";
-				DEVELOPMENT_TEAM = MT4A7M75NC;
+				DEVELOPMENT_TEAM = 55WBX8T52B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dojodoro/Info.plist;
@@ -606,7 +618,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dojodoro/Assets/Preview Content\"";
-				DEVELOPMENT_TEAM = MT4A7M75NC;
+				DEVELOPMENT_TEAM = 55WBX8T52B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Dojodoro/Info.plist;
