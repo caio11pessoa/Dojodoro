@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SelectPlantModal: View {
     @Binding var isPresented: Bool
+    @ObservedObject var plant: Plant
+    
     var body: some View {
         
         Image(.selectModal)
@@ -26,9 +28,9 @@ struct SelectPlantModal: View {
                         .frame(minWidth: 140, maxWidth: 175)
                         .padding(.bottom, 8)
                     
-                    infoRow(title: "Estágio:", value: "Brotinho")
-                    infoRow(title: "Pomodoros Feitos:", value: "15")
-                    infoRow(title: "Tempo Total:", value: "25/04")
+                    infoRow(title: "Estágio:", value: "\(plant.stage)")
+                    infoRow(title: "Pomodoros Feitos:", value: "\(plant.pomodoroCount)")
+                    infoRow(title: "Tempo Total:", value: "\(plant.totalTime)")
                     
                     // Botão
                     Spacer(minLength: 38)
@@ -52,9 +54,9 @@ struct SelectPlantModal: View {
                 isPresented = false
             } label: {
                 Image(.exitMark)
-                .resizable()
-                .scaledToFit()
-                .frame(minWidth: 14, maxWidth: 28)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(minWidth: 14, maxWidth: 28)
             }
         }
     }
@@ -78,7 +80,7 @@ struct SelectPlantModal: View {
     ZStack {
         Color(red: 27/255, green: 23/255, blue: 17/255, opacity: 0.8)
             .ignoresSafeArea()
-        SelectPlantModal(isPresented: .constant(true))
+        SelectPlantModal(isPresented: .constant(true), plant: .init(name: "Caio", stage: 2))
             .padding(.vertical, 120)
             .padding(.horizontal, 30)
     }
