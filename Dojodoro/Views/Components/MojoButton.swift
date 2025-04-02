@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct MojoButton: View {
-    @State private var isSelected = false // Estado do botão
-
+    @Binding var isSelected: Bool
+    var action: (() -> Void)?
+    init(isSelected: Binding<Bool>, action: (() -> Void)? = nil) {
+        self._isSelected = isSelected
+        self.action = action
+    }
+    
     var body: some View {
         VStack {
-            Button(action: {
-                isSelected.toggle() // Alterna entre selecionado e não selecionado
-            }) {}
-            .buttonStyle(MojoButtonStyle("Selecionar", isSelected: isSelected))
+            Button(action: action ?? {}) {}
+                .buttonStyle(MojoButtonStyle("Selecionar", isSelected: isSelected))
         }
         .frame(height: 200)
         .background(Color(.background))
@@ -23,5 +26,8 @@ struct MojoButton: View {
 }
 
 #Preview {
-    MojoButton()
+    @Previewable @State var isSelected = false
+    MojoButton(isSelected: $isSelected){
+        isSelected.toggle()
+    }
 }
