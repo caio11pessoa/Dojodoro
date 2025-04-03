@@ -21,7 +21,6 @@ enum GardenItems: String {
     case BlueBonsaiSproutLevelTwo
     case BlueBonsaiSproutLevelThree
     
-    
     var displayName: String {
             switch self {
             case .Sprout, .SproutLevelTwo, .SproutLevelThree, .Bonsai:

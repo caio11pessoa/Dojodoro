@@ -16,12 +16,8 @@ struct MojoButton: View {
     }
     
     var body: some View {
-        VStack {
-            Button(action: action ?? {}) {}
-                .buttonStyle(MojoButtonStyle("Selecionar", isSelected: isSelected))
-        }
-        .frame(height: 200)
-        .background(Color(.background))
+        Button(action: action ?? {}) {}
+            .buttonStyle(MojoButtonStyle("Selecionar", isSelected: isSelected))
     }
 }
 
