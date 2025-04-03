@@ -46,7 +46,7 @@ struct SelectPlantModal: View {
     
     private var headerView: some View {
         HStack {
-            Text(plant.gardenItem.rawValue)
+            Text(plant.gardenItem.displayName)
                 .font(Font.custom("DotGothic16-Regular", size: 28))
                 .minimumScaleFactor(0.5)
                 .lineLimit(1)
@@ -60,7 +60,7 @@ struct SelectPlantModal: View {
                 Image(.exitMark)
                     .resizable()
                     .scaledToFit()
-                    .frame(minWidth: 14, maxWidth: 28)
+                    .frame(minWidth: 10, maxWidth: 20)
             }
         }
     }
