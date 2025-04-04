@@ -33,7 +33,7 @@ struct ShoppingItemCard: View {
     
     private func itemNameLabel() -> some View {
         Text(itemImage.rawValue)
-            .font(.system(size: 22, weight: .light))
+            .font(.dojoUI(.subheadline))
     }
     
     private func itemPriceView() -> some View {
