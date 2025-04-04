@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MojoButtonStyle: ButtonStyle {
     let text: String
-    let isSelected: Bool  // Agora aceita estado selecionado
-
+    let isSelected: Bool
+    
     init(_ text: String, isSelected: Bool = false) {
         self.text = text
         self.isSelected = isSelected
@@ -37,7 +37,7 @@ struct MojoButtonStyle: ButtonStyle {
 
             if isSelected {
                 Text("選択する")
-                    .font(.system(size: 24, weight: .light))
+                    .font(.dojoUI(.titleSmall))
                     .foregroundStyle(Color.borderButtonSelected.opacity(0.6))
             }
 

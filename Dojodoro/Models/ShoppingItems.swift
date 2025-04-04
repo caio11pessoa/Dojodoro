@@ -10,7 +10,7 @@ import Foundation
 enum ShoppingItems: String {
     case cherry = "Cherry"
     case lake = "Lake"
-    case sakura = "Sakura"
+    case sakura = "Cerejeira"
     case smallRock = "Little Rock"
     case largeRock = "Big Rock"
 }
