@@ -22,6 +22,7 @@
 		34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C72D565217008EB2B9 /* TimeUnit.swift */; };
 		34D6A2CB2D565224008EB2B9 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C92D565224008EB2B9 /* IntExtensions.swift */; };
 		34D6A2CD2D565241008EB2B9 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */; };
+		4C21B5162D9F58B000365B32 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4C21B5152D9F58B000365B32 /* Localizable.xcstrings */; };
 		4C44C5BF2D9B67F4000CC03F /* Agdasima-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */; };
 		4C44C5C02D9B67F4000CC03F /* Agdasima-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */; };
 		4C44C5C52D9B687E000CC03F /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5C42D9B687E000CC03F /* DotGothic16-Regular.ttf */; };
@@ -73,6 +74,7 @@
 		34D6A2C72D565217008EB2B9 /* TimeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
 		34D6A2C92D565224008EB2B9 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
+		4C21B5152D9F58B000365B32 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agdasima-Bold.ttf"; sourceTree = "<group>"; };
 		4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agdasima-Regular.ttf"; sourceTree = "<group>"; };
 		4C44C5C12D9B6813000CC03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				34D6A2702D52896F008EB2B9 /* Views */,
 				34D6A2722D528984008EB2B9 /* ViewModels */,
 				34D6A25E2D526A33008EB2B9 /* DojodoroApp.swift */,
+				4C21B5152D9F58B000365B32 /* Localizable.xcstrings */,
 			);
 			path = Dojodoro;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 34D6A2222D526A29008EB2B9;
 			minimizedProjectReferenceProxies = 1;
@@ -382,6 +386,7 @@
 			files = (
 				4C44C5BF2D9B67F4000CC03F /* Agdasima-Bold.ttf in Resources */,
 				4C44C5C02D9B67F4000CC03F /* Agdasima-Regular.ttf in Resources */,
+				4C21B5162D9F58B000365B32 /* Localizable.xcstrings in Resources */,
 				4C44C5C52D9B687E000CC03F /* DotGothic16-Regular.ttf in Resources */,
 				34D6A2642D526A33008EB2B9 /* Preview Assets.xcassets in Resources */,
 				34D6A2652D526A33008EB2B9 /* Assets.xcassets in Resources */,
@@ -524,6 +529,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -580,6 +586,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
