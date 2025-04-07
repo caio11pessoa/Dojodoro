@@ -49,7 +49,7 @@ struct MojoButtonStyle: ButtonStyle {
                         .opacity(configuration.isPressed ? 0.8 : 1)
                     Image(.selectMark)
                 }
-            }else {
+            } else {
                 Text(text)
                     .font(.system(size: 18, weight: .light))
                     .foregroundStyle(.white)
