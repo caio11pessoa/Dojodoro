@@ -11,6 +11,8 @@
 		3436F0F72D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F62D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift */; };
 		347FBB982D9B455E0041B024 /* GardenItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FBB972D9B455E0041B024 /* GardenItemCard.swift */; };
 		347FBB9A2D9B45F20041B024 /* GardenItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FBB992D9B45F20041B024 /* GardenItems.swift */; };
+		347FBBA82D9C78F60041B024 /* SelectPlantModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FBBA72D9C78F60041B024 /* SelectPlantModal.swift */; };
+		347FBBAA2D9DAE4E0041B024 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FBBA92D9DAE4E0041B024 /* Plant.swift */; };
 		348BB94D2D7B907200B9449C /* ShoppingItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */; };
 		34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25D2D526A33008EB2B9 /* ContentView.swift */; };
 		34D6A2622D526A33008EB2B9 /* DojodoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25E2D526A33008EB2B9 /* DojodoroApp.swift */; };
@@ -59,6 +61,8 @@
 		3436F0F62D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingPurchasedItemCard.swift; sourceTree = "<group>"; };
 		347FBB972D9B455E0041B024 /* GardenItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenItemCard.swift; sourceTree = "<group>"; };
 		347FBB992D9B45F20041B024 /* GardenItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenItems.swift; sourceTree = "<group>"; };
+		347FBBA72D9C78F60041B024 /* SelectPlantModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlantModal.swift; sourceTree = "<group>"; };
+		347FBBA92D9DAE4E0041B024 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItemCard.swift; sourceTree = "<group>"; };
 		34D6A22B2D526A29008EB2B9 /* Dojodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dojodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D6A23D2D526A2B008EB2B9 /* DojodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DojodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +131,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		347FBBBD2D9DCEDF0041B024 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				347FBBA72D9C78F60041B024 /* SelectPlantModal.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
 		348BB94B2D7B902200B9449C /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +197,7 @@
 		34D6A2702D52896F008EB2B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				347FBBBD2D9DCEDF0041B024 /* Modals */,
 				348BB94B2D7B902200B9449C /* Components */,
 				4CDC0F582D6D01E70012FB93 /* BonsaiView.swift */,
 				4CDC0F562D6D01B60012FB93 /* ShopView.swift */,
@@ -203,6 +216,7 @@
 				34D6A2C72D565217008EB2B9 /* TimeUnit.swift */,
 				34D6A25F2D526A33008EB2B9 /* Item.swift */,
 				3436F0F42D9675E400E5B244 /* ShoppingItems.swift */,
+				347FBBA92D9DAE4E0041B024 /* Plant.swift */,
 				347FBB992D9B45F20041B024 /* GardenItems.swift */,
 			);
 			path = Models;
@@ -416,10 +430,12 @@
 				4CF6AD0D2D9CAAEC00DAA52A /* MojoButton.swift in Sources */,
 				347FBB982D9B455E0041B024 /* GardenItemCard.swift in Sources */,
 				4CDC0F572D6D01BB0012FB93 /* ShopView.swift in Sources */,
+				347FBBAA2D9DAE4E0041B024 /* Plant.swift in Sources */,
 				347FBB9A2D9B45F20041B024 /* GardenItems.swift in Sources */,
 				34D6A2CB2D565224008EB2B9 /* IntExtensions.swift in Sources */,
 				34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */,
 				34D6A2C32D5651EE008EB2B9 /* PomodoroSingleton.swift in Sources */,
+				347FBBA82D9C78F60041B024 /* SelectPlantModal.swift in Sources */,
 				34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */,
 				4C9D6A0D2D9DD5A700524814 /* CoinAndPriceComponent.swift in Sources */,
 				4CF6AD092D9CAAE400DAA52A /* MojoButtonStyle.swift in Sources */,
