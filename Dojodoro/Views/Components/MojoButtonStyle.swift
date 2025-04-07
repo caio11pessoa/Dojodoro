@@ -37,7 +37,7 @@ struct MojoButtonStyle: ButtonStyle {
             
             if isSelected {
                 Text("選択する")
-                    .font(.system(size: 24, weight: .light))
+                    .font(.dojoUI(.titleSmall))
                     .foregroundStyle(Color.borderButtonSelected.opacity(0.6))
             }
             

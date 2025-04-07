@@ -24,6 +24,7 @@
 		34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C72D565217008EB2B9 /* TimeUnit.swift */; };
 		34D6A2CB2D565224008EB2B9 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C92D565224008EB2B9 /* IntExtensions.swift */; };
 		34D6A2CD2D565241008EB2B9 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */; };
+		4C28D2C42DA06E070045CACC /* TokenTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28D2C32DA06DFE0045CACC /* TokenTypography.swift */; };
 		4C44C5BF2D9B67F4000CC03F /* Agdasima-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */; };
 		4C44C5C02D9B67F4000CC03F /* Agdasima-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */; };
 		4C44C5C52D9B687E000CC03F /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5C42D9B687E000CC03F /* DotGothic16-Regular.ttf */; };
@@ -77,6 +78,7 @@
 		34D6A2C72D565217008EB2B9 /* TimeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
 		34D6A2C92D565224008EB2B9 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
+		4C28D2C32DA06DFE0045CACC /* TokenTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTypography.swift; sourceTree = "<group>"; };
 		4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agdasima-Bold.ttf"; sourceTree = "<group>"; };
 		4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agdasima-Regular.ttf"; sourceTree = "<group>"; };
 		4C44C5C12D9B6813000CC03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		34D6A2602D526A33008EB2B9 /* Dojodoro */ = {
 			isa = PBXGroup;
 			children = (
+				4C28D2C32DA06DFE0045CACC /* TokenTypography.swift */,
 				4C44C5C12D9B6813000CC03F /* Info.plist */,
 				34D6A2732D528E63008EB2B9 /* Assets */,
 				34D6A2712D52897D008EB2B9 /* Models */,
@@ -441,6 +444,7 @@
 				4CF6AD092D9CAAE400DAA52A /* MojoButtonStyle.swift in Sources */,
 				3436F0F52D9675E400E5B244 /* ShoppingItems.swift in Sources */,
 				348BB94D2D7B907200B9449C /* ShoppingItemCard.swift in Sources */,
+				4C28D2C42DA06E070045CACC /* TokenTypography.swift in Sources */,
 				34D6A2622D526A33008EB2B9 /* DojodoroApp.swift in Sources */,
 				3436F0F72D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift in Sources */,
 				4CDC0F552D6D018A0012FB93 /* GardenView.swift in Sources */,
