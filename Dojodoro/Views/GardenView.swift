@@ -14,9 +14,6 @@ struct GardenView: View {
         ZStack {
             Color(red: 27/255, green: 23/255, blue: 17/255, opacity: 0.8)
                 .ignoresSafeArea()
-            SelectPlantModal(isPresented: .constant(true), plant: .init(name: "Caio", gardenItem: .BlueBonsaiSprout, stage: .Bud, totalTime: DateComponents(hour: 0, minute: 0)))
-                .padding(.vertical, 120)
-                .padding(.horizontal, 30)
         }
     }
 }

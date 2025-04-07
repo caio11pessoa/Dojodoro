@@ -85,7 +85,6 @@ struct GardenItemCard: View {
         }
     }
     .padding()
-    
 }
 #Preview {
     GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))

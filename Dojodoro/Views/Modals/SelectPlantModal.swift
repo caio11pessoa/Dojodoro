@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SelectPlantModal: View {
     @Binding var isPresented: Bool
-    @ObservedObject var plant: Plant
+    @State var plant: PlantModel
     
     var body: some View {
         
@@ -22,7 +22,7 @@ struct SelectPlantModal: View {
                     
                     Spacer()
                     
-                    Image(plant.gardenItem.rawValue)
+                    Image(plant.image)
                         .resizable()
                         .scaledToFit()
                         .frame(minWidth: 140, maxWidth: 175)
@@ -46,7 +46,7 @@ struct SelectPlantModal: View {
     
     private var headerView: some View {
         HStack {
-            Text(plant.gardenItem.displayName)
+            Text(plant.name)
                 .font(Font.custom("DotGothic16-Regular", size: 28))
                 .minimumScaleFactor(0.5)
                 .lineLimit(1)
@@ -84,8 +84,16 @@ struct SelectPlantModal: View {
     ZStack {
         Color(red: 27/255, green: 23/255, blue: 17/255, opacity: 0.8)
             .ignoresSafeArea()
-        SelectPlantModal(isPresented: .constant(true), plant: .init(name: "Caio", gardenItem: .BlueBonsaiSprout, stage: .Bud, totalTime: DateComponents(hour: 0, minute: 0)))
-            .padding(.vertical, 120)
-            .padding(.horizontal, 30)
+        SelectPlantModal(isPresented: .constant(true), plant: .init(
+            name: "Oak",
+            imageGallery: [
+                .boonsaiSeed: "Sprout",
+                .sprout: "SproutLevelTwo",
+                .bud: "SprooutLevelThree",
+                .bonsai: "Bonsai"
+            ]
+        ))
+        .padding(.vertical, 120)
+        .padding(.horizontal, 30)
     }
 }
