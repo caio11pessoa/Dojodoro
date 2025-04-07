@@ -9,19 +9,19 @@ import SwiftUI
 
 struct MojoButtonStyle: ButtonStyle {
     let text: String
-    let isSelected: Bool
+    let isSelected: Bool  // Agora aceita estado selecionado
     
     init(_ text: String, isSelected: Bool = false) {
         self.text = text
         self.isSelected = isSelected
     }
-
+    
     func makeBody(configuration: Configuration) -> some View {
         ZStack {
             MojoBotaoShape()
                 .foregroundStyle(Color.gray.opacity(0.7))
                 .frame(minWidth: 100, idealWidth: 200, maxWidth: .infinity, maxHeight: 48)
-                .padding(15)
+                .padding(.vertical, 15)
                 .offset(x: -1, y: 4)
             
             MojoBotaoShape()
@@ -32,19 +32,29 @@ struct MojoButtonStyle: ButtonStyle {
                         .foregroundStyle(isSelected ? .borderButtonSelected : .backgroundBox) // Cor da borda
                 )
                 .frame(minWidth: 100, idealWidth: 200, maxWidth: .infinity, maxHeight: 48)
-                .padding(15)
+                .padding(.vertical, 15)
             
-
+            
             if isSelected {
                 Text("選択する")
                     .font(.dojoUI(.titleSmall))
                     .foregroundStyle(Color.borderButtonSelected.opacity(0.6))
             }
-
-            Text(text)
-                .font(.system(size: 18, weight: .light))
-                .foregroundStyle(.white)
-                .opacity(configuration.isPressed ? 0.8 : 1)
+            
+            if isSelected{
+                HStack{
+                    Text(text)
+                        .font(.system(size: 18, weight: .light))
+                        .foregroundStyle(.white)
+                        .opacity(configuration.isPressed ? 0.8 : 1)
+                    Image(.selectMark)
+                }
+            }else {
+                Text(text)
+                    .font(.system(size: 18, weight: .light))
+                    .foregroundStyle(.white)
+                    .opacity(configuration.isPressed ? 0.8 : 1)
+            }
         }
     }
 }
