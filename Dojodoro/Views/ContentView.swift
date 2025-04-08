@@ -21,7 +21,7 @@ struct ContentView: View {
                     case .loja:
                         ShopView(router: router)
                     case .bonsai:
-                        GardenView(router: router)
+                        BonsaiView(router: router, viewModel: .init()){}
                     case .jardim:
                         GardenView(router: router)
                     }
