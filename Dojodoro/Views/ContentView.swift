@@ -9,39 +9,35 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
     @State var router = AppRouter()
+    @State var pickedIndex: Int = 1
     
     var body: some View {
         NavigationStack(path: $router.path){
-            ShopView(router: router)
-                .navigationDestination(for: AppScreen.self) { screen in
-                    switch screen {
-                    case .loja:
-                        ShopView(router: router)
-                    case .bonsai:
-                        GardenView(router: router)
-                    case .jardim:
-                        GardenView(router: router)
+            ZStack {
+                Color.background
+                VStack(spacing: 0) {
+                    Spacer()
+                    
+                    Group {
+                        switch pickedIndex {
+                        case TabBarItem.loja.rawValue:
+                            ShopView(router: router)
+                        case TabBarItem.jardim.rawValue:
+                            GardenView(router: router)
+                        case TabBarItem.bonsai.rawValue:
+                            BonsaiView(router: router)
+                        default:
+                            GardenView(router: router)
+                        }
                     }
+                    Spacer()
+                    DojodoroTabBar(target: $pickedIndex)
+                        .frame(height: 90)
                 }
-        }
-        .environment(router)
-    }
-    
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-    
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+                .padding(.horizontal, 48)
             }
+            .ignoresSafeArea()
         }
     }
 }

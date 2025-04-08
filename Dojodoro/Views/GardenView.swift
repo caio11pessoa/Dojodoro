@@ -12,8 +12,7 @@ struct GardenView: View {
     
     var body: some View {
         ZStack {
-            Color(red: 27/255, green: 23/255, blue: 17/255, opacity: 0.8)
-                .ignoresSafeArea()
+            Text("GardenView")
         }
     }
 }

@@ -32,7 +32,9 @@ enum TypographyCase {
     /// DotGothic16-Regular, 16px (com bold, se quiser destacar)
     case button
 
-    /// Agdasima-Regular, 24px
+    /// Agdasima-Regular, 64px
+    case tabBar
+    /// Agdasima-Regular, 24returnpx
     case titleSmall
     /// Agdasima-Regular, 32px
     case titleMedium
@@ -40,6 +42,7 @@ enum TypographyCase {
     case titleLarge
     /// Agdasima-Regular, 64px
     case displayExtraLarge
+
 }
 
 
@@ -68,6 +71,8 @@ extension Font {
             return Font.custom("Agdasima-Regular", size: TokenTypography.FontSize.titleLarge.rawValue)
         case .displayExtraLarge:
             return Font.custom("Agdasima-Regular", size: TokenTypography.FontSize.displayExtraLarge.rawValue)
+        case .tabBar:
+            return Font.custom("Agdasima-Regular", size: TokenTypography.FontSize.body.rawValue)
         }
     }
 }

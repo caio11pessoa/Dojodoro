@@ -12,10 +12,7 @@ struct BonsaiView: View {
     
     var body: some View {
         VStack {
-            Text("Tela do Timer")
-            Button("Voltar") {
-                router.goBack()
-            }
+            Text("Bonsai")
         }
     }
 }
