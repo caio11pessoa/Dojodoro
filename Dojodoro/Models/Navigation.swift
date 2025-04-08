@@ -15,8 +15,8 @@ enum AppScreen: Hashable {
 
 enum TabBarItem: Int, CaseIterable {
     case loja = 0
-    case jardim = 1
-    case bonsai = 2
+    case bonsai = 1
+    case jardim = 2
     
     var title: String {
         switch self {

@@ -15,17 +15,19 @@ struct BonsaiView: View {
     var body: some View {
         
         ZStack {
-            Color.background
-            
-            VStack(spacing: 200) {
-                Spacer()
+            ZStack {
                 Text("Toque na tela para começar")
                     .font(Font.dojoUI(.titleMedium))
-                    
-                Image("Vase")
-                    .onTapGesture {
-                        onTap()
-                    }
+                    .minimumScaleFactor(0.7)
+                    .lineLimit(1)
+                
+                VStack {
+                    Spacer()
+                    Image(.vase)
+                        .onTapGesture {
+                            onTap()
+                        }
+                }
             }
         }
     }
@@ -35,4 +37,5 @@ struct BonsaiView: View {
     BonsaiView(router: .init(), viewModel: .init()){
         print("Task Validation")
     }
+    .ignoresSafeArea()
 }
