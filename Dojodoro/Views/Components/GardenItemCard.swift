@@ -57,7 +57,7 @@ struct GardenItemCard: View {
     
     private func itemNameLabel() -> some View {
         Text(itemImage.displayName)
-            .font(.system(size: 22, weight: .light))
+            .font(.dojoUI(.body))
             .minimumScaleFactor(0.5)
             .lineLimit(1)
             .padding(.top, 12)

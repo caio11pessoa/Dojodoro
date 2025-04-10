@@ -15,12 +15,15 @@ struct TokenTypography {
         case headline = 20
         case titleSmall = 24
         case titleMedium = 32
+        case titleLargeDotGothic = 34
         case titleLarge = 48
         case displayExtraLarge = 64
     }
 }
 
 enum TypographyCase {
+    /// DotGothic16-Regular, 34px
+    case titleLargeDotGothic
     /// DotGothic16-Regular, 28px
     case displayLarge
     /// DotGothic16-Regular, 20px
@@ -46,9 +49,11 @@ enum TypographyCase {
 extension Font {
     static func dojoUI(_ typographyCase: TypographyCase) -> Font {
         switch typographyCase {
-            
+
         // DotGothic16-Regular
         case .displayLarge:
+            return Font.custom("DotGothic16-Regular", size:TokenTypography.FontSize.titleLargeDotGothic.rawValue)
+        case .titleLargeDotGothic:
             return Font.custom("DotGothic16-Regular", size: TokenTypography.FontSize.titleLarge.rawValue)
         case .headline:
             return Font.custom("DotGothic16-Regular", size: TokenTypography.FontSize.headline.rawValue)
