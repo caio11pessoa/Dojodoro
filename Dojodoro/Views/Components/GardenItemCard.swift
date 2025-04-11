@@ -8,15 +8,10 @@
 import SwiftUI
 
 struct GardenItemCard: View {
-    let itemImage: GardenItems
-    @Binding var isSelected: Bool
-    let onTap: (() -> Void)?
-    
-    init(itemImage: GardenItems, isSelected: Binding<Bool>, onTap: (() -> Void)? = nil) {
-        self.itemImage = itemImage
-        self._isSelected = isSelected
-        self.onTap = onTap
-    }
+    let itemImage: String
+    let name: String
+    var isSelected: Bool
+    var onTap: () -> Void = {}
     
     var body: some View {
         ZStack {
@@ -42,11 +37,11 @@ struct GardenItemCard: View {
                 
             }
         }
-        .onTapGesture(perform: onTap ?? {})
+        .onTapGesture(perform: onTap)
     }
     
     private func itemImageView() -> some View {
-        Image(itemImage.rawValue)
+        Image(itemImage)
             .resizable()
             .scaledToFit()
             .frame(minWidth: 62, maxWidth: 120)
@@ -56,8 +51,8 @@ struct GardenItemCard: View {
     }
     
     private func itemNameLabel() -> some View {
-        Text(itemImage.displayName)
-            .font(.system(size: 22, weight: .light))
+        Text(name)
+            .font(.dojoUI(.body))
             .minimumScaleFactor(0.5)
             .lineLimit(1)
             .padding(.top, 12)
@@ -69,25 +64,39 @@ struct GardenItemCard: View {
     @Previewable @State var isSelected: Bool = false
     VStack(spacing: 8){
         HStack (spacing: 8){
-            Group {
-                GardenItemCard(itemImage: .BlueBonsai, isSelected: $isSelected){
-                    isSelected.toggle()
-                }
-                GardenItemCard(itemImage: .BlueBonsaiSprout, isSelected: .constant(false))
-                GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
+            GardenItemCard(itemImage: DojodoroViewModel().plants[0].image,name:DojodoroViewModel().plants[0].name, isSelected: isSelected){
+                isSelected.toggle()
+            }
+            GardenItemCard(itemImage: DojodoroViewModel().plants[1].image,name:DojodoroViewModel().plants[1].name, isSelected: isSelected){
+                isSelected.toggle()
+            }
+            GardenItemCard(itemImage: DojodoroViewModel().plants[2].image,name:DojodoroViewModel().plants[2].name, isSelected: isSelected){
+                isSelected.toggle()
             }
         }
-        Group{
-            GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
-            GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
-            GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
-            GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
+        .padding()
+        HStack (spacing: 8){
+            GardenItemCard(itemImage: DojodoroViewModel().plants[0].image,name:DojodoroViewModel().plants[0].name, isSelected: isSelected){
+                isSelected.toggle()
+            }
+            GardenItemCard(itemImage: DojodoroViewModel().plants[1].image,name:DojodoroViewModel().plants[1].name, isSelected: isSelected){
+                isSelected.toggle()
+            }
+            GardenItemCard(itemImage: DojodoroViewModel().plants[2].image,name:DojodoroViewModel().plants[2].name, isSelected: isSelected){
+                isSelected.toggle()
+            }
         }
+        .padding()
+        GardenItemCard(itemImage: DojodoroViewModel().plants[1].image,name:DojodoroViewModel().plants[1].name, isSelected: isSelected){
+            isSelected.toggle()
+        }
+        .padding()
+        
     }
     .padding()
 }
 #Preview {
-    GardenItemCard(itemImage: .BlueBonsai, isSelected: .constant(false))
+    GardenItemCard(itemImage: DojodoroViewModel().plants[0].image,name:DojodoroViewModel().plants[0].name, isSelected: false)
         .frame(width: 140, height: 190)
         .frame(width: 200, height: 343)
 }

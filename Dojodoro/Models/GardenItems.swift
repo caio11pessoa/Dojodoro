@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GardenItems: String {
+enum GardenItems: String, CaseIterable {
     case Sprout
     case SproutLevelTwo
     case SproutLevelThree
