@@ -7,7 +7,9 @@
 
 import Foundation
 
-class PlantModel {
+struct PlantModel: Identifiable {
+    
+    var id: UUID = UUID()
     
     var isSelected: Bool = false
     var name: String

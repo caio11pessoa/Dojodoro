@@ -17,6 +17,7 @@ struct TokenTypography {
         case titleMedium = 32
         case titleLargeDotGothic = 34
         case titleLarge = 48
+        case titleLargeToolBarBackGround = 44
         case displayExtraLarge = 64
     }
 }
@@ -24,6 +25,8 @@ struct TokenTypography {
 enum TypographyCase {
     /// DotGothic16-Regular, 34px
     case titleLargeDotGothic
+    /// DotGothic16-Regular, 32px
+    case titleMediumDotGothic
     /// DotGothic16-Regular, 28px
     case displayLarge
     /// DotGothic16-Regular, 20px
@@ -58,6 +61,8 @@ extension Font {
             return Font.custom("DotGothic16-Regular", size:TokenTypography.FontSize.titleLargeDotGothic.rawValue)
         case .titleLargeDotGothic:
             return Font.custom("DotGothic16-Regular", size: TokenTypography.FontSize.titleLarge.rawValue)
+        case .titleMediumDotGothic:
+            return Font.custom("DotGothic16-Regular", size: TokenTypography.FontSize.titleLargeToolBarBackGround.rawValue)
         case .headline:
             return Font.custom("DotGothic16-Regular", size: TokenTypography.FontSize.headline.rawValue)
         case .subheadline:

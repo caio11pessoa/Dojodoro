@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3436F0F52D9675E400E5B244 /* ShoppingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F42D9675E400E5B244 /* ShoppingItems.swift */; };
-		3436F0F72D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F62D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift */; };
+		3436F0F72D974CDA00E5B244 /* EmptyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F62D974CDA00E5B244 /* EmptyCard.swift */; };
 		346241912DA46B6400FB3B84 /* PlantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346241902DA46B6400FB3B84 /* PlantModel.swift */; };
 		346241932DA4709000FB3B84 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346241922DA4709000FB3B84 /* Stage.swift */; };
 		346241952DA4744800FB3B84 /* DojodoroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346241942DA4744800FB3B84 /* DojodoroViewModel.swift */; };
@@ -61,7 +61,7 @@
 
 /* Begin PBXFileReference section */
 		3436F0F42D9675E400E5B244 /* ShoppingItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItems.swift; sourceTree = "<group>"; };
-		3436F0F62D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingPurchasedItemCard.swift; sourceTree = "<group>"; };
+		3436F0F62D974CDA00E5B244 /* EmptyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCard.swift; sourceTree = "<group>"; };
 		346241902DA46B6400FB3B84 /* PlantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantModel.swift; sourceTree = "<group>"; };
 		346241922DA4709000FB3B84 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		346241942DA4744800FB3B84 /* DojodoroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojodoroViewModel.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				4CF6AD0B2D9CAAEC00DAA52A /* ShapeButtonMojo.swift */,
 				4CF6AD082D9CAAE400DAA52A /* MojoButtonStyle.swift */,
 				348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */,
-				3436F0F62D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift */,
+				3436F0F62D974CDA00E5B244 /* EmptyCard.swift */,
 				347FBB972D9B455E0041B024 /* GardenItemCard.swift */,
 				4C9D6A0C2D9DD5A700524814 /* CoinAndPriceComponent.swift */,
 				34EB84EF2DA4896D00B6ECF3 /* DojodoroTabBar.swift */,
@@ -454,7 +454,7 @@
 				348BB94D2D7B907200B9449C /* ShoppingItemCard.swift in Sources */,
 				4C28D2C42DA06E070045CACC /* TokenTypography.swift in Sources */,
 				34D6A2622D526A33008EB2B9 /* DojodoroApp.swift in Sources */,
-				3436F0F72D974CDA00E5B244 /* ShoppingPurchasedItemCard.swift in Sources */,
+				3436F0F72D974CDA00E5B244 /* EmptyCard.swift in Sources */,
 				4CDC0F552D6D018A0012FB93 /* GardenView.swift in Sources */,
 				4CDC0F512D6CDDC00012FB93 /* NavigationViewModel.swift in Sources */,
 				4CDC0F4C2D6CDD190012FB93 /* Navigation.swift in Sources */,

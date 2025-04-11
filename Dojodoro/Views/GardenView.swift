@@ -1,68 +1,59 @@
-//
-//  GardenView.swift
-//  Dojodoro
-//
-//  Created by Daniel Araujo Nobre on 24/02/25.
-//
-
 import SwiftUI
 
 struct GardenView: View {
     @State var router: AppRouter
-
+    @State var viewModel: DojodoroViewModel
+    
     var adaptiveColumns: [GridItem] {
-        [GridItem(.adaptive(minimum: 140), spacing: 16)]
+        [GridItem(.flexible(), spacing: 16), GridItem(.flexible())]
     }
-
+    
     var body: some View {
-        NavigationStack {
-            GeometryReader { geo in
+        ZStack {
+            Image("BGJardim")
+                .resizable()
+                .ignoresSafeArea()
+            
+            VStack(alignment: .leading, spacing: 0) {
                 ZStack {
-                    Image("BGJardim")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea()
-
-                    VStack(alignment: .leading, spacing: 0) {
-                        ScrollView {
-                            LazyVGrid(columns: adaptiveColumns, spacing: 16) {
-                                ForEach(GardenItems.allCases, id: \.self) { img in
-                                    GardenItemCard(itemImage: img, isSelected: .constant(false))
-                                        .frame(height: 250)
-                                }
+                    Text("私の庭")
+                        .font(.dojoUI(.titleMediumDotGothic))
+                        .opacity(0.10)
+                    Text("Meu Jardim")
+                        .font(.dojoUI(.titleMedium))
+                        .bold()
+                }
+                .padding(.top, 40)
+                
+                ScrollView {
+                    LazyVGrid(columns: adaptiveColumns, spacing: 16) {
+                        ForEach($viewModel.plants, id: \.id) { $plant in
+                            GardenItemCard(
+                                itemImage: plant.image,
+                                name: plant.name,
+                                isSelected: plant.isSelected
+                            ){
+                                // Open the modal
                             }
-                            .frame(maxWidth: 700)
-                            .padding(.horizontal)
-                            .padding(.bottom, 32)
-                            .frame(maxWidth: .infinity)
                         }
-                        .scrollIndicators(.hidden)
-                    }
-                    .padding(.horizontal)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                }
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        ZStack {
-                            Text("私の庭")
-                                .font(.dojoUI(.titleLargeDotGothic))
-                                .opacity(0.10)
-                            Text("Meu Jardim")
-                                .font(.dojoUI(.titleMedium))
-                                .bold()
-                        }
-                        .padding()
-                        .padding(.bottom, 20)
+                        EmptyCard(text: "Em breve", textBackground: "間もなく")
                     }
                 }
+                .scrollIndicators(.hidden)
+                .padding(.horizontal, 32)
+                .padding(.top)
             }
+            .padding(.horizontal)
         }
     }
 }
 
-
-
-
 #Preview {
-    GardenView(router: AppRouter())
+    NavigationStack {
+        GardenView(router: AppRouter(), viewModel: .init())
+            .ignoresSafeArea()
+    }
+}
+#Preview {
+    ContentView()
 }
