@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct DojodoroView: View {
+    
+    @StateObject var viewModel = PomodoroViewModel()
     var body: some View {
         ZStack{
             Color.background
                 .ignoresSafeArea()
             
             VStack{
-                CircularProgressView(percentagem: 0.5, isWorking: true)
-//                    .padding(40)
+                ZStack{
+                    CircularProgressView(percentagem: viewModel.progressCircle, isWorking: !viewModel.recover)
+                    Text(viewModel.clockText)
+                        .font(viewModel.agdasimaRegularFont(size: 64))
+                    
+                }
                 Image(.blueBonsai)
                     .resizable()
                     .scaledToFit()
@@ -24,11 +30,28 @@ struct DojodoroView: View {
             }
             .padding(.horizontal, 60)
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button{
+                    // Stop Page
+                }
+                label: {
+                    Image(.pausePomodoro)
+                        .resizable()
+                        .scaledToFit()
+                }
+            }
+        }
+        .onAppear {
+            viewModel.startPomodoro()
+        }
     }
 }
 
 #Preview {
-    DojodoroView()
+    NavigationStack {
+        DojodoroView()
+    }
 }
 
 #Preview {
