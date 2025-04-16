@@ -8,9 +8,7 @@
 import Foundation
 
 enum AppScreen: Hashable {
-    case loja
-    case jardim
-    case bonsai
+    case dojodoro
 }
 
 enum TabBarItem: Int, CaseIterable {

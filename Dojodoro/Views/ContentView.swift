@@ -24,7 +24,9 @@ struct ContentView: View {
                         ShopView(router: router)
                         
                     case TabBarItem.bonsai.rawValue:
-                        BonsaiView(router: router, viewModel: viewModel){}
+                        BonsaiView(router: router, viewModel: viewModel){
+                            router.navigate(to: .dojodoro)
+                        }
                         
                     case TabBarItem.jardim.rawValue:
                         GardenView(router: router, viewModel: viewModel)
@@ -40,6 +42,13 @@ struct ContentView: View {
                     .padding(.horizontal, 48)
             }
             .ignoresSafeArea()
+            .navigationDestination(for: AppScreen.self) { screen in
+                switch screen {
+                case .dojodoro:
+                    DojodoroView()
+                        .navigationBarBackButtonHidden()
+                }
+            }
         }
     }
 }
