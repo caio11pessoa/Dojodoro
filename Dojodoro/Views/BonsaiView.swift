@@ -13,6 +13,8 @@ struct BonsaiView: View {
     var onTap: () -> Void
     
     var body: some View {
+        let screenHeight = UIScreen.main.bounds.height
+        let bonsaiHeight: CGFloat = 0.33 * screenHeight
         
         ZStack {
             ZStack {
@@ -22,8 +24,9 @@ struct BonsaiView: View {
                     .lineLimit(1)
                 
                 VStack {
-                    Spacer()
-                    Image(.vase)
+                    Spacer(minLength: 320)
+                    PomodoroImage(bonsaiImage: "BlueBonsai", bonsaiHeight: bonsaiHeight
+                    )
                         .onTapGesture {
                             onTap()
                         }
