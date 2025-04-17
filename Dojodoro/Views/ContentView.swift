@@ -45,7 +45,7 @@ struct ContentView: View {
             .navigationDestination(for: AppScreen.self) { screen in
                 switch screen {
                 case .dojodoro:
-                    DojodoroView()
+                    DojodoroView(viewModel: viewModel, router: router)
                         .navigationBarBackButtonHidden()
                 }
             }

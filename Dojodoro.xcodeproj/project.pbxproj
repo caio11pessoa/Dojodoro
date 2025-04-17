@@ -18,7 +18,7 @@
 		348BB94D2D7B907200B9449C /* ShoppingItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */; };
 		34BF9AB22DAF1A0D00FF0D48 /* DojodoroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF9AB12DAF1A0D00FF0D48 /* DojodoroView.swift */; };
 		34BF9B152DAF1ADF00FF0D48 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF9B142DAF1ADF00FF0D48 /* CircularProgressView.swift */; };
-		34BF9B1D2DB06A0800FF0D48 /* PomodoroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF9B1C2DB06A0800FF0D48 /* PomodoroViewModel.swift */; };
+		34BF9B1F2DB073DF00FF0D48 /* FontsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF9B1E2DB073DF00FF0D48 /* FontsExtensions.swift */; };
 		34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25D2D526A33008EB2B9 /* ContentView.swift */; };
 		34D6A2622D526A33008EB2B9 /* DojodoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25E2D526A33008EB2B9 /* DojodoroApp.swift */; };
 		34D6A2632D526A33008EB2B9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25F2D526A33008EB2B9 /* Item.swift */; };
@@ -74,7 +74,7 @@
 		348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItemCard.swift; sourceTree = "<group>"; };
 		34BF9AB12DAF1A0D00FF0D48 /* DojodoroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojodoroView.swift; sourceTree = "<group>"; };
 		34BF9B142DAF1ADF00FF0D48 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
-		34BF9B1C2DB06A0800FF0D48 /* PomodoroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewModel.swift; sourceTree = "<group>"; };
+		34BF9B1E2DB073DF00FF0D48 /* FontsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsExtensions.swift; sourceTree = "<group>"; };
 		34D6A22B2D526A29008EB2B9 /* Dojodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dojodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D6A23D2D526A2B008EB2B9 /* DojodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DojodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D6A2472D526A2B008EB2B9 /* DojodoroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DojodoroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,7 +240,6 @@
 		34D6A2722D528984008EB2B9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				34BF9B1C2DB06A0800FF0D48 /* PomodoroViewModel.swift */,
 				346241942DA4744800FB3B84 /* DojodoroViewModel.swift */,
 				4CDC0F502D6CDDB90012FB93 /* NavigationViewModel.swift */,
 				34D6A2C52D5651F8008EB2B9 /* Helpers */,
@@ -280,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				34D6A2C92D565224008EB2B9 /* IntExtensions.swift */,
+				34BF9B1E2DB073DF00FF0D48 /* FontsExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -449,8 +449,8 @@
 				4CDC0F572D6D01BB0012FB93 /* ShopView.swift in Sources */,
 				347FBB9A2D9B45F20041B024 /* GardenItems.swift in Sources */,
 				34D6A2CB2D565224008EB2B9 /* IntExtensions.swift in Sources */,
-				34BF9B1D2DB06A0800FF0D48 /* PomodoroViewModel.swift in Sources */,
 				346241952DA4744800FB3B84 /* DojodoroViewModel.swift in Sources */,
+				34BF9B1F2DB073DF00FF0D48 /* FontsExtensions.swift in Sources */,
 				346241932DA4709000FB3B84 /* Stage.swift in Sources */,
 				34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */,
 				34D6A2C32D5651EE008EB2B9 /* PomodoroSingleton.swift in Sources */,
