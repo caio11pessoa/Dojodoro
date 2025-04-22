@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3436F0F52D9675E400E5B244 /* ShoppingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F42D9675E400E5B244 /* ShoppingItems.swift */; };
 		3436F0F72D974CDA00E5B244 /* EmptyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F62D974CDA00E5B244 /* EmptyCard.swift */; };
+		344264DC2DB833AA00739EE1 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344264DB2DB833AA00739EE1 /* TabBarView.swift */; };
 		346241912DA46B6400FB3B84 /* PlantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346241902DA46B6400FB3B84 /* PlantModel.swift */; };
 		346241932DA4709000FB3B84 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346241922DA4709000FB3B84 /* Stage.swift */; };
 		346241952DA4744800FB3B84 /* DojodoroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346241942DA4744800FB3B84 /* DojodoroViewModel.swift */; };
@@ -32,7 +33,7 @@
 		34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C72D565217008EB2B9 /* TimeUnit.swift */; };
 		34D6A2CB2D565224008EB2B9 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C92D565224008EB2B9 /* IntExtensions.swift */; };
 		34D6A2CD2D565241008EB2B9 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */; };
-		34EB84F02DA4896D00B6ECF3 /* DojodoroTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB84EF2DA4896D00B6ECF3 /* DojodoroTabBar.swift */; };
+		34EB84F02DA4896D00B6ECF3 /* TabBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB84EF2DA4896D00B6ECF3 /* TabBarComponent.swift */; };
 		4C28D2C42DA06E070045CACC /* TokenTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28D2C32DA06DFE0045CACC /* TokenTypography.swift */; };
 		4C44C5BF2D9B67F4000CC03F /* Agdasima-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */; };
 		4C44C5C02D9B67F4000CC03F /* Agdasima-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		3436F0F42D9675E400E5B244 /* ShoppingItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItems.swift; sourceTree = "<group>"; };
 		3436F0F62D974CDA00E5B244 /* EmptyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCard.swift; sourceTree = "<group>"; };
+		344264DB2DB833AA00739EE1 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		346241902DA46B6400FB3B84 /* PlantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantModel.swift; sourceTree = "<group>"; };
 		346241922DA4709000FB3B84 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		346241942DA4744800FB3B84 /* DojodoroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojodoroViewModel.swift; sourceTree = "<group>"; };
@@ -94,7 +96,7 @@
 		34D6A2C72D565217008EB2B9 /* TimeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
 		34D6A2C92D565224008EB2B9 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
-		34EB84EF2DA4896D00B6ECF3 /* DojodoroTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojodoroTabBar.swift; sourceTree = "<group>"; };
+		34EB84EF2DA4896D00B6ECF3 /* TabBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarComponent.swift; sourceTree = "<group>"; };
 		4C28D2C32DA06DFE0045CACC /* TokenTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTypography.swift; sourceTree = "<group>"; };
 		4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agdasima-Bold.ttf"; sourceTree = "<group>"; };
 		4C44C5BE2D9B67F4000CC03F /* Agdasima-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agdasima-Regular.ttf"; sourceTree = "<group>"; };
@@ -149,12 +151,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		347FBBBD2D9DCEDF0041B024 /* Modals */ = {
+		344264DD2DB8511000739EE1 /* Bonsai */ = {
+			isa = PBXGroup;
+			children = (
+				4CDC0F582D6D01E70012FB93 /* BonsaiView.swift */,
+			);
+			path = Bonsai;
+			sourceTree = "<group>";
+		};
+		344264DE2DB8515400739EE1 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				344264E22DB851ED00739EE1 /* SubView */,
+				344264DB2DB833AA00739EE1 /* TabBarView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		344264DF2DB8516200739EE1 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				4CDC0F562D6D01B60012FB93 /* ShopView.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		344264E02DB8517400739EE1 /* Garden */ = {
+			isa = PBXGroup;
+			children = (
+				344264E12DB851A900739EE1 /* SubViews */,
+				4CDC0F542D6D01870012FB93 /* GardenView.swift */,
+			);
+			path = Garden;
+			sourceTree = "<group>";
+		};
+		344264E12DB851A900739EE1 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				3436F0F62D974CDA00E5B244 /* EmptyCard.swift */,
+				347FBB972D9B455E0041B024 /* GardenItemCard.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		344264E22DB851ED00739EE1 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				34EB84EF2DA4896D00B6ECF3 /* TabBarComponent.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		347FBBBD2D9DCEDF0041B024 /* SelectPlant */ = {
 			isa = PBXGroup;
 			children = (
 				347FBBA72D9C78F60041B024 /* SelectPlantModal.swift */,
 			);
-			path = Modals;
+			path = SelectPlant;
 			sourceTree = "<group>";
 		};
 		348BB94B2D7B902200B9449C /* Components */ = {
@@ -164,10 +217,7 @@
 				4CF6AD0B2D9CAAEC00DAA52A /* ShapeButtonMojo.swift */,
 				4CF6AD082D9CAAE400DAA52A /* MojoButtonStyle.swift */,
 				348BB94C2D7B907200B9449C /* ShoppingItemCard.swift */,
-				3436F0F62D974CDA00E5B244 /* EmptyCard.swift */,
-				347FBB972D9B455E0041B024 /* GardenItemCard.swift */,
 				4C9D6A0C2D9DD5A700524814 /* CoinAndPriceComponent.swift */,
-				34EB84EF2DA4896D00B6ECF3 /* DojodoroTabBar.swift */,
 				34BF9B292DB1B01100FF0D48 /* PomodoroImage.swift */,
 			);
 			path = Components;
@@ -237,12 +287,13 @@
 			isa = PBXGroup;
 			children = (
 				348BB94B2D7B902200B9449C /* Components */,
-				347FBBBD2D9DCEDF0041B024 /* Modals */,
-				4CDC0F582D6D01E70012FB93 /* BonsaiView.swift */,
-				4CDC0F562D6D01B60012FB93 /* ShopView.swift */,
-				4CDC0F542D6D01870012FB93 /* GardenView.swift */,
-				34D6A25D2D526A33008EB2B9 /* ContentView.swift */,
+				347FBBBD2D9DCEDF0041B024 /* SelectPlant */,
 				34BF9B232DB19C5200FF0D48 /* Pomodoro */,
+				344264E02DB8517400739EE1 /* Garden */,
+				344264DD2DB8511000739EE1 /* Bonsai */,
+				344264DF2DB8516200739EE1 /* Shop */,
+				344264DE2DB8515400739EE1 /* TabBar */,
+				34D6A25D2D526A33008EB2B9 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -483,7 +534,7 @@
 				34BF9AB22DAF1A0D00FF0D48 /* DojodoroView.swift in Sources */,
 				347FBBA82D9C78F60041B024 /* SelectPlantModal.swift in Sources */,
 				346241912DA46B6400FB3B84 /* PlantModel.swift in Sources */,
-				34EB84F02DA4896D00B6ECF3 /* DojodoroTabBar.swift in Sources */,
+				34EB84F02DA4896D00B6ECF3 /* TabBarComponent.swift in Sources */,
 				34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */,
 				4C9D6A0D2D9DD5A700524814 /* CoinAndPriceComponent.swift in Sources */,
 				4CF6AD092D9CAAE400DAA52A /* MojoButtonStyle.swift in Sources */,
@@ -495,6 +546,7 @@
 				3436F0F72D974CDA00E5B244 /* EmptyCard.swift in Sources */,
 				4CDC0F552D6D018A0012FB93 /* GardenView.swift in Sources */,
 				4CDC0F512D6CDDC00012FB93 /* NavigationViewModel.swift in Sources */,
+				344264DC2DB833AA00739EE1 /* TabBarView.swift in Sources */,
 				4CDC0F4C2D6CDD190012FB93 /* Navigation.swift in Sources */,
 				34D6A2C62D5651F8008EB2B9 /* PomodoroHelpers.swift in Sources */,
 				34BF9B152DAF1ADF00FF0D48 /* CircularProgressView.swift in Sources */,

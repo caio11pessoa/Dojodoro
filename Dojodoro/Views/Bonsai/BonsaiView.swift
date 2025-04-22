@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BonsaiView: View {
-    @State var router: AppRouter
     @State var viewModel: DojodoroViewModel
     var onTap: () -> Void
     
@@ -27,9 +26,9 @@ struct BonsaiView: View {
                     Spacer(minLength: 320)
                     PomodoroImage(bonsaiImage: "BlueBonsai", bonsaiHeight: bonsaiHeight
                     )
-                        .onTapGesture {
-                            onTap()
-                        }
+                    .onTapGesture {
+                        onTap()
+                    }
                 }
             }
         }
@@ -37,7 +36,7 @@ struct BonsaiView: View {
 }
 
 #Preview {
-    BonsaiView(router: .init(), viewModel: .init()){
+    BonsaiView(viewModel: .init()){
         print("Task Validation")
     }
     .ignoresSafeArea()

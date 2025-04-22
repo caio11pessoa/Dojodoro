@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ShopView: View {
-    @State var router: AppRouter
     
     var body: some View {
         ZStack {
@@ -29,7 +28,7 @@ struct ShopView: View {
 
 #Preview {
     NavigationStack{
-        ShopView(router: .init())
+        ShopView()
     }
 }
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct DojodoroView: View {
     
     @State var viewModel: DojodoroViewModel
-    @State var router: AppRouter
+    @Binding var isShowingPomodoro: Bool
     
     var body: some View {
         let screenHeight = UIScreen.main.bounds.height
@@ -20,15 +20,29 @@ struct DojodoroView: View {
             viewModel.backgroundColor
                 .ignoresSafeArea()
                 .animation(.easeInOut, value: viewModel.recover)
-            
-            ZStack{
-                CircularProgressView(percentagem: viewModel.progressCircle, isWorking: !viewModel.recover)
-                    .padding(.horizontal, 60)
-                    .animation(.easeInOut, value: viewModel.progressCircle)
-                
-                Text(viewModel.clockText)
-                    .agdasimaRegularFont(size: 64)
-                    .foregroundStyle(viewModel.textColor)
+            VStack{
+                HStack {
+                    Spacer()
+                    Button {
+                        isShowingPomodoro.toggle()
+                    } label: {
+                        Image(.pausePomodoro)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 28)
+                    }
+                }
+                .padding(.trailing)
+                ZStack{
+                    
+                    CircularProgressView(percentagem: viewModel.progressCircle, isWorking: !viewModel.recover)
+                        .padding(.horizontal, 60)
+                        .animation(.easeInOut, value: viewModel.progressCircle)
+                    
+                    Text(viewModel.clockText)
+                        .agdasimaRegularFont(size: 64)
+                        .foregroundStyle(viewModel.textColor)
+                }
             }
             
             VStack{
@@ -41,20 +55,6 @@ struct DojodoroView: View {
             }
             .padding(.bottom)
         }
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button{
-                    // Stop Page
-                    router.goBack()
-                    
-                }
-                label: {
-                    Image(.pausePomodoro)
-                        .resizable()
-                        .scaledToFit()
-                }
-            }
-        }
         .onAppear {
             viewModel.startPomodoro()
         }
@@ -62,11 +62,11 @@ struct DojodoroView: View {
 }
 
 #Preview {
-    NavigationStack {
-        DojodoroView(viewModel: .init(), router: .init())
-    }
+    DojodoroView(viewModel: .init(), isShowingPomodoro: .constant(true))
 }
 
 #Preview {
     ContentView()
 }
+
+
