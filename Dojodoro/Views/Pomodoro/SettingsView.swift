@@ -17,6 +17,7 @@ struct SettingsView: View {
     @Binding var isShowing: Bool
     @State var viewModel: DojodoroViewModel
     @State var viewModelSettings: SettingsViewModel = .init()
+    @Binding var isShowingPomodoro: Bool
     
     
     
@@ -26,7 +27,7 @@ struct SettingsView: View {
             
             switch viewModelSettings.currentPage {
             case .options:
-                OptionsView(viewModelSettings: viewModelSettings)
+                OptionsView(viewModelSettings: viewModelSettings, isShowingPomodoro: $isShowingPomodoro)
             case .ambientSound:
                 AmbientSoundView()
             case .restTime:
@@ -61,7 +62,7 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView(isShowing: .constant(true), viewModel: .init())
+    SettingsView(isShowing: .constant(true), viewModel: .init(), isShowingPomodoro: .constant(true))
         .ignoresSafeArea()
     
 }

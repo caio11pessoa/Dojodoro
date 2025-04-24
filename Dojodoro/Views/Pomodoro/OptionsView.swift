@@ -11,6 +11,7 @@ import SwiftUI
 struct OptionsView: View, SettingsAbstract {
     
     @State var viewModelSettings: SettingsViewModel
+    @Binding var isShowingPomodoro: Bool
     
     var body: some View {
         VStack {
@@ -34,8 +35,12 @@ struct OptionsView: View, SettingsAbstract {
                 } label: {
                     labelSettings(icon: .song, text: "Sons Ambiente")
                 }
+                Button {
+                    isShowingPomodoro = false
+                } label: {
+                    labelSettings(icon: .leftChevron, text: "Voltar ao Início") // Sair do Pomodoro
+                }
                 
-                labelSettings(icon: .leftChevron, text: "Voltar ao Início") // Sair do Pomodoro
             }
             Spacer()
         }

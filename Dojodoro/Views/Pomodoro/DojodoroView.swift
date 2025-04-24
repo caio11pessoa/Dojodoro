@@ -70,7 +70,7 @@ struct DojodoroView: View {
             .padding(isShowingSettings ? -25 : 0)
             .overlay {
                 if isShowingSettings {
-                    SettingsView(isShowing: $isShowingSettings, viewModel: viewModel)
+                    SettingsView(isShowing: $isShowingSettings, viewModel: viewModel, isShowingPomodoro: $isShowingPomodoro)
                         .transition( .opacity)
                 }
             }
