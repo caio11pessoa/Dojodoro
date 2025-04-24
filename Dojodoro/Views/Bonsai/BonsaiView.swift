@@ -16,19 +16,17 @@ struct BonsaiView: View {
         let bonsaiHeight: CGFloat = 0.33 * screenHeight
         
         ZStack {
-            ZStack {
-                Text("Toque na tela para começar")
-                    .font(Font.dojoUI(.titleMedium))
-                    .minimumScaleFactor(0.7)
-                    .lineLimit(1)
-                
-                VStack {
-                    Spacer(minLength: 320)
-                    PomodoroImage(bonsaiImage: "BlueBonsai", bonsaiHeight: bonsaiHeight
-                    )
-                    .onTapGesture {
-                        onTap()
-                    }
+            Text("Toque na tela para começar")
+                .font(Font.dojoUI(.titleMedium))
+                .minimumScaleFactor(0.7)
+                .lineLimit(1)
+            
+            VStack {
+                Spacer(minLength: 320)
+                PomodoroImage(bonsaiImage: "BlueBonsai", bonsaiHeight: bonsaiHeight
+                )
+                .onTapGesture {
+                    onTap()
                 }
             }
         }

@@ -32,7 +32,7 @@ struct TabBarView: View {
                     GardenView(viewModel: viewModel)
                 }
             }
-            .padding(.bottom, 90)
+            .padding(.bottom, 100)
             TabBarComponent(target: $pickedIndex)
                 .padding(.bottom)
                 .frame(height: 90)
