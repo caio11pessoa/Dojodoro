@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DojodoroTabBar: View {
+struct TabBarComponent: View {
     @Binding var selectedTab: Int
 
     init(target: Binding<Int>) {
@@ -54,7 +54,7 @@ struct DojodoroTabBar: View {
     @Previewable @State var target: Int = 0
     VStack {
         Spacer()
-        DojodoroTabBar(target: $target)
+        TabBarComponent(target: $target)
             .frame(height: 90)
     }
     .ignoresSafeArea()

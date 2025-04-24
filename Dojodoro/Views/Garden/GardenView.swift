@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct GardenView: View {
-    @State var router: AppRouter
     @State var viewModel: DojodoroViewModel
     
     var adaptiveColumns: [GridItem] {
@@ -50,7 +49,7 @@ struct GardenView: View {
 
 #Preview {
     NavigationStack {
-        GardenView(router: AppRouter(), viewModel: .init())
+        GardenView(viewModel: .init())
             .ignoresSafeArea()
     }
 }

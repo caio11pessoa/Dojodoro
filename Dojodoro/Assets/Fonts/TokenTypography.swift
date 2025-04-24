@@ -29,6 +29,9 @@ enum TypographyCase {
     case titleMediumDotGothic
     /// DotGothic16-Regular, 28px
     case displayLarge
+    
+    /// DotGothic16-Regular, 64px
+    case displayExtraLargeDotGothic
     /// DotGothic16-Regular, 20px
     case headline
     /// DotGothic16-Regular, 18px
@@ -37,7 +40,7 @@ enum TypographyCase {
     case body
     /// DotGothic16-Regular, 16px (com bold, se quiser destacar)
     case button
-
+    
     /// Agdasima-Regular, 64px
     case tabBar
     /// Agdasima-Regular, 24returnpx
@@ -48,15 +51,15 @@ enum TypographyCase {
     case titleLarge
     /// Agdasima-Regular, 64px
     case displayExtraLarge
-
+    
 }
 
 
 extension Font {
     static func dojoUI(_ typographyCase: TypographyCase) -> Font {
         switch typographyCase {
-
-        // DotGothic16-Regular
+            
+            // DotGothic16-Regular
         case .displayLarge:
             return Font.custom("DotGothic16-Regular", size:TokenTypography.FontSize.titleLargeDotGothic.rawValue)
         case .titleLargeDotGothic:
@@ -71,8 +74,8 @@ extension Font {
             return Font.custom("DotGothic16-Regular", size: TokenTypography.FontSize.body.rawValue)
         case .button:
             return Font.custom("DotGothic16-Regular", size: TokenTypography.FontSize.body.rawValue)
-
-        // Agdasima-Regular
+            
+            // Agdasima-Regular
         case .titleSmall:
             return Font.custom("Agdasima-Regular", size: TokenTypography.FontSize.titleSmall.rawValue)
         case .titleMedium:
@@ -83,6 +86,8 @@ extension Font {
             return Font.custom("Agdasima-Regular", size: TokenTypography.FontSize.displayExtraLarge.rawValue)
         case .tabBar:
             return Font.custom("Agdasima-Regular", size: TokenTypography.FontSize.body.rawValue)
+        case .displayExtraLargeDotGothic:
+            return Font.custom("DotGothic16-Regular", size: TokenTypography.FontSize.displayExtraLarge.rawValue)
         }
     }
 }
