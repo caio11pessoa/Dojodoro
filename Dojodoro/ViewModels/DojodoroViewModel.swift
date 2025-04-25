@@ -9,15 +9,19 @@ import SwiftUI
 
 @Observable
 class DojodoroViewModel: PomodoroHelpers  {
+    var isShowingPlantDetail: Bool = false
+    var clickedPlant: PlantModel?
+    
+    
     var pomodoro: Pomodoro = .init(restTime: 5, workTime: 5, Iteration: 1)
     
-    var clockText: String = ""
-    var play: Bool = false
+    var clockText: String = "" // TODO: Colocar na entidade Pomodoro
+    var play: Bool = false // TODO: Colocar na entidade Pomodoro
     var progressCircle: Double = 0
     var sheetIsPresented: Bool = false
-    var workTime: Int = 30
-    var restTime: Int = 15
-    var recover: Bool = false
+    var workTime: Int = 30 // TODO: Colocar na entidade Pomodoro
+    var restTime: Int = 15 // TODO: Colocar na entidade Pomodoro
+    var recover: Bool = false // TODO: Colocar na entidade Pomodoro
     
     var textColor: Color {Color(recover ? "TextColorPrimaryRest" :  "TextColorPrimary")}
     var backgroundColor: Color {Color(recover ? "BackgroundRest" :  "Background")}

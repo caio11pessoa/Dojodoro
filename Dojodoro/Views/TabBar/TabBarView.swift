@@ -39,9 +39,23 @@ struct TabBarView: View {
                 .padding(.horizontal, 48)
         }
         .ignoresSafeArea()
+        .blur(radius: viewModel.isShowingPlantDetail ? 10 : 0)
+        // Modals
+        .overlay {
+            if viewModel.isShowingPlantDetail {
+                ZStack {
+                    Color.black.opacity(0.75)
+                    SelectPlantModal( isPresented:  $viewModel.isShowingPlantDetail, plant: viewModel.clickedPlant ?? .init(name: "None"))
+                        .padding(32)
+                        .padding(.vertical, 140)
+                }
+                .transition(.opacity)
+                .ignoresSafeArea()
+            }
+        }
     }
 }
 
 #Preview {
-        TabBarView(viewModel: .init(), isShowingPomodoro: .constant(false))
+    TabBarView(viewModel: .init(), isShowingPomodoro: .constant(false))
 }

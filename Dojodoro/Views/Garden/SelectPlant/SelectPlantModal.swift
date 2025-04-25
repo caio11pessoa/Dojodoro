@@ -33,7 +33,7 @@ struct SelectPlantModal: View {
                     infoRow(title: "Tempo Total:", value: "\(plant.totalTime.hour!)hrs e \(plant.totalTime.minute!)Min")
                     
                     // Botão
-                    MojoButton(isSelected: $plant.isSelected){
+                    MojoButton(isSelected: plant.isSelected){
                         withAnimation {
                             plant.isSelected.toggle()
                         }
@@ -55,7 +55,9 @@ struct SelectPlantModal: View {
             Spacer()
             
             Button {
-                isPresented = false
+                withAnimation {
+                    isPresented = false
+                }
             } label: {
                 Image(.exitMark)
                     .resizable()

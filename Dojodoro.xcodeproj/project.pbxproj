@@ -193,6 +193,7 @@
 		344264E02DB8517400739EE1 /* Garden */ = {
 			isa = PBXGroup;
 			children = (
+				347FBBBD2D9DCEDF0041B024 /* SelectPlant */,
 				344264E12DB851A900739EE1 /* SubViews */,
 				4CDC0F542D6D01870012FB93 /* GardenView.swift */,
 			);
@@ -307,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				348BB94B2D7B902200B9449C /* Components */,
-				347FBBBD2D9DCEDF0041B024 /* SelectPlant */,
 				34BF9B232DB19C5200FF0D48 /* Pomodoro */,
 				344264E02DB8517400739EE1 /* Garden */,
 				344264DD2DB8511000739EE1 /* Bonsai */,

@@ -27,12 +27,16 @@ struct GardenView: View {
                 ScrollView {
                     LazyVGrid(columns: adaptiveColumns, spacing: 16) {
                         ForEach($viewModel.plants, id: \.id) { $plant in
+                            
                             GardenItemCard(
                                 itemImage: plant.image,
                                 name: plant.name,
                                 isSelected: plant.isSelected
                             ){
-                                // Open the modal
+                                withAnimation {
+                                    viewModel.clickedPlant = plant
+                                    viewModel.isShowingPlantDetail.toggle()
+                                }
                             }
                         }
                         EmptyCard(text: "Em breve", textBackground: "間もなく")

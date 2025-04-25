@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct MojoButton: View {
-    @Binding var isSelected: Bool
+    var isSelected: Bool
     var action: (() -> Void)?
-    init(isSelected: Binding<Bool>, action: (() -> Void)? = nil) {
-        self._isSelected = isSelected
-        self.action = action
-    }
     
     var body: some View {
         Button(action: action ?? {}) {}
@@ -23,7 +19,7 @@ struct MojoButton: View {
 
 #Preview {
     @Previewable @State var isSelected = false
-    MojoButton(isSelected: $isSelected){
+    MojoButton(isSelected: false){
         isSelected.toggle()
     }
 }
