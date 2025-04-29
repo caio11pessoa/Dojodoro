@@ -45,7 +45,7 @@ struct TabBarView: View {
             if viewModel.isShowingPlantDetail {
                 ZStack {
                     Color.black.opacity(0.75)
-                    SelectPlantModal( isPresented:  $viewModel.isShowingPlantDetail, plant: viewModel.clickedPlant ?? .init(name: "None"))
+                    SelectPlantModal(viewModel: viewModel)
                         .padding(32)
                         .padding(.vertical, 140)
                 }

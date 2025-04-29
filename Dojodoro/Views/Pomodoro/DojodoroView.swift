@@ -37,7 +37,7 @@ struct DojodoroView: View {
                 VStack{
                     Spacer()
                     
-                    PomodoroImage(bonsaiImage: viewModel.recover ? "Bambu" : "BlueBonsai", bonsaiHeight: bonsaiHeight)
+                    PomodoroImage(bonsaiImage: viewModel.recover ? "Bambu" : viewModel.selectedPlant.imageGallery[.boonsaiSeed]!, bonsaiHeight: bonsaiHeight)
                         .padding(.bottom, 32)
                     
                     ProgressPomodoro(progress: viewModel.pomodoro.Iteration, recover: viewModel.recover)
