@@ -24,7 +24,7 @@ class DojodoroViewModel: PomodoroHelpers  {
         }
     }
     
-    var pomodoro: Pomodoro = .init(restTime: 5, workTime: 5, Iteration: 1)
+    var pomodoro: Pomodoro = .init(Iteration: 1)
     
     var clockText: String = "" // TODO: Colocar na entidade Pomodoro
     var play: Bool = false // TODO: Colocar na entidade Pomodoro
@@ -74,7 +74,7 @@ class DojodoroViewModel: PomodoroHelpers  {
     override init() {
         super.init()
         
-        clockText = formatTime(seconds: pomodoro.workTime)
+        clockText = formatTime(seconds: pomodoro.workTime.rawValue)
         
         pomodoroSingleton.initialConfig(pomodoro) { clock, clockCentiSeconds, recover, isRunning in
             let pomodoroViewModel = self
@@ -84,7 +84,7 @@ class DojodoroViewModel: PomodoroHelpers  {
             pomodoroViewModel.play = isRunning
             
             pomodoroViewModel.progressCircle = pomodoroViewModel.calculateProgressPercentage(
-                totalWorkTime: recover ? pomodoroViewModel.pomodoro.restTime:  pomodoroViewModel.pomodoro.workTime,
+                totalWorkTime: recover ? pomodoroViewModel.pomodoro.restTime.rawValue :  pomodoroViewModel.pomodoro.workTime.rawValue,
                 elapsedCentiSeconds: clockCentiSeconds
             )
         }
@@ -107,13 +107,13 @@ class DojodoroViewModel: PomodoroHelpers  {
         self.play = false
         pomodoroSingleton.pauseClock()
         pomodoroSingleton.resetClock()
-        clockText = formatTime(seconds: pomodoro.workTime)
+        clockText = formatTime(seconds: pomodoro.workTime.rawValue)
         progressCircle = 0
     }
     
     func updateSettings() {
-        pomodoro.workTime = workTime*60
-        pomodoro.restTime = restTime*60
+//        pomodoro.workTime = workTime*60
+//        pomodoro.restTime = restTime*60
         pomodoroSingleton.updateClock(pomodoro: pomodoro)
         clockText = formatTime(seconds: workTime*60)
     }

@@ -21,12 +21,12 @@ class PomodoroSingleton {
     private init() {}
     static let shared = PomodoroSingleton()
     
-    
+    // TODO: Change Pomodoro parameter
     func initialConfig(_ pomodoro: Pomodoro, updateClock: ((Int, Int, Bool, Bool) -> Void)? = nil) { // Ajeitar a lógica de receber em segundos
         
-        clockCentiSeconds = pomodoro.workTime * timeUnitSelected
-        self.initialClockCentiSeconds = pomodoro.workTime * timeUnitSelected
-        self.initialRestTimeCentiSeconds = pomodoro.restTime * timeUnitSelected
+        clockCentiSeconds = pomodoro.workTime.rawValue * timeUnitSelected
+        self.initialClockCentiSeconds = pomodoro.workTime.rawValue * timeUnitSelected
+        self.initialRestTimeCentiSeconds = pomodoro.restTime.rawValue * timeUnitSelected
         self.TrackClock = updateClock
         
     }
@@ -112,8 +112,8 @@ class PomodoroSingleton {
     }
     
     func updateClock(pomodoro: Pomodoro){
-        initialClockCentiSeconds = pomodoro.workTime * timeUnitSelected
-        initialRestTimeCentiSeconds = pomodoro.restTime * timeUnitSelected
+        initialClockCentiSeconds = pomodoro.workTime.rawValue * timeUnitSelected
+        initialRestTimeCentiSeconds = pomodoro.restTime.rawValue * timeUnitSelected
         resetClock()
     }
     
