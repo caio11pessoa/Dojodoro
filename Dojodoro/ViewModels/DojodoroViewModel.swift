@@ -9,17 +9,32 @@ import SwiftUI
 
 @Observable
 class DojodoroViewModel: PomodoroHelpers  {
+    var isShowingPlantDetail: Bool = false
+    var clickedPlant: PlantModel?
+    
+    var selectedPlant: PlantModel {
+        plants.first(where: { $0.isSelected }) ?? .init(name: "erro")
+    }
+    
+    func selectPlant() {
+        guard let clickedPlant else { return }
+        
+        for i in 0..<plants.count {
+            plants[i].isSelected = (plants[i].id == clickedPlant.id)
+        }
+    }
+    
     var pomodoro: Pomodoro = .init(restTime: 5, workTime: 5, Iteration: 1)
     
-    var clockText: String = ""
-    var play: Bool = false
+    var clockText: String = "" // TODO: Colocar na entidade Pomodoro
+    var play: Bool = false // TODO: Colocar na entidade Pomodoro
     var progressCircle: Double = 0
     var sheetIsPresented: Bool = false
-    var workTime: Int = 30
-    var restTime: Int = 15
-    var recover: Bool = false
+    var workTime: Int = 30 // TODO: Colocar na entidade Pomodoro
+    var restTime: Int = 15 // TODO: Colocar na entidade Pomodoro
+    var recover: Bool = false // TODO: Colocar na entidade Pomodoro
     
-    var textColor: Color {Color(recover ? "TextColorPrimaryRest" :  "TextColorPrimary")}
+    var textColor: Color {Color(recover ? "TextColorPrimaryRest" :  "TextPomodoro")}
     var backgroundColor: Color {Color(recover ? "BackgroundRest" :  "Background")}
     
     var pomodoroSingleton = PomodoroSingleton.shared
@@ -32,7 +47,8 @@ class DojodoroViewModel: PomodoroHelpers  {
                 .sprout: "SproutLevelTwo",
                 .bud: "SprooutLevelThree",
                 .bonsai: "Bonsai"
-            ]
+            ],
+            isSelected: true
         ),
         .init(
             name: "Cherry",

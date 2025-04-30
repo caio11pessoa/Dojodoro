@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct SelectPlantModal: View {
-    @Binding var isPresented: Bool
-    @State var plant: PlantModel
+    @State var viewModel: DojodoroViewModel
+    init(viewModel: DojodoroViewModel) {
+        self.viewModel = viewModel
+        guard viewModel.clickedPlant != nil else {
+            viewModel.clickedPlant = .init(name: "Name")
+            return
+        }
+    }
     
     var body: some View {
-        
         Image(.selectModal)
             .resizable()
             .overlay {
@@ -22,20 +27,19 @@ struct SelectPlantModal: View {
                     
                     Spacer()
                     
-                    Image(plant.image)
+                    Image(viewModel.clickedPlant!.image)
                         .resizable()
                         .scaledToFit()
                         .frame(minWidth: 140, maxWidth: 175)
                         .padding(.bottom, 8)
                     
-                    infoRow(title: "Estágio:", value: "\(plant.stage)")
-                    infoRow(title: "Pomodoros Feitos:", value: "\(plant.pomodoroCount)")
-                    infoRow(title: "Tempo Total:", value: "\(plant.totalTime.hour!)hrs e \(plant.totalTime.minute!)Min")
+                    infoRow(title: "Estágio:", value: "\(viewModel.clickedPlant!.stage)")
+                    infoRow(title: "Pomodoros Feitos:", value: "\(viewModel.clickedPlant!.pomodoroCount)")
+                    infoRow(title: "Tempo Total:", value: "\(viewModel.clickedPlant!.totalTime.hour!)hrs e \(viewModel.clickedPlant!.totalTime.minute!)Min")
                     
-                    // Botão
-                    MojoButton(isSelected: $plant.isSelected){
+                    MojoButton(isSelected: viewModel.clickedPlant!.isSelected){
                         withAnimation {
-                            plant.isSelected.toggle()
+                            viewModel.selectPlant()
                         }
                     }
                 }
@@ -46,7 +50,7 @@ struct SelectPlantModal: View {
     
     private var headerView: some View {
         HStack {
-            Text(plant.name)
+            Text(viewModel.clickedPlant!.name)
                 .font(Font.custom("DotGothic16-Regular", size: 28))
                 .minimumScaleFactor(0.5)
                 .lineLimit(1)
@@ -55,7 +59,9 @@ struct SelectPlantModal: View {
             Spacer()
             
             Button {
-                isPresented = false
+                withAnimation {
+                    viewModel.isShowingPlantDetail = false
+                }
             } label: {
                 Image(.exitMark)
                     .resizable()
@@ -84,16 +90,8 @@ struct SelectPlantModal: View {
     ZStack {
         Color(red: 27/255, green: 23/255, blue: 17/255, opacity: 0.8)
             .ignoresSafeArea()
-        SelectPlantModal(isPresented: .constant(true), plant: .init(
-            name: "Oak",
-            imageGallery: [
-                .boonsaiSeed: "Sprout",
-                .sprout: "SproutLevelTwo",
-                .bud: "SprooutLevelThree",
-                .bonsai: "Bonsai"
-            ]
-        ))
-        .padding(.vertical, 120)
-        .padding(.horizontal, 30)
+        SelectPlantModal(viewModel: .init())
+            .padding(.vertical, 120)
+            .padding(.horizontal, 30)
     }
 }

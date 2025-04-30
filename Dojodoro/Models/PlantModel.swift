@@ -5,9 +5,10 @@
 //  Created by Caio de Almeida Pessoa on 07/04/25.
 //
 
-import Foundation
+import SwiftUI
 
-struct PlantModel: Identifiable {
+@Observable
+class PlantModel: Identifiable {
     
     var id: UUID = UUID()
     
@@ -35,8 +36,9 @@ struct PlantModel: Identifiable {
         return imageGallery[stage] ?? ""
     }
     
-    init(name: String, imageGallery: [Stage : String] = [:]) {
+    init(name: String, imageGallery: [Stage : String] = [:], isSelected: Bool = false) {
         self.name = name
         self.imageGallery = imageGallery
+        self.isSelected = isSelected
     }
 }

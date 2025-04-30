@@ -23,26 +23,6 @@ struct DojodoroView: View {
                     .animation(.easeInOut, value: viewModel.recover)
                 
                 VStack{
-                    HStack {
-                        Spacer()
-                        Button {
-                            viewModel.pausePomodoro()
-                            withAnimation {
-                                
-                                isShowingSettings = true
-                            }
-                            
-                        } label: {
-                            Image(.pausePomodoro)
-                                .renderingMode(.template)
-                                .resizable()
-                                .tint(viewModel.recover ? Color(.background) : Color.black)
-                                .scaledToFit()
-                                .frame(width: 24)
-                        }
-                    }
-                    .padding()
-                    .padding(.top)
                     ZStack{
                         CircularProgressView(percentagem: viewModel.progressCircle, isWorking: !viewModel.recover)
                             .padding(.horizontal, 60)
@@ -52,13 +32,12 @@ struct DojodoroView: View {
                             .agdasimaRegularFont(size: 64)
                             .foregroundStyle(viewModel.textColor)
                     }
+                    .padding(.top, 120)
                 }
-                //            .blur(radius: isShowingSettings ? 20 : 0)
-                
                 VStack{
                     Spacer()
                     
-                    PomodoroImage(bonsaiImage: viewModel.recover ? "Bambu" : "BlueBonsai", bonsaiHeight: bonsaiHeight)
+                    PomodoroImage(bonsaiImage: viewModel.recover ? "Bambu" : viewModel.selectedPlant.imageGallery[.boonsaiSeed]!, bonsaiHeight: bonsaiHeight)
                         .padding(.bottom, 32)
                     
                     ProgressPomodoro(progress: viewModel.pomodoro.Iteration, recover: viewModel.recover)
@@ -77,7 +56,26 @@ struct DojodoroView: View {
             .ignoresSafeArea()
             
             .onAppear {
-                //            viewModel.startPomodoro()
+                viewModel.startPomodoro()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        viewModel.pausePomodoro()
+                        withAnimation {
+                            
+                            isShowingSettings = true
+                        }
+                        
+                    } label: {
+                        Image(.pausePomodoro)
+                            .renderingMode(.template)
+                            .resizable()
+                            .tint(viewModel.recover ? Color(.background) : Color.black)
+                            .scaledToFit()
+                            .frame(width: 24)
+                    }
+                }
             }
         }
     }
