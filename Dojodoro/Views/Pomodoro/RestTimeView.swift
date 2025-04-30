@@ -11,8 +11,6 @@ struct RestTimeView: View, SettingsAbstract {
     @State var selectedSound: Bool = false // TODO: Solve this
     var callback: (Int) -> Bool = {_ in true}
     
-    var values: [Int] = [5, 10, 15, 20, 25, 30]
-    
     private func labelSettings(value: Int) -> some View {
         HStack {
             Button {
@@ -43,8 +41,8 @@ struct RestTimeView: View, SettingsAbstract {
                 .padding(.top, 140)
             Spacer()
             VStack(alignment: .leading) {
-                ForEach(values, id: \.self) { value in
-                    labelSettings(value: value)
+                ForEach(RestTime.allCases, id: \.self) { value in
+                    labelSettings(value: value.rawValue)
                 }
             }
             Spacer()

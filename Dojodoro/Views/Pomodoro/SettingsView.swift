@@ -43,9 +43,9 @@ struct SettingsView: View {
                     withAnimation {
                         if(viewModelSettings.route.count <= 1){
                             isShowing.toggle()
+                            viewModel.startPomodoro()x
                         }else {
                             viewModelSettings.goBack()
-                            
                         }
                     }
                 } label: {

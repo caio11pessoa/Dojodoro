@@ -20,11 +20,11 @@ struct DojodoroView: View {
             ZStack(alignment: .top) {
                 viewModel.backgroundColor
                     .ignoresSafeArea()
-                    .animation(.easeInOut, value: viewModel.recover)
+                    .animation(.easeInOut, value: viewModel.pomodoro.recover)
                 
                 VStack{
                     ZStack{
-                        CircularProgressView(percentagem: viewModel.progressCircle, isWorking: !viewModel.recover)
+                        CircularProgressView(percentagem: viewModel.progressCircle, isWorking: !viewModel.pomodoro.recover)
                             .padding(.horizontal, 60)
                             .animation(.easeInOut, value: viewModel.progressCircle)
                         
@@ -37,10 +37,10 @@ struct DojodoroView: View {
                 VStack{
                     Spacer()
                     
-                    PomodoroImage(bonsaiImage: viewModel.recover ? "Bambu" : viewModel.selectedPlant.imageGallery[.boonsaiSeed]!, bonsaiHeight: bonsaiHeight)
+                    PomodoroImage(bonsaiImage: viewModel.pomodoro.recover ? "Bambu" : viewModel.selectedPlant.imageGallery[.boonsaiSeed]!, bonsaiHeight: bonsaiHeight)
                         .padding(.bottom, 32)
                     
-                    ProgressPomodoro(progress: viewModel.pomodoro.Iteration, recover: viewModel.recover)
+                    ProgressPomodoro(progress: viewModel.pomodoro.Iteration, recover: viewModel.pomodoro.recover)
                 }
                 .padding(.bottom)
                 
@@ -57,6 +57,7 @@ struct DojodoroView: View {
             
             .onAppear {
                 viewModel.startPomodoro()
+                print("pomodoro \(viewModel.pomodoro.play)")
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -71,7 +72,7 @@ struct DojodoroView: View {
                         Image(.pausePomodoro)
                             .renderingMode(.template)
                             .resizable()
-                            .tint(viewModel.recover ? Color(.background) : Color.black)
+                            .tint(viewModel.pomodoro.recover ? Color(.background) : Color.black)
                             .scaledToFit()
                             .frame(width: 24)
                     }

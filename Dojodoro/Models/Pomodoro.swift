@@ -34,8 +34,18 @@ enum WorkTime: Int, CaseIterable {
     case Long = 60
 }
 
-struct Pomodoro {
-    var restTime: RestTime = .mediumOne
-    var workTime: WorkTime = .Medium
+@Observable
+class Pomodoro {
+    var restTime: RestTime
+    var workTime: WorkTime
     var Iteration: Int
+    
+    init(restTime: RestTime = .mediumOne, workTime: WorkTime = .Medium, Iteration: Int) {
+        self.restTime = restTime
+        self.workTime = workTime
+        self.Iteration = Iteration
+    }
+    
+    var play: Bool = false
+    var recover: Bool = false
 }

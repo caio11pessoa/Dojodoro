@@ -32,7 +32,6 @@
 		34BF9B2A2DB1B01100FF0D48 /* PomodoroImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BF9B292DB1B01100FF0D48 /* PomodoroImage.swift */; };
 		34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25D2D526A33008EB2B9 /* ContentView.swift */; };
 		34D6A2622D526A33008EB2B9 /* DojodoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25E2D526A33008EB2B9 /* DojodoroApp.swift */; };
-		34D6A2632D526A33008EB2B9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A25F2D526A33008EB2B9 /* Item.swift */; };
 		34D6A2642D526A33008EB2B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D6A25A2D526A33008EB2B9 /* Preview Assets.xcassets */; };
 		34D6A2652D526A33008EB2B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D6A25C2D526A33008EB2B9 /* Assets.xcassets */; };
 		34D6A2C32D5651EE008EB2B9 /* PomodoroSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C22D5651EE008EB2B9 /* PomodoroSingleton.swift */; };
@@ -104,7 +103,6 @@
 		34D6A25C2D526A33008EB2B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34D6A25D2D526A33008EB2B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		34D6A25E2D526A33008EB2B9 /* DojodoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojodoroApp.swift; sourceTree = "<group>"; };
-		34D6A25F2D526A33008EB2B9 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		34D6A2C22D5651EE008EB2B9 /* PomodoroSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroSingleton.swift; sourceTree = "<group>"; };
 		34D6A2C42D5651F8008EB2B9 /* PomodoroHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroHelpers.swift; sourceTree = "<group>"; };
 		34D6A2C72D565217008EB2B9 /* TimeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
@@ -324,7 +322,6 @@
 				4CDC0F4B2D6CDD150012FB93 /* Navigation.swift */,
 				34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */,
 				34D6A2C72D565217008EB2B9 /* TimeUnit.swift */,
-				34D6A25F2D526A33008EB2B9 /* Item.swift */,
 				3436F0F42D9675E400E5B244 /* ShoppingItems.swift */,
 				347FBB992D9B45F20041B024 /* GardenItems.swift */,
 				346241902DA46B6400FB3B84 /* PlantModel.swift */,
@@ -579,7 +576,6 @@
 				34D6A2C62D5651F8008EB2B9 /* PomodoroHelpers.swift in Sources */,
 				34BF9B152DAF1ADF00FF0D48 /* CircularProgressView.swift in Sources */,
 				34BF9B2A2DB1B01100FF0D48 /* PomodoroImage.swift in Sources */,
-				34D6A2632D526A33008EB2B9 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
