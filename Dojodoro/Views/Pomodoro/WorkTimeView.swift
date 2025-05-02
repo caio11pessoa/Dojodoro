@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorkTimeView: View, SettingsAbstract {
-    @State var selectedSound: Bool = false // TODO: Solve this
+    @State var viewModel: DojodoroViewModel
     var callback: (Int) -> Bool = {_ in true}
     
     private func labelSettings(value: Int) -> some View {
@@ -16,11 +16,13 @@ struct WorkTimeView: View, SettingsAbstract {
             Button {
                 withAnimation {
                     if callback(value) {
-                        selectedSound.toggle()
+                        viewModel.seletWorkTime = WorkTime(rawValue: value)!
+                        viewModel.pomodoro.workTime = WorkTime(rawValue: value)!
+                        viewModel.pomodoro.updateSettings()
                     }
                 }
             } label: {
-                Image(selectedSound ? .boxCheck : .boxUncheck)
+                Image(value == viewModel.seletWorkTime.rawValue ? .boxCheck : .boxUncheck)
                     .resizable()
                     .renderingMode(.template)
                     .scaledToFit()
@@ -51,5 +53,5 @@ struct WorkTimeView: View, SettingsAbstract {
 }
 
 #Preview {
-    WorkTimeView()
+    WorkTimeView(viewModel: .init())
 }

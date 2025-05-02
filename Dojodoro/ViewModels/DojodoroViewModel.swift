@@ -9,34 +9,6 @@ import SwiftUI
 
 @Observable
 class DojodoroViewModel: PomodoroHelpers  {
-    var isShowingPlantDetail: Bool = false
-    var clickedPlant: PlantModel?
-    
-    var selectedPlant: PlantModel {
-        plants.first(where: { $0.isSelected }) ?? .init(name: "erro")
-    }
-    
-    func selectPlant() {
-        guard let clickedPlant else { return }
-        
-        for i in 0..<plants.count {
-            plants[i].isSelected = (plants[i].id == clickedPlant.id)
-        }
-    }
-    
-    var pomodoro: Pomodoro = .init(Iteration: 1)
-    
-    var clockText: String{
-        formatTime(seconds: pomodoro.currentTime)
-    }
-    
-    var progressCircle: Double = 0 // TODO: Tem que ficar em algum lugar mais interessante
-    var sheetIsPresented: Bool = false
-    
-    var textColor: Color {Color(pomodoro.recover ? "TextColorPrimaryRest" :  "TextPomodoro")}
-    var backgroundColor: Color {Color(pomodoro.recover ? "BackgroundRest" :  "Background")}
-    
-    var pomodoroSingleton = PomodoroSingleton.shared
     
     var plants: [PlantModel] = [
         .init(
@@ -69,52 +41,78 @@ class DojodoroViewModel: PomodoroHelpers  {
             ]
         )
     ]
+
+    var isShowingPlantDetail: Bool = false
+
+    var clickedPlant: PlantModel? // VM Específica
+    
+    var seletWorkTime: WorkTime = .medium // VM Específica
+    var seletRestTime: RestTime = .mediumOne // VM Específica
+    
+    var selectedPlant: PlantModel {
+        plants.first(where: { $0.isSelected }) ?? .init(name: "erro")
+    }
+    
+    func selectPlant() {
+        guard let clickedPlant else { return }
+        
+        for i in 0..<plants.count {
+            plants[i].isSelected = (plants[i].id == clickedPlant.id)
+        }
+    }
+    
+    var pomodoro: Pomodoro = .init(Iteration: 0)
+    
+    
+    var progressCircle: Double = 0 // TODO: Tem que ficar em algum lugar mais interessante
+    var sheetIsPresented: Bool = false
+    
+    var textColor: Color {Color(pomodoro.isRecover ? "TextColorPrimaryRest" :  "TextPomodoro")}
+    var backgroundColor: Color {Color(pomodoro.isRecover ? "BackgroundRest" :  "Background")}
+    
+    var pomodoroSingleton = PomodoroSingleton.shared
     
     override init() {
-        super.init()
         
-        pomodoro.currentTime = pomodoro.workTime.rawValue
-        pomodoroSingleton.initialConfig(pomodoro) { clock, clockCentiSeconds, isRecover, isRunning in
-            let pomodoroViewModel = self
-            
-            let pomodoro = pomodoroViewModel.pomodoro
-            pomodoro.currentTime = clock
-            pomodoro.recover = isRecover
-            pomodoro.play = isRunning
-            
-            pomodoroViewModel.progressCircle = pomodoroViewModel.calculateProgressPercentage(
-                totalWorkTime: isRecover ? pomodoro.restTime.rawValue :  pomodoro.workTime.rawValue,
-                elapsedCentiSeconds: clockCentiSeconds
-            )
+        super.init()
+        seletWorkTime = pomodoro.workTime
+        seletRestTime = pomodoro.restTime
+        pomodoro.currentTime = Double(pomodoro.workTime.rawValue)
+    }
+    // Pausa pode cancelar tudo mas manter o contador
+    var tempoRestanteText: String { formatTime(seconds: pomodoro.currentTime) }
+    
+    func ProximoTempo() {
+        pomodoro.iteration += 1
+        if pomodoro.iteration < pomodoro.trilha.count {
+            print("ProximoTempo \(pomodoro.actualTimeTrilha)")
+            pomodoroSingleton.novaConfiguration(tempo: pomodoro.actualTimeTrilha)
+            startPomodoro()
+            withAnimation {
+                pomodoro.isRecover.toggle()
+            }
+        }
+    }
+    func startPomodoro() {
+        pomodoro.isRunning = true
+        pomodoroSingleton.startarClick()
+        pomodoroSingleton.novaConfiguration(tempo: pomodoro.trilha[0])
+        pomodoroSingleton.comecarClock(pomodoro.actualTimeTrilha) { tempoRestante, acabou in
+            print("TempoRestante: \(self.pomodoro.currentTime)")
+            self.pomodoro.currentTime = tempoRestante
+            let totalWorkTime: Double = self.pomodoro.isRecover ? Double(self.pomodoro.restTime.rawValue) : Double(self.pomodoro.workTime.rawValue)
+            self.progressCircle = self.calculateProgressPercentage(totalWorkTime, elapsedCentiSeconds: tempoRestante)
+            if acabou {
+                self.ProximoTempo()
+            }
         }
     }
     
-    func startPomodoro() {
-        self.pomodoro.play = true
-        if pomodoro.recover {
-            pomodoroSingleton.playRecover()
-        }else {
-            pomodoroSingleton.play()
-        }
-    }
-
     func pausePomodoro() {
-        self.pomodoro.play = false
-        pomodoroSingleton.pauseClock()
+        pomodoroSingleton.pararClock()
     }
     
     func stopPomodoro() {
-        self.pomodoro.play = false
-        pomodoroSingleton.pauseClock()
-        pomodoroSingleton.resetClock()
-        progressCircle = 0
+        pomodoroSingleton.pararClock()
     }
-    
-    //    func updateSettings() {
-    //        pomodoro.workTime = workTime*60
-    //                pomodoro.restTime = restTime*60
-    //        pomodoroSingleton.updateClock(pomodoro: pomodoro)
-    //        clockText = formatTime(seconds: workTime*60)
-    //    }
-    
 }

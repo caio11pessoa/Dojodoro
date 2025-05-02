@@ -12,6 +12,7 @@ struct OptionsView: View, SettingsAbstract {
     
     @State var viewModelSettings: SettingsViewModel
     @Binding var isShowingPomodoro: Bool
+    @State var viewModel: DojodoroViewModel
     
     var body: some View {
         VStack {
@@ -37,6 +38,7 @@ struct OptionsView: View, SettingsAbstract {
                 }
                 Button {
                     isShowingPomodoro = false
+                    viewModel.startPomodoro() 
                 } label: {
                     labelSettings(icon: .leftChevron, text: "Voltar ao Início") // Sair do Pomodoro
                 }

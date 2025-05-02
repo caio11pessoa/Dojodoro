@@ -21,6 +21,7 @@ enum RestTime: Int, CaseIterable {
     case longOne = 25
     /// 30min
     case longTwo = 30
+    
 }
 
 enum WorkTime: Int, CaseIterable {
@@ -29,24 +30,37 @@ enum WorkTime: Int, CaseIterable {
     /// 30min
     case shortTwo = 30
     /// 45min
-    case Medium = 45
+    case medium = 45
     /// 60min
-    case Long = 60
+    case long = 60
 }
 
 @Observable
 class Pomodoro {
     var restTime: RestTime
     var workTime: WorkTime
-    var currentTime: Int = 0
-    var Iteration: Int
-    
-    init(restTime: RestTime = .mediumOne, workTime: WorkTime = .Medium, Iteration: Int) {
-        self.restTime = restTime
-        self.workTime = workTime
-        self.Iteration = Iteration
+    var currentTime: Double = 0
+    var iteration: Int
+    var trilha: [Double] = []
+    var actualTimeTrilha: Double {
+        trilha[iteration]
     }
     
-    var play: Bool = false
-    var recover: Bool = false
+    init(restTime: RestTime = .mediumOne, workTime: WorkTime = .medium, Iteration: Int) {
+        self.restTime = restTime
+        self.workTime = workTime
+        self.iteration = Iteration
+        self.trilha = [Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), 5*Double(restTime.rawValue)]
+    }
+    
+    var isRunning: Bool = false
+    var isRecover: Bool = false
+
+    var pomodoroSingleton =  PomodoroSingleton.shared
+    
+    func updateSettings() {
+        self.trilha = [Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), 5*Double(restTime.rawValue)]
+        iteration = 0
+        currentTime =  Double(workTime.rawValue)
+    }
 }

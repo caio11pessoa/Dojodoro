@@ -7,121 +7,59 @@
 
 import Foundation
 
+
 class PomodoroSingleton {
     
-    private var timer: Timer?
-    private var timeUnitSelected: Int = TimeUnit.decisecond.rawValue
-    var isRunning: Bool = false
-    private var initialClockCentiSeconds: Int?
-    private var initialRestTimeCentiSeconds: Int?
-    private var clockCentiSeconds: Int?
-    private var TrackClock: ((Int, Int, Bool, Bool) -> Void)? // Dá pra colocar em uma interface
-    var recover: Bool = false
+    var tempoTotal: Double = 0
+    var tempoAtual: Double = 0
+    var configurado: Bool = false
+    var novoTimer: Timer?
+    var isRunning: Bool = true
+    
+    func novaConfiguration(tempo: Double) {
+        tempoTotal = tempo
+        tempoAtual = tempo
+        configurado = true
+    }
+    
+    func resetarConfig() {
+        tempoAtual = tempoTotal
+    }
+    
+    func comecarClock(_ a: Double, iterador: @escaping (Double, Bool) -> Void) {
+        tempoAtual = a
+        if novoTimer == nil && configurado {
+            novoTimer = Timer.scheduledTimer(withTimeInterval: CGFloat(0.1), repeats: true, block: { t in
+                if self.isRunning {
+                    if self.tempoAtual <= 0.1 {
+                        print("fim")
+                        self.pararClock()
+                        iterador(self.tempoAtual, true)
+                        return
+                    }else {
+                        iterador(self.tempoAtual, false)
+                    }
+                    self.tempoAtual -= 0.1
+                }
+                
+            })
+        }
+    }
+    
+    func pararClock() {
+        guard isRunning else { return }
+        isRunning = false
+//        novoTimer?.invalidate()
+//        novoTimer = nil
+    }
+    
+    func startarClick() {
+        isRunning = true
+    }
     
     private init() {}
     static let shared = PomodoroSingleton()
     
-    // TODO: Change Pomodoro parameter
-    func initialConfig(_ pomodoro: Pomodoro, updateClock: ((Int, Int, Bool, Bool) -> Void)? = nil) { // Ajeitar a lógica de receber em segundos
-        
-        clockCentiSeconds = pomodoro.workTime.rawValue * timeUnitSelected
-        self.initialClockCentiSeconds = pomodoro.workTime.rawValue * timeUnitSelected
-        self.initialRestTimeCentiSeconds = pomodoro.restTime.rawValue * timeUnitSelected
-        self.TrackClock = updateClock
-        
-    }
     
-    func play() {
-        guard !isRunning else { return }
-        recover = false
-        isRunning = true
-        
-        timer = Timer.scheduledTimer(withTimeInterval: CGFloat(1/timeUnitSelected.toDouble()), repeats: true) { [weak self] _ in
-            
-            guard let self = self else { return }
-            guard  self.clockCentiSeconds != nil else { return }
-            
-            let isClockOver = self.clockCentiSeconds == 0
-            
-            if isClockOver {
-                recover = true
-                pauseClock()
-                resetClock()
-                playRecover()
-                return
-            }
-            
-            self.clockCentiSeconds! -= 1
-            
-            if let TrackClock = self.TrackClock {
-                
-                let clockSeconds = self.clockCentiSeconds!.toDouble()/timeUnitSelected.toDouble()
-                let clockSecondsCeil = Int(ceil(clockSeconds))
-                
-                TrackClock(clockSecondsCeil, self.clockCentiSeconds!, recover, isRunning)
-            }
-        }
-    }
-    
-    func playRecover() {
-        guard !isRunning else { return }
-        recover = true
-        
-        
-        isRunning = true
-        
-        timer = Timer.scheduledTimer(withTimeInterval: CGFloat(1/timeUnitSelected.toDouble()), repeats: true) { [weak self] _ in
-            
-            guard let self = self else { return }
-            guard  self.clockCentiSeconds != nil else { return }
-            
-            let isClockOver = self.clockCentiSeconds == 0
-            
-            if isClockOver {
-                recover = false
-                pauseClock()
-                resetClock()
-                if let TrackClock = self.TrackClock {
-                    
-                    let clockSeconds = self.clockCentiSeconds!.toDouble()/timeUnitSelected.toDouble()
-                    let clockSecondsCeil = Int(ceil(clockSeconds))
-                    
-                    TrackClock(clockSecondsCeil, self.clockCentiSeconds!, recover, isRunning)
-                }
-                return
-            }
-            
-            self.clockCentiSeconds! -= 1
-            
-            if let TrackClock = self.TrackClock {
-                
-                let clockSeconds = self.clockCentiSeconds!.toDouble()/timeUnitSelected.toDouble()
-                let clockSecondsCeil = Int(ceil(clockSeconds))
-                
-                TrackClock(clockSecondsCeil, self.clockCentiSeconds!, recover, isRunning)
-            }
-        }
-    }
-    
-    func pauseClock() {
-        guard isRunning else { return }
-        isRunning = false
-        
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    func updateClock(pomodoro: Pomodoro){
-        initialClockCentiSeconds = pomodoro.workTime.rawValue * timeUnitSelected
-        initialRestTimeCentiSeconds = pomodoro.restTime.rawValue * timeUnitSelected
-        resetClock()
-    }
-    
-    func resetClock() {
-        if recover {
-            clockCentiSeconds = initialRestTimeCentiSeconds
-        }else {
-            clockCentiSeconds = initialClockCentiSeconds
-        }
-    }
+
 }

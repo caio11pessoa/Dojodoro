@@ -20,15 +20,15 @@ struct DojodoroView: View {
             ZStack(alignment: .top) {
                 viewModel.backgroundColor
                     .ignoresSafeArea()
-                    .animation(.easeInOut, value: viewModel.pomodoro.recover)
+                    .animation(.easeInOut, value: viewModel.pomodoro.isRecover)
                 
                 VStack{
                     ZStack{
-                        CircularProgressView(percentagem: viewModel.progressCircle, isWorking: !viewModel.pomodoro.recover)
+                        CircularProgressView(percentagem: viewModel.progressCircle, isWorking: !viewModel.pomodoro.isRecover)
                             .padding(.horizontal, 60)
                             .animation(.easeInOut, value: viewModel.progressCircle)
                         
-                        Text(viewModel.clockText)
+                        Text(viewModel.tempoRestanteText)
                             .agdasimaRegularFont(size: 64)
                             .foregroundStyle(viewModel.textColor)
                     }
@@ -37,10 +37,15 @@ struct DojodoroView: View {
                 VStack{
                     Spacer()
                     
-                    PomodoroImage(bonsaiImage: viewModel.pomodoro.recover ? "Bambu" : viewModel.selectedPlant.imageGallery[.boonsaiSeed]!, bonsaiHeight: bonsaiHeight)
+                    PomodoroImage(bonsaiImage: viewModel.pomodoro.isRecover ? "Bambu" : viewModel.selectedPlant.imageGallery[.boonsaiSeed]!, bonsaiHeight: bonsaiHeight)
                         .padding(.bottom, 32)
+                        .onTapGesture {
+                            viewModel.stopPomodoro()
+                            print("cliquei")
+                        }
                     
-                    ProgressPomodoro(progress: viewModel.pomodoro.Iteration, recover: viewModel.pomodoro.recover)
+                    
+                    ProgressPomodoro(progress: viewModel.pomodoro.iteration, recover: viewModel.pomodoro.isRecover)
                 }
                 .padding(.bottom)
                 
@@ -57,7 +62,10 @@ struct DojodoroView: View {
             
             .onAppear {
                 viewModel.startPomodoro()
-                print("pomodoro \(viewModel.pomodoro.play)")
+                print("pomodoro is running: \(viewModel.pomodoro.isRunning)")
+            }
+            .onDisappear{
+                viewModel.stopPomodoro()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -72,7 +80,7 @@ struct DojodoroView: View {
                         Image(.pausePomodoro)
                             .renderingMode(.template)
                             .resizable()
-                            .tint(viewModel.pomodoro.recover ? Color(.background) : Color.black)
+                            .tint(viewModel.pomodoro.isRecover ? Color(.background) : Color.black)
                             .scaledToFit()
                             .frame(width: 24)
                     }
