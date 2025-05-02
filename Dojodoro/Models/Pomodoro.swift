@@ -21,6 +21,7 @@ enum RestTime: Int, CaseIterable {
     case longOne = 25
     /// 30min
     case longTwo = 30
+    
 }
 
 enum WorkTime: Int, CaseIterable {
@@ -29,9 +30,9 @@ enum WorkTime: Int, CaseIterable {
     /// 30min
     case shortTwo = 30
     /// 45min
-    case Medium = 45
+    case medium = 45
     /// 60min
-    case Long = 60
+    case long = 60
 }
 
 @Observable
@@ -41,12 +42,27 @@ class Pomodoro {
     var currentTime: Int = 0
     var Iteration: Int
     
-    init(restTime: RestTime = .mediumOne, workTime: WorkTime = .Medium, Iteration: Int) {
+    init(restTime: RestTime = .mediumOne, workTime: WorkTime = .medium, Iteration: Int) {
         self.restTime = restTime
         self.workTime = workTime
         self.Iteration = Iteration
     }
     
-    var play: Bool = false
-    var recover: Bool = false
+    var isRunning: Bool = false
+    var isRecover: Bool = false
+    
+    func sync(_ isRunning: Bool, _ isRecover: Bool, _ currentTime: Int) {
+        self.isRunning = isRunning
+        self.isRecover = isRecover
+        self.currentTime = currentTime
+    }
+    var pomodoroSingleton =  PomodoroSingleton.shared
+    
+    func updateSettings() {
+        workTime = .shortOne
+        restTime = .shortOne
+//        print("seletRestTime \(seletRestTime)")
+        currentTime =  workTime.rawValue
+        pomodoroSingleton.updateClock(workTime: workTime.rawValue, restTime: restTime.rawValue)
+    }
 }

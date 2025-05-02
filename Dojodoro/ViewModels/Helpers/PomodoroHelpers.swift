@@ -14,7 +14,7 @@ class PomodoroHelpers {
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
-    func calculateProgressPercentage(totalWorkTime: Int, elapsedCentiSeconds: Int) -> Double {
+    func calculateProgressPercentage(_ totalWorkTime: Int, elapsedCentiSeconds: Int) -> Double {
         let totalWorkTimeInCentiSeconds = Double(totalWorkTime * TimeUnit.decisecond.rawValue)
         let remainingWorkTimeInCentiSeconds = totalWorkTimeInCentiSeconds - elapsedCentiSeconds.toDouble()
         return remainingWorkTimeInCentiSeconds / totalWorkTimeInCentiSeconds

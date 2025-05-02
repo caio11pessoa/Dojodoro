@@ -25,13 +25,13 @@ struct SettingsView: View {
             
             switch viewModelSettings.currentPage {
             case .options:
-                OptionsView(viewModelSettings: viewModelSettings, isShowingPomodoro: $isShowingPomodoro)
+                OptionsView(viewModelSettings: viewModelSettings, isShowingPomodoro: $isShowingPomodoro, viewModel: viewModel)
             case .ambientSound:
                 AmbientSoundView()
             case .restTime:
-                RestTimeView()
+                RestTimeView(viewModel: viewModel)
             case .workTime:
-                WorkTimeView()
+                WorkTimeView(viewModel: viewModel)
             }
         }
         .ignoresSafeArea()

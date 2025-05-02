@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RestTimeView: View, SettingsAbstract {
-    @State var selectedSound: Bool = false // TODO: Solve this
+    @State var viewModel: DojodoroViewModel
     var callback: (Int) -> Bool = {_ in true}
     
     private func labelSettings(value: Int) -> some View {
@@ -16,11 +16,14 @@ struct RestTimeView: View, SettingsAbstract {
             Button {
                 withAnimation {
                     if callback(value) {
-                        selectedSound.toggle()
+                        viewModel.seletRestTime = RestTime(rawValue: value)!
+//                        viewModel.stopPomodoro()
+                        viewModel.pomodoro.updateSettings()
+//                        viewModel.stopPomodoro()
                     }
                 }
             } label: {
-                Image(selectedSound ? .boxCheck : .boxUncheck)
+                Image(value == viewModel.seletRestTime.rawValue ? .boxCheck : .boxUncheck)
                     .resizable()
                     .renderingMode(.template)
                     .scaledToFit()
@@ -51,6 +54,6 @@ struct RestTimeView: View, SettingsAbstract {
 }
 
 #Preview {
-    RestTimeView()
+    RestTimeView(viewModel: .init())
         .ignoresSafeArea()
 }
