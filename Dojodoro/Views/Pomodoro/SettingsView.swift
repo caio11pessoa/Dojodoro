@@ -19,8 +19,6 @@ struct SettingsView: View {
     @State var viewModelSettings: SettingsViewModel = .init()
     @Binding var isShowingPomodoro: Bool
     
-    
-    
     var body: some View {
         ZStack {
             Color.black.opacity(0.75)
@@ -43,7 +41,7 @@ struct SettingsView: View {
                     withAnimation {
                         if(viewModelSettings.route.count <= 1){
                             isShowing.toggle()
-                            viewModel.startPomodoro()x
+                            viewModel.startPomodoro()
                         }else {
                             viewModelSettings.goBack()
                         }

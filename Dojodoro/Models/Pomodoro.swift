@@ -38,6 +38,7 @@ enum WorkTime: Int, CaseIterable {
 class Pomodoro {
     var restTime: RestTime
     var workTime: WorkTime
+    var currentTime: Int = 0
     var Iteration: Int
     
     init(restTime: RestTime = .mediumOne, workTime: WorkTime = .Medium, Iteration: Int) {
