@@ -10,56 +10,77 @@ import Foundation
 
 class PomodoroSingleton {
     
-    var tempoTotal: Double = 0
-    var tempoAtual: Double = 0
-    var configurado: Bool = false
-    var novoTimer: Timer?
+    private init() {}
+    static let shared = PomodoroSingleton()
+    
+    var totalTime: Double = 0
+    var currentTime: Double = 0
+    var configured: Bool = false
+    var timer: Timer?
     var isRunning: Bool = true
     
-    func novaConfiguration(tempo: Double) {
-        tempoTotal = tempo
-        tempoAtual = tempo
-        configurado = true
+    /// Initial configuration
+    func configure(with time: Double) {
+        totalTime = time
+        currentTime = time
+        configured = true
     }
     
-    func resetarConfig() {
-        tempoAtual = tempoTotal
+    /// Reset to the currentTime to the totalTime registered
+    func resetConfig() {
+        currentTime = totalTime
     }
     
-    func comecarClock(_ a: Double, iterador: @escaping (Double, Bool) -> Void) {
-        tempoAtual = a
-        if novoTimer == nil && configurado {
-            novoTimer = Timer.scheduledTimer(withTimeInterval: CGFloat(0.1), repeats: true, block: { t in
-                if self.isRunning {
-                    if self.tempoAtual <= 0.1 {
-                        print("fim")
-                        self.pararClock()
-                        iterador(self.tempoAtual, true)
-                        return
-                    }else {
-                        iterador(self.tempoAtual, false)
-                    }
-                    self.tempoAtual -= 0.1
+    /// Reset the configuration to the new Time
+    func reconfigure(with time: Double){
+        configure(with: time)
+    }
+    
+    /// start countdown clockstar
+    func startClock(from time: Double, tick: @escaping (Double, Bool) -> Void) {
+        currentTime = time
+        if timer == nil && configured {
+            timer = Timer.scheduledTimer(withTimeInterval: CGFloat(0.1), repeats: true, block: { [weak self] _ in
+                
+                guard let self = self else { return }
+                
+                guard self.isRunning else {
+                    self.invalidateTimer()
+                    return
+                }
+                
+                if self.currentTime <= 0.1 {
+                    self.currentTime = 0
+                    tick(self.currentTime, true)
+                    self.stop()
+                    return
+                }else {
+                    tick(self.currentTime, false)
+                    self.currentTime -= 0.1
                 }
                 
             })
         }
     }
-    
-    func pararClock() {
-        guard isRunning else { return }
+    func pause() {
         isRunning = false
-//        novoTimer?.invalidate()
-//        novoTimer = nil
     }
     
-    func startarClick() {
+    func resume() {
         isRunning = true
     }
     
-    private init() {}
-    static let shared = PomodoroSingleton()
+    func stop() {
+        isRunning = false
+        invalidateTimer()
+        
+    }
+    
+    /// Invalidates and clears the timer
+    private func invalidateTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
     
     
-
 }

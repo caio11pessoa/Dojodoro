@@ -41,7 +41,8 @@ struct SettingsView: View {
                     withAnimation {
                         if(viewModelSettings.route.count <= 1){
                             isShowing.toggle()
-                            viewModel.startPomodoro()
+//                            viewModel.startPomodoro()
+                            viewModel.resume()
                         }else {
                             viewModelSettings.goBack()
                         }

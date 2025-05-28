@@ -41,9 +41,9 @@ class DojodoroViewModel: PomodoroHelpers  {
             ]
         )
     ]
-
+    
     var isShowingPlantDetail: Bool = false
-
+    
     var clickedPlant: PlantModel? // VM Específica
     
     var seletWorkTime: WorkTime = .medium // VM Específica
@@ -62,7 +62,6 @@ class DojodoroViewModel: PomodoroHelpers  {
     }
     
     var pomodoro: Pomodoro = .init(Iteration: 0)
-    
     
     var progressCircle: Double = 0 // TODO: Tem que ficar em algum lugar mais interessante
     var sheetIsPresented: Bool = false
@@ -86,19 +85,19 @@ class DojodoroViewModel: PomodoroHelpers  {
         pomodoro.iteration += 1
         if pomodoro.iteration < pomodoro.trilha.count {
             print("ProximoTempo \(pomodoro.actualTimeTrilha)")
-            pomodoroSingleton.novaConfiguration(tempo: pomodoro.actualTimeTrilha)
+            pomodoroSingleton.configure(with: pomodoro.actualTimeTrilha)
             startPomodoro()
             withAnimation {
                 pomodoro.isRecover.toggle()
             }
         }
     }
+    
     func startPomodoro() {
         pomodoro.isRunning = true
-        pomodoroSingleton.startarClick()
-        pomodoroSingleton.novaConfiguration(tempo: pomodoro.trilha[0])
-        pomodoroSingleton.comecarClock(pomodoro.actualTimeTrilha) { tempoRestante, acabou in
-            print("TempoRestante: \(self.pomodoro.currentTime)")
+        pomodoroSingleton.configure(with: pomodoro.trilha[0])
+        pomodoroSingleton.startClock(from: pomodoro.actualTimeTrilha) { tempoRestante, acabou in
+            //            print("TempoRestante: \(self.pomodoro.currentTime)")
             self.pomodoro.currentTime = tempoRestante
             let totalWorkTime: Double = self.pomodoro.isRecover ? Double(self.pomodoro.restTime.rawValue) : Double(self.pomodoro.workTime.rawValue)
             self.progressCircle = self.calculateProgressPercentage(totalWorkTime, elapsedCentiSeconds: tempoRestante)
@@ -108,11 +107,26 @@ class DojodoroViewModel: PomodoroHelpers  {
         }
     }
     
-    func pausePomodoro() {
-        pomodoroSingleton.pararClock()
+    var pause: () -> Void {pomodoroSingleton.pause}
+    
+    func resume () {
+        pomodoroSingleton.resume()
+        pomodoroSingleton.startClock(from: pomodoro.currentTime) { tempoRestante, acabou in
+            self.pomodoro.currentTime = tempoRestante
+            let totalWorkTime: Double = self.pomodoro.isRecover ? Double(self.pomodoro.restTime.rawValue) : Double(self.pomodoro.workTime.rawValue)
+            self.progressCircle = self.calculateProgressPercentage(totalWorkTime, elapsedCentiSeconds: tempoRestante)
+            if acabou {
+                self.ProximoTempo()
+            }
+        }
+        
     }
     
     func stopPomodoro() {
-        pomodoroSingleton.pararClock()
+//        pomodoroSingleton.stopClock()
+    }
+    
+    func resetPomodoro() {
+        pomodoroSingleton.resetConfig()
     }
 }

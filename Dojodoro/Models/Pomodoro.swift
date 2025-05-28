@@ -10,29 +10,29 @@ import Foundation
 enum RestTime: Int, CaseIterable {
     
     /// 5min
-    case shortOne = 5
+    case shortOne = 300
     /// 10min
-    case shortTwo = 10
+    case shortTwo = 600
     /// 15min
-    case mediumOne = 15
+    case mediumOne = 900
     /// 20min
-    case mediumTwo = 20
+    case mediumTwo = 1200
     /// 25min
-    case longOne = 25
+    case longOne = 1500
     /// 30min
-    case longTwo = 30
+    case longTwo = 1800
     
 }
 
 enum WorkTime: Int, CaseIterable {
     /// 25min
-    case shortOne = 25
+    case shortOne = 1500
     /// 30min
-    case shortTwo = 30
+    case shortTwo = 1800
     /// 45min
-    case medium = 45
+    case medium = 2700
     /// 60min
-    case long = 60
+    case long = 3600
 }
 
 @Observable

@@ -31,7 +31,7 @@ struct RestTimeView: View, SettingsAbstract {
             }
             
             
-            Text("\(value) min")
+            Text("\(value/60) min")
                 .foregroundStyle(Color.background)
                 .agdasimaRegularFont(size: 32)
         }
