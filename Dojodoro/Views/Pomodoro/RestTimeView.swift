@@ -19,6 +19,7 @@ struct RestTimeView: View, SettingsAbstract {
                         viewModel.pomodoro.restTime = RestTime(rawValue: value)!
                         viewModel.seletRestTime = RestTime(rawValue: value)!
                         viewModel.pomodoro.updateSettings()
+                        viewModel.resetPomodoro()
                     }
                 }
             } label: {

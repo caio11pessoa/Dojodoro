@@ -38,7 +38,7 @@ struct OptionsView: View, SettingsAbstract {
                 }
                 Button {
                     isShowingPomodoro = false
-                    viewModel.startPomodoro() 
+                    viewModel.pause()
                 } label: {
                     labelSettings(icon: .leftChevron, text: "Voltar ao Início") // Sair do Pomodoro
                 }

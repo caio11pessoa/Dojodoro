@@ -64,7 +64,7 @@ struct DojodoroView: View {
                 print("pomodoro is running: \(viewModel.pomodoro.isRunning)")
             }
             .onDisappear{
-                viewModel.stopPomodoro()
+                viewModel.stop()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -74,7 +74,8 @@ struct DojodoroView: View {
                         withAnimation {
                             
                             isShowingSettings = true
-                            viewModel.stopPomodoro()
+//                            viewModel.stopPomodoro()
+                            viewModel.pause()
                         }
                         
                     } label: {

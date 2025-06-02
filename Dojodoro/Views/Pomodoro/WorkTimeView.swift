@@ -19,6 +19,7 @@ struct WorkTimeView: View, SettingsAbstract {
                         viewModel.seletWorkTime = WorkTime(rawValue: value)!
                         viewModel.pomodoro.workTime = WorkTime(rawValue: value)!
                         viewModel.pomodoro.updateSettings()
+                        viewModel.resetPomodoro()
                     }
                 }
             } label: {

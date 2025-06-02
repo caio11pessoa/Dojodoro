@@ -15,7 +15,7 @@ class PomodoroSingleton {
     
     var totalTime: Double = 0
     var currentTime: Double = 0
-    var configured: Bool = false
+    var configured: Bool = true
     var timer: Timer?
     var isRunning: Bool = true
     
@@ -24,52 +24,44 @@ class PomodoroSingleton {
         totalTime = time
         currentTime = time
         configured = true
+        isRunning = true
     }
     
     /// Reset to the currentTime to the totalTime registered
-    func resetConfig() {
-        currentTime = totalTime
-    }
-    
-    /// Reset the configuration to the new Time
-    func reconfigure(with time: Double){
-        configure(with: time)
+    func resetConfig(with time: Double) {
+        totalTime = time
+        currentTime = time
+        configured = true
     }
     
     /// start countdown clockstar
-    func startClock(from time: Double, tick: @escaping (Double, Bool) -> Void) {
-        currentTime = time
-        if timer == nil && configured {
-            timer = Timer.scheduledTimer(withTimeInterval: CGFloat(0.1), repeats: true, block: { [weak self] _ in
-                
-                guard let self = self else { return }
-                
-                guard self.isRunning else {
-                    self.invalidateTimer()
-                    return
-                }
+    func startClock(tick: @escaping (Double, Bool) -> Void) {
+        timer = Timer.scheduledTimer(withTimeInterval: CGFloat(0.1), repeats: true, block: { [weak self] _ in
+            
+            guard let self = self else { return }
+            
+            if isRunning {
                 
                 if self.currentTime <= 0.1 {
                     self.currentTime = 0
+                    self.isRunning = false
                     tick(self.currentTime, true)
-                    self.stop()
                     return
                 }else {
                     tick(self.currentTime, false)
                     self.currentTime -= 0.1
                 }
-                
-            })
-        }
+            }
+        })
     }
     func pause() {
         isRunning = false
     }
-    
     func resume() {
         isRunning = true
     }
     
+    /// invalidateTimer and isRunning = false
     func stop() {
         isRunning = false
         invalidateTimer()
@@ -80,6 +72,7 @@ class PomodoroSingleton {
     private func invalidateTimer() {
         timer?.invalidate()
         timer = nil
+        print(timer ?? "nil")
     }
     
     

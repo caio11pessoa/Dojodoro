@@ -10,7 +10,7 @@ import Foundation
 enum RestTime: Int, CaseIterable {
     
     /// 5min
-    case shortOne = 300
+    case shortOne = 60
     /// 10min
     case shortTwo = 600
     /// 15min
@@ -38,6 +38,7 @@ enum WorkTime: Int, CaseIterable {
 @Observable
 class Pomodoro {
     var restTime: RestTime
+    var bigRest: Int
     var workTime: WorkTime
     var currentTime: Double = 0
     var iteration: Int
@@ -48,9 +49,14 @@ class Pomodoro {
     
     init(restTime: RestTime = .mediumOne, workTime: WorkTime = .medium, Iteration: Int) {
         self.restTime = restTime
+        self.bigRest = 5 * restTime.rawValue
         self.workTime = workTime
         self.iteration = Iteration
-        self.trilha = [Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), 5*Double(restTime.rawValue)]
+        self.trilha = [
+            Double(workTime.rawValue), Double(restTime.rawValue),
+            Double(workTime.rawValue), Double(restTime.rawValue),
+            Double(workTime.rawValue), Double(restTime.rawValue),
+            Double(workTime.rawValue), Double(bigRest)]
     }
     
     var isRunning: Bool = false
@@ -59,8 +65,14 @@ class Pomodoro {
     var pomodoroSingleton =  PomodoroSingleton.shared
     
     func updateSettings() {
-        self.trilha = [Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), Double(restTime.rawValue), Double(workTime.rawValue), 5*Double(restTime.rawValue)]
+        self.trilha = [
+            Double(workTime.rawValue), Double(restTime.rawValue),
+            Double(workTime.rawValue), Double(restTime.rawValue),
+            Double(workTime.rawValue), Double(restTime.rawValue),
+            Double(workTime.rawValue), 5*Double(restTime.rawValue)
+        ]
         iteration = 0
+        isRecover = false
         currentTime =  Double(workTime.rawValue)
     }
 }
