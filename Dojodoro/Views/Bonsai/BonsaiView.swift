@@ -16,10 +16,11 @@ struct BonsaiView: View {
         let bonsaiHeight: CGFloat = 0.33 * screenHeight
         
         ZStack {
-            Text("Toque na tela para começar")
+            Text("Toque no vaso para começar")
                 .font(Font.dojoUI(.titleMedium))
                 .minimumScaleFactor(0.7)
                 .lineLimit(1)
+                .foregroundStyle(.textColorPrimary)
             
             VStack {
                 Spacer(minLength: 320)
