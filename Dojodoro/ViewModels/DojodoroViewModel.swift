@@ -9,6 +9,7 @@ import SwiftUI
 
 @Observable
 class DojodoroViewModel: PomodoroHelpers  {
+    var tempExperience: Int = 0
     
     var plants: [PlantModel] = [
         .init(
@@ -16,7 +17,7 @@ class DojodoroViewModel: PomodoroHelpers  {
             imageGallery: [
                 .boonsaiSeed: "Sprout",
                 .sprout: "SproutLevelTwo",
-                .bud: "SprooutLevelThree",
+                .bud: "SproutLevelThree",
                 .bonsai: "Bonsai"
             ],
             isSelected: true
@@ -27,7 +28,7 @@ class DojodoroViewModel: PomodoroHelpers  {
                 [
                     .boonsaiSeed: "CherrySprout",
                     .sprout: "CherrySproutLevelTwo",
-                    .bud: "CherrySprooutLevelThree",
+                    .bud: "CherrySproutLevelThree",
                     .bonsai: "Cherry"
                 ]
         ),
@@ -36,7 +37,7 @@ class DojodoroViewModel: PomodoroHelpers  {
             imageGallery: [
                 .boonsaiSeed: "BlueBonsaiSprout",
                 .sprout: "BlueBonsaiSproutLevelTwo",
-                .bud: "BlueBonsaiSprooutLevelThree",
+                .bud: "BlueBonsaiSproutLevelThree",
                 .bonsai: "BlueBonsai"
             ]
         )
@@ -88,6 +89,9 @@ class DojodoroViewModel: PomodoroHelpers  {
             
             pomodoroSingleton.configure(with: pomodoro.actualTimeTrilha)
             withAnimation {
+                if pomodoro.isRecover {
+                    selectedPlant.experience += tempExperience
+                }
                 pomodoro.isRecover.toggle()
             }
         } else {
@@ -99,8 +103,8 @@ class DojodoroViewModel: PomodoroHelpers  {
     
     func startPomodoro() {
         pomodoro.isRunning = true
+
         pomodoroSingleton.configure(with: pomodoro.actualTimeTrilha)
-        print("TempoAtual: \(pomodoro.actualTimeTrilha)")
         pomodoroSingleton.startClock { tempoRestante, acabou in
             
             self.pomodoro.currentTime = tempoRestante
@@ -108,7 +112,9 @@ class DojodoroViewModel: PomodoroHelpers  {
             var totalWorkTime: Double = self.pomodoro.isRecover ? Double(self.pomodoro.restTime.rawValue) : Double(self.pomodoro.workTime.rawValue)
             totalWorkTime = self.pomodoro.iteration == 7 ? totalWorkTime * 5 : totalWorkTime
             self.progressCircle = self.calculateProgressPercentage(totalWorkTime, elapsedCentiSeconds: tempoRestante)
+            self.tempExperience += 1
             if acabou {
+                
                 self.ProximoTempo()
             }
         }

@@ -29,12 +29,19 @@ class PlantModel: Identifiable {
             return .bonsai
         }
     }
-    var totalTime: DateComponents = DateComponents(hour: 0, minute: 0)
+    var totalTime: DateComponents {
+        let seconds = experience / 10
+        let hours = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        return DateComponents(hour: hours, minute: minutes)
+    }
     var pomodoroCount: Int = 0
     var imageGallery: [Stage : String] = [.boonsaiSeed: "", .sprout: "", .bud: "", .bonsai: ""]
     var image: String {
         return imageGallery[stage] ?? ""
     }
+    
+    var experience: Int = 0
     
     init(name: String, imageGallery: [Stage : String] = [:], isSelected: Bool = false) {
         self.name = name

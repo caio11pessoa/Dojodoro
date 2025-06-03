@@ -24,7 +24,7 @@ struct BonsaiView: View {
             
             VStack {
                 Spacer(minLength: 320)
-                PomodoroImage(bonsaiImage: viewModel.selectedPlant.imageGallery[.boonsaiSeed]!, bonsaiHeight: bonsaiHeight
+                PomodoroImage(bonsaiImage: viewModel.selectedPlant.image, bonsaiHeight: bonsaiHeight
                 )
                 .onTapGesture {
                     onTap()

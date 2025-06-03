@@ -35,7 +35,7 @@ struct SelectPlantModal: View {
                     
                     infoRow(title: "Estágio:", value: "\(viewModel.clickedPlant!.stage)")
                     infoRow(title: "Pomodoros Feitos:", value: "\(viewModel.clickedPlant!.pomodoroCount)")
-                    infoRow(title: "Tempo Total:", value: "\(viewModel.clickedPlant!.totalTime.hour!)hrs e \(viewModel.clickedPlant!.totalTime.minute!)Min")
+                    infoRow(title: "Tempo Total:", value: "\(viewModel.clickedPlant!.totalTime.hour ?? 0)hrs e \(viewModel.clickedPlant!.totalTime.minute ?? 0)Min")
                     
                     MojoButton(isSelected: viewModel.clickedPlant!.isSelected){
                         withAnimation {
