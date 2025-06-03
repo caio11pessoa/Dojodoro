@@ -19,21 +19,19 @@ struct SettingsView: View {
     @State var viewModelSettings: SettingsViewModel = .init()
     @Binding var isShowingPomodoro: Bool
     
-    
-    
     var body: some View {
         ZStack {
             Color.black.opacity(0.75)
             
             switch viewModelSettings.currentPage {
             case .options:
-                OptionsView(viewModelSettings: viewModelSettings, isShowingPomodoro: $isShowingPomodoro)
+                OptionsView(viewModelSettings: viewModelSettings, isShowingPomodoro: $isShowingPomodoro, viewModel: viewModel)
             case .ambientSound:
                 AmbientSoundView()
             case .restTime:
-                RestTimeView()
+                RestTimeView(viewModel: viewModel)
             case .workTime:
-                WorkTimeView()
+                WorkTimeView(viewModel: viewModel)
             }
         }
         .ignoresSafeArea()
@@ -43,9 +41,10 @@ struct SettingsView: View {
                     withAnimation {
                         if(viewModelSettings.route.count <= 1){
                             isShowing.toggle()
+//                            viewModel.startPomodoro()
+                            viewModel.resume()
                         }else {
                             viewModelSettings.goBack()
-                            
                         }
                     }
                 } label: {

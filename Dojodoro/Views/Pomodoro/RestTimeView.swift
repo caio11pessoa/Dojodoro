@@ -8,21 +8,22 @@
 import SwiftUI
 
 struct RestTimeView: View, SettingsAbstract {
-    @State var selectedSound: Bool = false // TODO: Solve this
+    @State var viewModel: DojodoroViewModel
     var callback: (Int) -> Bool = {_ in true}
-    
-    var values: [Int] = [5, 10, 15, 20, 25, 30]
     
     private func labelSettings(value: Int) -> some View {
         HStack {
             Button {
                 withAnimation {
                     if callback(value) {
-                        selectedSound.toggle()
+                        viewModel.pomodoro.restTime = RestTime(rawValue: value)!
+                        viewModel.seletRestTime = RestTime(rawValue: value)!
+                        viewModel.pomodoro.updateSettings()
+                        viewModel.resetPomodoro()
                     }
                 }
             } label: {
-                Image(selectedSound ? .boxCheck : .boxUncheck)
+                Image(value == viewModel.seletRestTime.rawValue ? .boxCheck : .boxUncheck)
                     .resizable()
                     .renderingMode(.template)
                     .scaledToFit()
@@ -31,7 +32,7 @@ struct RestTimeView: View, SettingsAbstract {
             }
             
             
-            Text("\(value) min")
+            Text("\(value/60) min")
                 .foregroundStyle(Color.background)
                 .agdasimaRegularFont(size: 32)
         }
@@ -43,8 +44,8 @@ struct RestTimeView: View, SettingsAbstract {
                 .padding(.top, 140)
             Spacer()
             VStack(alignment: .leading) {
-                ForEach(values, id: \.self) { value in
-                    labelSettings(value: value)
+                ForEach(RestTime.allCases, id: \.self) { value in
+                    labelSettings(value: value.rawValue)
                 }
             }
             Spacer()
@@ -53,6 +54,6 @@ struct RestTimeView: View, SettingsAbstract {
 }
 
 #Preview {
-    RestTimeView()
+    RestTimeView(viewModel: .init())
         .ignoresSafeArea()
 }

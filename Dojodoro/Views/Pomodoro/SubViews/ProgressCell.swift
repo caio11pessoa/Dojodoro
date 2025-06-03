@@ -19,17 +19,17 @@ struct ProgressCell: View {
     var body: some View {
         Image(imageName)
             .renderingMode(.template)
-            .opacity(animated ? (isVisible ? opacity : 1) : opacity)
+            .opacity(opacity)
             .foregroundStyle(recover ? .progressIconRest: .progressIconFocus)
-            .onAppear {
-                if animated {
-                    withAnimation(
-                        Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true)
-                    ) {
-                        isVisible.toggle()
-                    }
-                }
-            }
+//            .onAppear {
+//                if animated {
+//                    withAnimation(
+//                        Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true)
+//                    ) {
+//                        isVisible.toggle()
+//                    }
+//                }
+//            }
     }
 }
 
