@@ -10,7 +10,7 @@ import Foundation
 enum RestTime: Int, CaseIterable {
     
     /// 5min
-    case shortOne = 60
+    case shortOne = 5
     /// 10min
     case shortTwo = 600
     /// 15min
@@ -26,7 +26,7 @@ enum RestTime: Int, CaseIterable {
 
 enum WorkTime: Int, CaseIterable {
     /// 25min
-    case shortOne = 1500
+    case shortOne = 5
     /// 30min
     case shortTwo = 1800
     /// 45min
