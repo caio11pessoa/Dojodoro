@@ -41,16 +41,11 @@ class PomodoroSingleton {
             guard let self = self else { return }
             
             if isRunning {
-                
-                if self.currentTime <= 0.1 {
-                    self.currentTime = 0
-                    self.isRunning = false
-                    tick(self.currentTime, true)
-                    return
-                }else {
-                    tick(self.currentTime, false)
-                    self.currentTime -= 0.1
-                }
+                let timeFinished: Bool = currentTime <= 0.1
+                currentTime = timeFinished ? 0 : currentTime - 0.1
+                isRunning = timeFinished ? false : true
+                tick(currentTime, isRunning)
+
             }
         })
     }
