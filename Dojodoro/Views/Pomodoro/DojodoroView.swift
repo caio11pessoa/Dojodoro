@@ -37,7 +37,7 @@ struct DojodoroView: View {
                 VStack{
                     Spacer()
                     
-                    PomodoroImage(bonsaiImage: viewModel.pomodoro.isRecover ? "Bambu" : viewModel.selectedPlant.imageGallery[.boonsaiSeed]!, bonsaiHeight: bonsaiHeight)
+                    PomodoroImage(bonsaiImage: viewModel.pomodoro.isRecover ? "Bambu" : viewModel.selectedPlant.image, bonsaiHeight: bonsaiHeight)
                         .padding(.bottom, 32)
                     //                        .onTapGesture {
                     //                            viewModel.stopPomodoro()
