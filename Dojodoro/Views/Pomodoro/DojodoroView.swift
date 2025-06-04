@@ -39,10 +39,6 @@ struct DojodoroView: View {
                     
                     PomodoroImage(bonsaiImage: viewModel.pomodoro.isRecover ? "Bambu" : viewModel.selectedPlant.image, bonsaiHeight: bonsaiHeight)
                         .padding(.bottom, 32)
-                    //                        .onTapGesture {
-                    //                            viewModel.stopPomodoro()
-                    //                        }
-                    
                     
                     ProgressPomodoro(progress: viewModel.pomodoro.iteration, recover: viewModel.pomodoro.isRecover)
                 }
@@ -61,7 +57,6 @@ struct DojodoroView: View {
             
             .onAppear {
                 viewModel.startPomodoro()
-                print("pomodoro is running: \(viewModel.pomodoro.isRunning)")
             }
             .onDisappear{
                 viewModel.stop()
@@ -69,12 +64,8 @@ struct DojodoroView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-//                        viewModel.pausePomodoro()
-                        viewModel.pause()
                         withAnimation {
-                            
                             isShowingSettings = true
-//                            viewModel.stopPomodoro()
                             viewModel.pause()
                         }
                         

@@ -30,9 +30,8 @@ class PlantModel: Identifiable {
         }
     }
     var totalTime: DateComponents {
-        let seconds = experience / 10
-        let hours = seconds / 3600
-        let minutes = (seconds % 3600) / 60
+        let hours = experience / 3600
+        let minutes = (experience % 3600) / 60
         return DateComponents(hour: hours, minute: minutes)
     }
     var pomodoroCount: Int = 0

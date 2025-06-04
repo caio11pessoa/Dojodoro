@@ -59,7 +59,6 @@ class Pomodoro {
             Double(workTime.rawValue), Double(bigRest)]
     }
     
-    var isRunning: Bool = false
     var isRecover: Bool = false
 
     var pomodoroSingleton =  PomodoroSingleton.shared

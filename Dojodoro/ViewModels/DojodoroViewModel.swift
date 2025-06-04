@@ -9,7 +9,6 @@ import SwiftUI
 
 @Observable
 class DojodoroViewModel: PomodoroHelpers  {
-    var tempExperience: Int = 0
     
     var plants: [PlantModel] = [
         .init(
@@ -80,49 +79,54 @@ class DojodoroViewModel: PomodoroHelpers  {
         pomodoro.currentTime = Double(pomodoro.workTime.rawValue)
     }
     
-    // Pausa pode cancelar tudo mas manter o contador
     var tempoRestanteText: String { formatTime(seconds: pomodoro.currentTime) }
     
-    func ProximoTempo() {
+    func NextIteration() {
+        selectedPlant.experience += Int(pomodoro.actualTimeTrilha)
+        if pomodoro.isRecover {
+            selectedPlant.pomodoroCount += 1
+        }
+
         pomodoro.iteration += 1
+        
         if pomodoro.iteration < pomodoro.trilha.count {
             
             pomodoroSingleton.configure(with: pomodoro.actualTimeTrilha)
+            
             withAnimation {
-                if pomodoro.isRecover {
-                    selectedPlant.experience += tempExperience
-                }
                 pomodoro.isRecover.toggle()
             }
+            
         } else {
-            pomodoro.iteration = 0
-            pomodoro.isRecover = false
-            pomodoroSingleton.configure(with: pomodoro.actualTimeTrilha)
+            stop()
         }
     }
     
     func startPomodoro() {
-        pomodoro.isRunning = true
-
+        
         pomodoroSingleton.configure(with: pomodoro.actualTimeTrilha)
-        pomodoroSingleton.startClock { tempoRestante, acabou in
+        pomodoroSingleton.startClock { timeRamaining, isRunning in
             
-            self.pomodoro.currentTime = tempoRestante
+            self.pomodoro.currentTime = timeRamaining
             
             var totalWorkTime: Double = self.pomodoro.isRecover ? Double(self.pomodoro.restTime.rawValue) : Double(self.pomodoro.workTime.rawValue)
             totalWorkTime = self.pomodoro.iteration == 7 ? totalWorkTime * 5 : totalWorkTime
-            self.progressCircle = self.calculateProgressPercentage(totalWorkTime, elapsedCentiSeconds: tempoRestante)
-            self.tempExperience += 1
-            if acabou {
-                
-                self.ProximoTempo()
+            self.progressCircle = self.calculateProgressPercentage(totalWorkTime, elapsedCentiSeconds: timeRamaining)
+            
+            if !isRunning {
+                self.NextIteration()
             }
         }
     }
     
     var pause: () -> Void {pomodoroSingleton.pause}
     var resume: () -> Void {pomodoroSingleton.resume}
-    var stop: () -> Void {pomodoroSingleton.stop}
+    func stop() -> Void {
+        progressCircle = 0
+        pomodoro.iteration = 0
+        pomodoro.isRecover = false
+        pomodoroSingleton.stop()
+    }
     
     func resetPomodoro() {
         pomodoroSingleton.resetConfig(with: pomodoro.currentTime)
