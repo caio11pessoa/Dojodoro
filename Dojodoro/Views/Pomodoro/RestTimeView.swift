@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RestTimeView: View, SettingsAbstract {
     @State var viewModel: DojodoroViewModel
+    @State var settingsViewModel: SettingsViewModel
     var callback: (Int) -> Bool = {_ in true}
     
     private func labelSettings(value: Int) -> some View {
@@ -44,6 +45,10 @@ struct RestTimeView: View, SettingsAbstract {
                 .padding(.top, 140)
             Spacer()
             VStack(alignment: .leading) {
+                backButton(viewModelSettings: settingsViewModel)
+                    .offset(x: -16)
+                    .padding(.bottom, 24)
+                
                 ForEach(RestTime.allCases, id: \.self) { value in
                     labelSettings(value: value.rawValue)
                 }
@@ -54,6 +59,10 @@ struct RestTimeView: View, SettingsAbstract {
 }
 
 #Preview {
-    RestTimeView(viewModel: .init())
-        .ignoresSafeArea()
+    ZStack{
+        Color.black
+            .ignoresSafeArea()
+        RestTimeView(viewModel: .init(), settingsViewModel: .init())
+            .ignoresSafeArea()
+    }
 }

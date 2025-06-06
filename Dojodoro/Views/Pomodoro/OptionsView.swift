@@ -40,9 +40,8 @@ struct OptionsView: View, SettingsAbstract {
                     isShowingPomodoro = false
                     viewModel.stop()
                 } label: {
-                    labelSettings(icon: .leftChevron, text: "Voltar ao Início") // Sair do Pomodoro
+                    labelSettings(icon: .leftChevron, text: "Encerrar Pomodoro") // Sair do Pomodoro
                 }
-                
             }
             Spacer()
         }

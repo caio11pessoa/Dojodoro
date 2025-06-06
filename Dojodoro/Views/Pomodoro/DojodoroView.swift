@@ -62,20 +62,22 @@ struct DojodoroView: View {
                 viewModel.stop()
             }
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        withAnimation {
-                            isShowingSettings = true
-                            viewModel.pause()
+                if(!isShowingSettings){
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            withAnimation {
+                                isShowingSettings = true
+                                viewModel.pause()
+                            }
+                            
+                        } label: {
+                            Image(.pausePomodoro)
+                                .renderingMode(.template)
+                                .resizable()
+                                .tint(viewModel.pomodoro.isRecover ? Color(.background) : Color.black)
+                                .scaledToFit()
+                                .frame(width: 24)
                         }
-                        
-                    } label: {
-                        Image(.pausePomodoro)
-                            .renderingMode(.template)
-                            .resizable()
-                            .tint(viewModel.pomodoro.isRecover ? Color(.background) : Color.black)
-                            .scaledToFit()
-                            .frame(width: 24)
                     }
                 }
             }

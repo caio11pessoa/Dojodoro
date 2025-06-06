@@ -29,31 +29,27 @@ struct SettingsView: View {
             case .ambientSound:
                 AmbientSoundView()
             case .restTime:
-                RestTimeView(viewModel: viewModel)
+                RestTimeView(viewModel: viewModel, settingsViewModel:viewModelSettings)
             case .workTime:
-                WorkTimeView(viewModel: viewModel)
+                WorkTimeView(viewModel: viewModel, settingsViewModel: viewModelSettings)
             }
         }
         .ignoresSafeArea()
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
+            ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     withAnimation {
-                        if(viewModelSettings.route.count <= 1){
-                            isShowing.toggle()
-//                            viewModel.startPomodoro()
-                            viewModel.resume()
-                        }else {
-                            viewModelSettings.goBack()
-                        }
+                        isShowing.toggle()
+                        viewModel.resume()
                     }
+                    
                 } label: {
-                    Image(.leftChevron)
-                        .resizable()
+                    Image(.exitMark)
                         .renderingMode(.template)
+                        .resizable()
+                        .tint(Color(.background))
                         .scaledToFit()
-                        .frame(width: 20)
-                        .tint(Color.background)
+                        .frame(width: 24)
                 }
             }
         }
