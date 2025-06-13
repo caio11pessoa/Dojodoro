@@ -18,13 +18,13 @@ struct OptionsView: View, SettingsAbstract {
         VStack {
             titleSettings(text: "Opções", underTitle: "オプション")
                 .padding(.top, 140)
-            Spacer()
+                .padding(.bottom, 48)
             
             VStack(alignment: .leading) {
                 Button {
                     viewModelSettings.goTo(.workTime)
                 } label: {
-                    labelSettings(icon: .clockSetting, text: "Tempo de trabalho")
+                    labelSettings(icon: .clockWork, text: "Tempo de trabalho")
                 }
                 Button {
                     viewModelSettings.goTo(.restTime)
@@ -40,9 +40,8 @@ struct OptionsView: View, SettingsAbstract {
                     isShowingPomodoro = false
                     viewModel.stop()
                 } label: {
-                    labelSettings(icon: .leftChevron, text: "Voltar ao Início") // Sair do Pomodoro
+                    labelSettings(icon: .finishPomodoro, text: "Encerrar Pomodoro")
                 }
-                
             }
             Spacer()
         }

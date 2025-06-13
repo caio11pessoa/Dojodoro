@@ -39,6 +39,7 @@ struct DojodoroView: View {
                     
                     PomodoroImage(bonsaiImage: viewModel.pomodoro.isRecover ? "Bambu" : viewModel.selectedPlant.image, bonsaiHeight: bonsaiHeight)
                         .padding(.bottom, 32)
+                        .frame(maxWidth: 220)
                     
                     ProgressPomodoro(progress: viewModel.pomodoro.iteration, recover: viewModel.pomodoro.isRecover)
                 }
@@ -62,20 +63,22 @@ struct DojodoroView: View {
                 viewModel.stop()
             }
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        withAnimation {
-                            isShowingSettings = true
-                            viewModel.pause()
+                if(!isShowingSettings){
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            withAnimation {
+                                isShowingSettings = true
+                                viewModel.pause()
+                            }
+                            
+                        } label: {
+                            Image(.pausePomodoro)
+                                .renderingMode(.template)
+                                .resizable()
+                                .tint(viewModel.pomodoro.isRecover ? Color(.background) : Color.black)
+                                .scaledToFit()
+                                .frame(width: 24)
                         }
-                        
-                    } label: {
-                        Image(.pausePomodoro)
-                            .renderingMode(.template)
-                            .resizable()
-                            .tint(viewModel.pomodoro.isRecover ? Color(.background) : Color.black)
-                            .scaledToFit()
-                            .frame(width: 24)
                     }
                 }
             }

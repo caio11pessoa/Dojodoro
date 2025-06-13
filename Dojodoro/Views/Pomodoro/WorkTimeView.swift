@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WorkTimeView: View, SettingsAbstract {
     @State var viewModel: DojodoroViewModel
+    @State var settingsViewModel: SettingsViewModel
     var callback: (Int) -> Bool = {_ in true}
     
     private func labelSettings(value: Int) -> some View {
@@ -42,8 +43,11 @@ struct WorkTimeView: View, SettingsAbstract {
         VStack {
             titleSettings(text: "Tempo de Trabalho", underTitle: "労働時間")
                 .padding(.top, 140)
-            Spacer()
+                .padding(.bottom, 48)
             VStack(alignment: .leading) {
+                backButton(viewModelSettings: settingsViewModel)
+                    .offset(x: -18)
+                    .padding(.bottom, 24)
                 ForEach(WorkTime.allCases, id: \.self) { value in
                     labelSettings(value: value.rawValue)
                 }
@@ -54,5 +58,5 @@ struct WorkTimeView: View, SettingsAbstract {
 }
 
 #Preview {
-    WorkTimeView(viewModel: .init())
+    WorkTimeView(viewModel: .init(), settingsViewModel: .init())
 }

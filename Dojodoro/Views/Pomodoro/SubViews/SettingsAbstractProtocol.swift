@@ -38,4 +38,20 @@ extension SettingsAbstract {
                 .agdasimaRegularFont(size: 32)
         }
     }
+    
+    func backButton(viewModelSettings: SettingsViewModel) -> some View {
+        Button {
+            viewModelSettings.goBack()
+        } label: {
+            Image( .leftChevron)
+                .resizable()
+                .renderingMode(.template)
+                .scaledToFit()
+                .frame(width: 38)
+                .foregroundStyle(Color.background)
+            Text("Voltar")
+                .agdasimaRegularFont(size: 32)
+                .foregroundStyle(Color.background)
+        }
+    }
 }
