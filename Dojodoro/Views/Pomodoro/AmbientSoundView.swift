@@ -15,6 +15,7 @@ enum Sound: String, CaseIterable {
 
 struct AmbientSoundView: View, SettingsAbstract {
     @State var selectedSound: Bool = false // TODO: Solve this
+    @State var settingsViewModel: SettingsViewModel
     var callback: (Sound) -> Bool = {_ in true}
     
     private func labelSettings(value: Sound) -> some View {
@@ -45,8 +46,11 @@ struct AmbientSoundView: View, SettingsAbstract {
         VStack {
             titleSettings(text: "Sons Ambiente", underTitle: "周囲の音")
                 .padding(.top, 140)
-            Spacer()
+                .padding(.bottom, 48)
             VStack(alignment: .leading) {
+                backButton(viewModelSettings: settingsViewModel)
+                    .offset(x: -18)
+                    .padding(.bottom, 24)
                 ForEach(Sound.allCases, id: \.self) { value in
                     labelSettings(value: value)
                 }
@@ -57,5 +61,5 @@ struct AmbientSoundView: View, SettingsAbstract {
 }
 
 #Preview {
-    AmbientSoundView()
+    AmbientSoundView(settingsViewModel: .init())
 }

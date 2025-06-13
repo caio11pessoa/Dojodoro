@@ -7,10 +7,11 @@
 import SwiftUI
 
 enum ImageName: String {
-    case clockSetting
+    case clockWork
     case countdown
     case leftChevron
     case song
+    case finishPomodoro
 }
 
 struct SettingsView: View {
@@ -27,7 +28,7 @@ struct SettingsView: View {
             case .options:
                 OptionsView(viewModelSettings: viewModelSettings, isShowingPomodoro: $isShowingPomodoro, viewModel: viewModel)
             case .ambientSound:
-                AmbientSoundView()
+                AmbientSoundView(settingsViewModel: viewModelSettings)
             case .restTime:
                 RestTimeView(viewModel: viewModel, settingsViewModel:viewModelSettings)
             case .workTime:

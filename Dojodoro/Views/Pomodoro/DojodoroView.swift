@@ -39,6 +39,7 @@ struct DojodoroView: View {
                     
                     PomodoroImage(bonsaiImage: viewModel.pomodoro.isRecover ? "Bambu" : viewModel.selectedPlant.image, bonsaiHeight: bonsaiHeight)
                         .padding(.bottom, 32)
+                        .frame(maxWidth: 220)
                     
                     ProgressPomodoro(progress: viewModel.pomodoro.iteration, recover: viewModel.pomodoro.isRecover)
                 }

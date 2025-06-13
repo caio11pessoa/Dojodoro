@@ -43,10 +43,10 @@ struct WorkTimeView: View, SettingsAbstract {
         VStack {
             titleSettings(text: "Tempo de Trabalho", underTitle: "労働時間")
                 .padding(.top, 140)
-            Spacer()
+                .padding(.bottom, 48)
             VStack(alignment: .leading) {
                 backButton(viewModelSettings: settingsViewModel)
-                    .offset(x: -16)
+                    .offset(x: -18)
                     .padding(.bottom, 24)
                 ForEach(WorkTime.allCases, id: \.self) { value in
                     labelSettings(value: value.rawValue)

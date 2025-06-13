@@ -26,6 +26,7 @@ struct BonsaiView: View {
                 Spacer(minLength: 320)
                 PomodoroImage(bonsaiImage: viewModel.selectedPlant.image, bonsaiHeight: bonsaiHeight
                 )
+                .frame(maxWidth: 220)
                 .onTapGesture {
                     onTap()
                 }
