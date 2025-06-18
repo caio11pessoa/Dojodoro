@@ -6,41 +6,74 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @Observable
 class DojodoroViewModel: PomodoroHelpers  {
     
-    var plants: [PlantModel] = [
-        .init(
-            name: "Oak",
-            imageGallery: [
-                .boonsaiSeed: "Sprout",
-                .sprout: "SproutLevelTwo",
-                .bud: "SproutLevelThree",
-                .bonsai: "Bonsai"
-            ],
-            isSelected: true
-        ),
-        .init(
-            name: "Cherry",
-            imageGallery:
-                [
-                    .boonsaiSeed: "CherrySprout",
-                    .sprout: "CherrySproutLevelTwo",
-                    .bud: "CherrySproutLevelThree",
-                    .bonsai: "Cherry"
-                ]
-        ),
-        .init(
-            name: "Blue Bonsai",
-            imageGallery: [
-                .boonsaiSeed: "BlueBonsaiSprout",
-                .sprout: "BlueBonsaiSproutLevelTwo",
-                .bud: "BlueBonsaiSproutLevelThree",
-                .bonsai: "BlueBonsai"
+    var plantsDataBase: [PlantDataBase] = []
+    var context: ModelContext?
+    
+    func loadPlants(context: ModelContext) {
+        self.context = context
+        
+        let descriptor = FetchDescriptor<PlantDataBase>()
+        do {
+            plantsDataBase = try context.fetch(descriptor)
+        } catch {
+            print("Erro ao buscar plantas no banco: \(error)")
+            return
+        }
+        
+        if !plantsDataBase.isEmpty {
+            plants = plantsDataBase.compactMap { plant in
+                let imageGallery: [Stage: String]
+                
+                switch plant.name {
+                case "Oak":
+                    imageGallery = PomodoroImages.oak
+                case "Cherry":
+                    imageGallery = PomodoroImages.cherry
+                case "Blue Bonsai":
+                    imageGallery = PomodoroImages.blueBonsai
+                default:
+                    return nil
+                }
+                
+                return PlantModel(
+                    name: plant.name,
+                    imageGallery: imageGallery,
+                    isSelected: plant.isSelected,
+                    experience: plant.experience,
+                    pomodoroCount: plant.pomodoroCount
+                )
+            }
+        } else {
+            plants = [
+                PlantModel(name: "Oak", imageGallery: PomodoroImages.oak, isSelected: true),
+                PlantModel(name: "Cherry", imageGallery: PomodoroImages.cherry),
+                PlantModel(name: "Blue Bonsai", imageGallery: PomodoroImages.blueBonsai)
             ]
-        )
-    ]
+            
+            for plant in plants {
+                let newPlant = PlantDataBase(
+                    name: plant.name,
+                    experience: plant.experience,
+                    pomodoroCount: plant.pomodoroCount,
+                    isSelected: plant.isSelected
+                )
+                context.insert(newPlant)
+            }
+            do {
+                try context.save()
+            } catch {
+                print("Erro ao salvar novas plantas no banco: \(error)")
+            }
+        }
+    }
+
+    
+    var plants: [PlantModel] = []
     
     var isShowingPlantDetail: Bool = false
     
@@ -58,7 +91,16 @@ class DojodoroViewModel: PomodoroHelpers  {
         
         for i in 0..<plants.count {
             plants[i].isSelected = (plants[i].id == clickedPlant.id)
+            if let plantInDatabase = try? self.context!.fetch(FetchDescriptor<PlantDataBase>()).first(where: { $0.name == plants[i].name }) {
+                plantInDatabase.isSelected = plants[i].id == clickedPlant.id
+                do {
+                    try context!.save()
+                } catch {
+                    print("Erro ao salvar atualização da planta no banco: \(error)")
+                }
+            }
         }
+        
     }
     
     var pomodoro: Pomodoro = .init(Iteration: 0)
@@ -85,8 +127,9 @@ class DojodoroViewModel: PomodoroHelpers  {
         selectedPlant.experience += Int(pomodoro.actualTimeTrilha)
         if pomodoro.isRecover {
             selectedPlant.pomodoroCount += 1
+            
         }
-
+        
         pomodoro.iteration += 1
         
         if pomodoro.iteration < pomodoro.trilha.count {
@@ -100,6 +143,17 @@ class DojodoroViewModel: PomodoroHelpers  {
         } else {
             stop()
         }
+        if let plantInDatabase = try? self.context!.fetch(FetchDescriptor<PlantDataBase>()).first(where: { $0.name == selectedPlant.name }) {
+            plantInDatabase.experience = selectedPlant.experience
+            plantInDatabase.pomodoroCount = selectedPlant.pomodoroCount
+            
+            do {
+                try context!.save()
+            } catch {
+                print("Erro ao salvar atualização da planta no banco: \(error)")
+            }
+        }
+        
     }
     
     func startPomodoro() {

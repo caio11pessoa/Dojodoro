@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340E36B62E0348DC007613EE /* PlantDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E36B52E0348DC007613EE /* PlantDataBase.swift */; };
+		340E36C12E0368DC007613EE /* PomodoroImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E36C02E0368DC007613EE /* PomodoroImages.swift */; };
 		3436F0F52D9675E400E5B244 /* ShoppingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F42D9675E400E5B244 /* ShoppingItems.swift */; };
 		3436F0F72D974CDA00E5B244 /* EmptyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F62D974CDA00E5B244 /* EmptyCard.swift */; };
 		344264DC2DB833AA00739EE1 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344264DB2DB833AA00739EE1 /* TabBarView.swift */; };
@@ -73,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		340E36B52E0348DC007613EE /* PlantDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDataBase.swift; sourceTree = "<group>"; };
+		340E36C02E0368DC007613EE /* PomodoroImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroImages.swift; sourceTree = "<group>"; };
 		3436F0F42D9675E400E5B244 /* ShoppingItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItems.swift; sourceTree = "<group>"; };
 		3436F0F62D974CDA00E5B244 /* EmptyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCard.swift; sourceTree = "<group>"; };
 		344264DB2DB833AA00739EE1 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -163,6 +167,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		340E36B42E0348C0007613EE /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				340E36B52E0348DC007613EE /* PlantDataBase.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		340E36BF2E0368C6007613EE /* PomodoroImages */ = {
+			isa = PBXGroup;
+			children = (
+				340E36C02E0368DC007613EE /* PomodoroImages.swift */,
+			);
+			path = PomodoroImages;
+			sourceTree = "<group>";
+		};
 		344264DD2DB8511000739EE1 /* Bonsai */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +339,7 @@
 		34D6A2712D52897D008EB2B9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				340E36B42E0348C0007613EE /* DataBase */,
 				4CDC0F4B2D6CDD150012FB93 /* Navigation.swift */,
 				34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */,
 				34D6A2C72D565217008EB2B9 /* TimeUnit.swift */,
@@ -346,6 +367,7 @@
 		34D6A2732D528E63008EB2B9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				340E36BF2E0368C6007613EE /* PomodoroImages */,
 				4C44C5BC2D9B67DF000CC03F /* Fonts */,
 				34D6A25C2D526A33008EB2B9 /* Assets.xcassets */,
 				34D6A25B2D526A33008EB2B9 /* Preview Content */,
@@ -536,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34D6A2CD2D565241008EB2B9 /* Pomodoro.swift in Sources */,
+				340E36C12E0368DC007613EE /* PomodoroImages.swift in Sources */,
 				4CDC0F592D6D01EC0012FB93 /* BonsaiView.swift in Sources */,
 				4CF6AD0C2D9CAAEC00DAA52A /* ShapeButtonMojo.swift in Sources */,
 				4CF6AD0D2D9CAAEC00DAA52A /* MojoButton.swift in Sources */,
@@ -553,6 +576,7 @@
 				346241932DA4709000FB3B84 /* Stage.swift in Sources */,
 				34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */,
 				34D6A2C32D5651EE008EB2B9 /* PomodoroSingleton.swift in Sources */,
+				340E36B62E0348DC007613EE /* PlantDataBase.swift in Sources */,
 				34BF9AB22DAF1A0D00FF0D48 /* DojodoroView.swift in Sources */,
 				347FBBA82D9C78F60041B024 /* SelectPlantModal.swift in Sources */,
 				349AF3992DBAB01E0037D1A6 /* SettingsAbstractProtocol.swift in Sources */,

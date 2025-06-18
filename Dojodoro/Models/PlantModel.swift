@@ -11,9 +11,11 @@ import SwiftUI
 class PlantModel: Identifiable {
     
     var id: UUID = UUID()
+    var pomodoroCount: Int = 0
+    var experience: Int = 0
+    var name: String
     
     var isSelected: Bool = false
-    var name: String
     
     var stage: Stage {
         guard let time = totalTime.minute else {
@@ -34,17 +36,16 @@ class PlantModel: Identifiable {
         let minutes = (experience % 3600) / 60
         return DateComponents(hour: hours, minute: minutes)
     }
-    var pomodoroCount: Int = 0
     var imageGallery: [Stage : String] = [.boonsaiSeed: "", .sprout: "", .bud: "", .bonsai: ""]
     var image: String {
         return imageGallery[stage] ?? ""
     }
     
-    var experience: Int = 0
-    
-    init(name: String, imageGallery: [Stage : String] = [:], isSelected: Bool = false) {
+    init(name: String, imageGallery: [Stage : String] = [:], isSelected: Bool = false, experience: Int = 0, pomodoroCount: Int = 0) {
         self.name = name
         self.imageGallery = imageGallery
         self.isSelected = isSelected
+        self.experience = experience
+        self.pomodoroCount = pomodoroCount
     }
 }

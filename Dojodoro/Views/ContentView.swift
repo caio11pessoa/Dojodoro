@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.modelContext) var modelContext
     @State var viewModel: DojodoroViewModel = .init()
     @State var isShowingPomodoro: Bool = false
     @Namespace private var animationNamespace
@@ -21,6 +22,10 @@ struct ContentView: View {
             }
         }
         .animation(.easeInOut, value: isShowingPomodoro)
+        .onAppear()
+        {
+            viewModel.loadPlants(context: modelContext)
+        }
         
     }
 }
