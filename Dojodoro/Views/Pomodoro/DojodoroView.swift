@@ -10,6 +10,7 @@ import SwiftUI
 struct DojodoroView: View {
     
     @State var viewModel: DojodoroViewModel
+    @State var songViewModel: SongViewModel = .init()
     @State var isShowingSettings: Bool = false
     @Binding var isShowingPomodoro: Bool
     
@@ -50,7 +51,7 @@ struct DojodoroView: View {
             .padding(isShowingSettings ? -25 : 0)
             .overlay {
                 if isShowingSettings {
-                    SettingsView(isShowing: $isShowingSettings, viewModel: viewModel, isShowingPomodoro: $isShowingPomodoro)
+                    SettingsView(isShowing: $isShowingSettings, viewModel: viewModel, songViewModel: songViewModel, isShowingPomodoro: $isShowingPomodoro)
                         .transition( .opacity)
                 }
             }
@@ -58,6 +59,7 @@ struct DojodoroView: View {
             
             .onAppear {
                 viewModel.startPomodoro()
+                songViewModel.playBackgroundMusic(named: viewModel.pomodoro.soundSelect.rawValue)
             }
             .onDisappear{
                 viewModel.stop()
@@ -69,6 +71,7 @@ struct DojodoroView: View {
                             withAnimation {
                                 isShowingSettings = true
                                 viewModel.pause()
+                                songViewModel.abaixarVolume()
                             }
                             
                         } label: {

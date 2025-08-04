@@ -17,6 +17,7 @@ enum ImageName: String {
 struct SettingsView: View {
     @Binding var isShowing: Bool
     @State var viewModel: DojodoroViewModel
+    @State var songViewModel: SongViewModel
     @State var viewModelSettings: SettingsViewModel = .init()
     @Binding var isShowingPomodoro: Bool
     
@@ -28,7 +29,7 @@ struct SettingsView: View {
             case .options:
                 OptionsView(viewModelSettings: viewModelSettings, isShowingPomodoro: $isShowingPomodoro, viewModel: viewModel)
             case .ambientSound:
-                AmbientSoundView(settingsViewModel: viewModelSettings)
+                AmbientSoundView(viewModel: viewModel, songViewModel: songViewModel, settingsViewModel: viewModelSettings)
             case .restTime:
                 RestTimeView(viewModel: viewModel, settingsViewModel:viewModelSettings)
             case .workTime:
@@ -42,6 +43,7 @@ struct SettingsView: View {
                     withAnimation {
                         isShowing.toggle()
                         viewModel.resume()
+                        songViewModel.aumentarVolume()
                     }
                     
                 } label: {
@@ -58,7 +60,7 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView(isShowing: .constant(true), viewModel: .init(), isShowingPomodoro: .constant(true))
+    SettingsView(isShowing: .constant(true), viewModel: .init(), songViewModel: .init(), isShowingPomodoro: .constant(true))
         .ignoresSafeArea()
     
 }

@@ -11,6 +11,10 @@
 		340E36C12E0368DC007613EE /* PomodoroImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E36C02E0368DC007613EE /* PomodoroImages.swift */; };
 		3436F0F52D9675E400E5B244 /* ShoppingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F42D9675E400E5B244 /* ShoppingItems.swift */; };
 		3436F0F72D974CDA00E5B244 /* EmptyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3436F0F62D974CDA00E5B244 /* EmptyCard.swift */; };
+		343D1F992E0F39E300BCDF09 /* Chuva.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 343D1F982E0F39E300BCDF09 /* Chuva.mp3 */; };
+		343D1F9F2E0F3BA500BCDF09 /* Lo-fi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 343D1F9E2E0F3BA500BCDF09 /* Lo-fi.mp3 */; };
+		343D1FA12E0F3DC600BCDF09 /* UserConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D1FA02E0F3DC600BCDF09 /* UserConfiguration.swift */; };
+		343EDE6D2E26DBC6009B1EDB /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343EDE6C2E26DBC6009B1EDB /* Sound.swift */; };
 		344264DC2DB833AA00739EE1 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344264DB2DB833AA00739EE1 /* TabBarView.swift */; };
 		34541A672DB959DF001A10E2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34541A662DB959DF001A10E2 /* SettingsView.swift */; };
 		34541A692DB981BD001A10E2 /* RestTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34541A682DB981BD001A10E2 /* RestTimeView.swift */; };
@@ -41,6 +45,7 @@
 		34D6A2C82D565217008EB2B9 /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C72D565217008EB2B9 /* TimeUnit.swift */; };
 		34D6A2CB2D565224008EB2B9 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2C92D565224008EB2B9 /* IntExtensions.swift */; };
 		34D6A2CD2D565241008EB2B9 /* Pomodoro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */; };
+		34DE81C82E0C9F3B003A15EF /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DE81C72E0C9F3B003A15EF /* SongViewModel.swift */; };
 		34EB84F02DA4896D00B6ECF3 /* TabBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB84EF2DA4896D00B6ECF3 /* TabBarComponent.swift */; };
 		4C28D2C42DA06E070045CACC /* TokenTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28D2C32DA06DFE0045CACC /* TokenTypography.swift */; };
 		4C44C5BF2D9B67F4000CC03F /* Agdasima-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */; };
@@ -79,6 +84,10 @@
 		340E36C02E0368DC007613EE /* PomodoroImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroImages.swift; sourceTree = "<group>"; };
 		3436F0F42D9675E400E5B244 /* ShoppingItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItems.swift; sourceTree = "<group>"; };
 		3436F0F62D974CDA00E5B244 /* EmptyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCard.swift; sourceTree = "<group>"; };
+		343D1F982E0F39E300BCDF09 /* Chuva.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Chuva.mp3; sourceTree = "<group>"; };
+		343D1F9E2E0F3BA500BCDF09 /* Lo-fi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lo-fi.mp3"; sourceTree = "<group>"; };
+		343D1FA02E0F3DC600BCDF09 /* UserConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfiguration.swift; sourceTree = "<group>"; };
+		343EDE6C2E26DBC6009B1EDB /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		344264DB2DB833AA00739EE1 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		34541A662DB959DF001A10E2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		34541A682DB981BD001A10E2 /* RestTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTimeView.swift; sourceTree = "<group>"; };
@@ -112,6 +121,7 @@
 		34D6A2C72D565217008EB2B9 /* TimeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUnit.swift; sourceTree = "<group>"; };
 		34D6A2C92D565224008EB2B9 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pomodoro.swift; sourceTree = "<group>"; };
+		34DE81C72E0C9F3B003A15EF /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
 		34EB84EF2DA4896D00B6ECF3 /* TabBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarComponent.swift; sourceTree = "<group>"; };
 		4C28D2C32DA06DFE0045CACC /* TokenTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTypography.swift; sourceTree = "<group>"; };
 		4C44C5BD2D9B67F4000CC03F /* Agdasima-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agdasima-Bold.ttf"; sourceTree = "<group>"; };
@@ -171,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				340E36B52E0348DC007613EE /* PlantDataBase.swift */,
+				343D1FA02E0F3DC600BCDF09 /* UserConfiguration.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -342,6 +353,7 @@
 				340E36B42E0348C0007613EE /* DataBase */,
 				4CDC0F4B2D6CDD150012FB93 /* Navigation.swift */,
 				34D6A2CC2D565241008EB2B9 /* Pomodoro.swift */,
+				343EDE6C2E26DBC6009B1EDB /* Sound.swift */,
 				34D6A2C72D565217008EB2B9 /* TimeUnit.swift */,
 				3436F0F42D9675E400E5B244 /* ShoppingItems.swift */,
 				347FBB992D9B45F20041B024 /* GardenItems.swift */,
@@ -354,6 +366,7 @@
 		34D6A2722D528984008EB2B9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				34DE81C72E0C9F3B003A15EF /* SongViewModel.swift */,
 				349AF39A2DBAC8C50037D1A6 /* SettingsViewModel.swift */,
 				346241942DA4744800FB3B84 /* DojodoroViewModel.swift */,
 				4CDC0F502D6CDDB90012FB93 /* NavigationViewModel.swift */,
@@ -367,6 +380,7 @@
 		34D6A2732D528E63008EB2B9 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				34DE81C92E0CA136003A15EF /* Music */,
 				340E36BF2E0368C6007613EE /* PomodoroImages */,
 				4C44C5BC2D9B67DF000CC03F /* Fonts */,
 				34D6A25C2D526A33008EB2B9 /* Assets.xcassets */,
@@ -398,6 +412,15 @@
 				34BF9B1E2DB073DF00FF0D48 /* FontsExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		34DE81C92E0CA136003A15EF /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				343D1F9E2E0F3BA500BCDF09 /* Lo-fi.mp3 */,
+				343D1F982E0F39E300BCDF09 /* Chuva.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		4C44C5BC2D9B67DF000CC03F /* Fonts */ = {
@@ -529,9 +552,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C44C5BF2D9B67F4000CC03F /* Agdasima-Bold.ttf in Resources */,
+				343D1F9F2E0F3BA500BCDF09 /* Lo-fi.mp3 in Resources */,
 				4C44C5C02D9B67F4000CC03F /* Agdasima-Regular.ttf in Resources */,
 				4C44C5C52D9B687E000CC03F /* DotGothic16-Regular.ttf in Resources */,
 				34D6A2642D526A33008EB2B9 /* Preview Assets.xcassets in Resources */,
+				343D1F992E0F39E300BCDF09 /* Chuva.mp3 in Resources */,
 				34D6A2652D526A33008EB2B9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,6 +587,7 @@
 				4CDC0F592D6D01EC0012FB93 /* BonsaiView.swift in Sources */,
 				4CF6AD0C2D9CAAEC00DAA52A /* ShapeButtonMojo.swift in Sources */,
 				4CF6AD0D2D9CAAEC00DAA52A /* MojoButton.swift in Sources */,
+				34DE81C82E0C9F3B003A15EF /* SongViewModel.swift in Sources */,
 				347FBB982D9B455E0041B024 /* GardenItemCard.swift in Sources */,
 				4CDC0F572D6D01BB0012FB93 /* ShopView.swift in Sources */,
 				349AF39F2DBAD5AC0037D1A6 /* OptionsView.swift in Sources */,
@@ -579,10 +605,12 @@
 				340E36B62E0348DC007613EE /* PlantDataBase.swift in Sources */,
 				34BF9AB22DAF1A0D00FF0D48 /* DojodoroView.swift in Sources */,
 				347FBBA82D9C78F60041B024 /* SelectPlantModal.swift in Sources */,
+				343EDE6D2E26DBC6009B1EDB /* Sound.swift in Sources */,
 				349AF3992DBAB01E0037D1A6 /* SettingsAbstractProtocol.swift in Sources */,
 				346241912DA46B6400FB3B84 /* PlantModel.swift in Sources */,
 				34EB84F02DA4896D00B6ECF3 /* TabBarComponent.swift in Sources */,
 				34D6A2612D526A33008EB2B9 /* ContentView.swift in Sources */,
+				343D1FA12E0F3DC600BCDF09 /* UserConfiguration.swift in Sources */,
 				4C9D6A0D2D9DD5A700524814 /* CoinAndPriceComponent.swift in Sources */,
 				4CF6AD092D9CAAE400DAA52A /* MojoButtonStyle.swift in Sources */,
 				34541A672DB959DF001A10E2 /* SettingsView.swift in Sources */,

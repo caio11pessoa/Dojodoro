@@ -37,9 +37,10 @@ enum WorkTime: Int, CaseIterable {
 
 @Observable
 class Pomodoro {
+    var soundSelect: Sound
+    var workTime: WorkTime
     var restTime: RestTime
     var bigRest: Int
-    var workTime: WorkTime
     var currentTime: Double = 0
     var iteration: Int
     var trilha: [Double] = []
@@ -47,11 +48,12 @@ class Pomodoro {
         trilha[iteration]
     }
     
-    init(restTime: RestTime = .mediumOne, workTime: WorkTime = .medium, Iteration: Int) {
+    init(restTime: RestTime = .mediumOne, workTime: WorkTime = .medium, Iteration: Int, soundSelect: Sound = .off) {
         self.restTime = restTime
         self.bigRest = 5 * restTime.rawValue
         self.workTime = workTime
         self.iteration = Iteration
+        self.soundSelect = soundSelect
         self.trilha = [
             Double(workTime.rawValue), Double(restTime.rawValue),
             Double(workTime.rawValue), Double(restTime.rawValue),

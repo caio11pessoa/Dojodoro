@@ -49,6 +49,7 @@ class DojodoroViewModel: PomodoroHelpers  {
                 )
             }
         } else {
+            
             plants = [
                 PlantModel(name: "Oak", imageGallery: PomodoroImages.oak, isSelected: true),
                 PlantModel(name: "Cherry", imageGallery: PomodoroImages.cherry),
@@ -114,6 +115,7 @@ class DojodoroViewModel: PomodoroHelpers  {
     var pomodoroSingleton = PomodoroSingleton.shared
     
     override init() {
+        // Lidar com o WorkTime aqui
         
         super.init()
         seletWorkTime = pomodoro.workTime

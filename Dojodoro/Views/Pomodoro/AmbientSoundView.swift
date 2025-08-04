@@ -6,15 +6,10 @@
 //
 
 import SwiftUI
-enum Sound: String, CaseIterable {
-    case off = "Nenhum"
-    case rain = "Chuva"
-    case lofi = "Lo-fi"
-    
-}
 
 struct AmbientSoundView: View, SettingsAbstract {
-    @State var selectedSound: Bool = false // TODO: Solve this
+    @State var viewModel: DojodoroViewModel
+    @State var songViewModel: SongViewModel
     @State var settingsViewModel: SettingsViewModel
     var callback: (Sound) -> Bool = {_ in true}
     
@@ -23,18 +18,19 @@ struct AmbientSoundView: View, SettingsAbstract {
             Button {
                 withAnimation {
                     if callback(value) {
-                        selectedSound.toggle()
+                        viewModel.pomodoro.soundSelect = value
+                        songViewModel.stopBackgroundMusic()
+                        songViewModel.playBackgroundMusic(named: value.rawValue)
                     }
                 }
             } label: {
-                Image(selectedSound ? .boxCheck : .boxUncheck)
+                Image(value == viewModel.pomodoro.soundSelect ? .boxCheck : .boxUncheck)
                     .resizable()
                     .renderingMode(.template)
                     .scaledToFit()
                     .frame(width: 24)
                     .foregroundStyle(Color.background)
             }
-            
             
             Text(value.rawValue)
                 .foregroundStyle(Color.background)
@@ -61,5 +57,5 @@ struct AmbientSoundView: View, SettingsAbstract {
 }
 
 #Preview {
-    AmbientSoundView(settingsViewModel: .init())
+    AmbientSoundView(viewModel: .init(), songViewModel: .init(), settingsViewModel: .init())
 }

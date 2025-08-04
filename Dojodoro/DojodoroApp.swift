@@ -13,6 +13,7 @@ struct DojodoroApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             PlantDataBase.self,
+            UserConfiguration.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         
